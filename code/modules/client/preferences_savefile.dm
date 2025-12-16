@@ -200,6 +200,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["masked_examine"]		>> masked_examine
 	S["mute_animal_emotes"]	>> mute_animal_emotes
 	S["autoconsume"]		>> autoconsume
+	S["no_redflash"]		>> no_redflash
 	S["crt"]				>> crt
 	S["grain"]				>> grain
 	S["sexable"]			>> sexable
@@ -310,6 +311,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["masked_examine"], masked_examine)
 	WRITE_FILE(S["mute_animal_emotes"], mute_animal_emotes)
 	WRITE_FILE(S["autoconsume"], autoconsume)
+	WRITE_FILE(S["no_redflash"], no_redflash)
 	WRITE_FILE(S["crt"], crt)
 	WRITE_FILE(S["sexable"], sexable)
 	WRITE_FILE(S["shake"], shake)

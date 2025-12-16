@@ -104,6 +104,14 @@
 		else
 			to_chat(src, "You will no longer be notified in chat when toggling Compliance Mode.")
 
+/client/verb/toggle_redflash()
+	set category = "Options"
+	set name = "Toggle Red Screen Flash"
+	if(prefs)
+		prefs.no_redflash = !prefs.no_redflash
+		prefs.save_preferences()
+		to_chat(src, "You will see the red flashing effect [prefs.no_redflash ? "less" : "more"] frequently.")
+
 /client/verb/toggle_lobby_music()
 	set name = "Toggle Lobby Music"
 	set category = "Options"

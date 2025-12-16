@@ -127,6 +127,14 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 	return "[spanpart1][spanpart2][colorpart][freqpart][languageicon][compose_track_href(speaker, namepart)][namepart][compose_job(speaker, message_language, raw_message, radio_freq)][arrowpart][endspanpart][messagepart]"
 
+/atom/movable/proc/show_redflash()
+	return TRUE
+
+/mob/show_redflash()
+	if(client?.prefs?.no_redflash)
+		return FALSE
+	return TRUE
+
 /atom/movable/proc/compose_track_href(atom/movable/speaker, message_langs, raw_message, radio_freq)
 	return ""
 
