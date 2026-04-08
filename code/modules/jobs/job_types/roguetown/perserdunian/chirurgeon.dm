@@ -47,12 +47,14 @@
 	head = /obj/item/clothing/head/roguetown/helmet/sallet/visored/iron
 	wrists = /obj/item/scomstone/garrison
 	neck = /obj/item/storage/belt/rogue/pouch/coins/mid
-	gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
+	gloves = /obj/item/clothing/gloves/roguetown/leather/latex
 	id = /obj/item/roguekey/perserdun
 	backr = /obj/item/storage/backpack/rogue/satchel/surgeon
 	backpack_contents = list(
 		/obj/item/storage/belt/rogue/pouch/pillbottle,
 		/obj/item/storage/belt/rogue/pouch/coins/rich,
+		/obj/item/gun/ballistic/revolver/snub,
+		/obj/item/ammo_box/speedloader/snub = 4,
 		)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
@@ -63,7 +65,7 @@
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/rifles, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/revolvers, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 	H.change_stat("perception", 3)
 	H.change_stat("intelligence", 3)
