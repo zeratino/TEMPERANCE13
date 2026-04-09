@@ -54,8 +54,8 @@
 	backpack_contents = list(
 		/obj/item/ammo_box/handfuls/leveraction = 6,
 		/obj/item/storage/belt/rogue/pouch/coins/mid,
-		/obj/item/grenade/gas/poison,
-		/obj/item/grenade/gas/smoke,
+		/obj/item/gasgrenade,
+		/obj/item/smokegrenade,
 		/obj/item/rogueweapon/sword/iron/short,
 		/obj/item/grenade = 2,
 	)

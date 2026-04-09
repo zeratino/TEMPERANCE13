@@ -54,7 +54,7 @@
 	backpack_contents = list(
 		/obj/item/ammo_box/handfuls/rattlesnake = 4,
 		/obj/item/storage/belt/rogue/pouch/coins/mid,
-		/obj/item/grenade/gas/smoke = 2,
+		/obj/item/smokegrenade = 2,
 		/obj/item/ammo_box/magazine/luger = 3,
 		/obj/item/grenade,
 		/obj/item/rogueweapon/stoneaxe/woodcut/risvon,

@@ -6,16 +6,16 @@
 /datum/supply_pack/rogue/grenades/smoke
 	name = "Smoke Grenades (x3)"
 	cost = 20
-	contains = list(/obj/item/grenade/gas/smoke, 
-	/obj/item/grenade/gas/smoke, 
-	/obj/item/grenade/gas/smoke)
+	contains = list(/obj/item/smokegrenade, 
+	/obj/item/smokegrenade, 
+	/obj/item/smokegrenade)
 
 /datum/supply_pack/rogue/grenades/gas
 	name = "Gas Grenades (x3)"
 	cost = 60
-	contains = list(/obj/item/grenade/gas/poison, 
-	/obj/item/grenade/gas/poison,
-	/obj/item/grenade/gas/poison)
+	contains = list(/obj/item/gasgrenade, 
+	/obj/item/gasgrenade,
+	/obj/item/gasgrenade)
 
 /datum/supply_pack/rogue/grenades/highexplosive
 	name = "High-Explosive Grenades (x3)"

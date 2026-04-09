@@ -55,7 +55,7 @@
 		/obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 3,
 		/obj/item/ammo_box/handfuls/rifle = 6,
 		/obj/item/storage/belt/rogue/pouch/coins/poor,
-		/obj/item/grenade/gas/poison = 2,
+		/obj/item/gasgrenade = 2,
 		/obj/item/natural/cloth,
 		/obj/item/rogueweapon/sword/iron/short,
 	)

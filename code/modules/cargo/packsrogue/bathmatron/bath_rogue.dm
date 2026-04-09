@@ -26,6 +26,13 @@
 	cost = 140
 	contains = list(/obj/item/lockpick/goldpin/silver)
 
+/datum/supply_pack/rogue/bath_rogue/smokebomb
+	name = "Smoke Bomb"
+	cost = 25
+	contains = list(
+		/obj/item/smokebomb,
+		/obj/item/smokebomb,
+		/obj/item/smokebomb)
 
 /datum/supply_pack/rogue/bath_rogue/waterarrows
 	name = "Water Arrow"

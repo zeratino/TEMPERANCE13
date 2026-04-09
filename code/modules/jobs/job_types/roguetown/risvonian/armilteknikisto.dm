@@ -56,7 +56,7 @@
 	backl = /obj/item/mg_disassembled/mark1
 	backpack_contents = list(
 		/obj/item/storage/belt/rogue/pouch/coins/poor,
-		/obj/item/grenade/gas/smoke = 1,
+		/obj/item/smokegrenade = 1,
 		/obj/item/mg_tripod/mark1,
 		/obj/item/ammo_box/magazine/hmg/a303,
 		/obj/item/ammo_box/magazine/luger = 3,

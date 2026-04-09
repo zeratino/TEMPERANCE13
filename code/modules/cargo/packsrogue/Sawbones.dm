@@ -130,7 +130,7 @@
 /datum/supply_pack/rogue/Sawbones/botbomb
 	name = "Bottle bomb"
 	cost = 20
-	contains = list(/obj/item/bomb/molotov)
+	contains = list(/obj/item/bomb)
 
 
 /datum/supply_pack/rogue/Sawbones/surgery_bag

@@ -52,8 +52,8 @@
 	id = /obj/item/roguekey/perserdun
 	backpack_contents = list(
 		/obj/item/storage/belt/rogue/pouch/coins/poor,
-		/obj/item/grenade/gas/poison,
-		/obj/item/grenade/gas/smoke,
+		/obj/item/gasgrenade,
+		/obj/item/smokegrenade,
 		/obj/item/rogueweapon/sword/iron/short,
 	)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)

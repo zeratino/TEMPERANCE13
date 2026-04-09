@@ -54,7 +54,7 @@
 	r_hand = /obj/item/rogueweapon/shield/tower/metal
 	backpack_contents = list(
 		/obj/item/storage/belt/rogue/pouch/coins/mid,
-		/obj/item/grenade/gas/smoke,
+		/obj/item/smokegrenade,
 		/obj/item/grenade,
 		/obj/item/rogueweapon/stoneaxe/woodcut/risvon,
 	)

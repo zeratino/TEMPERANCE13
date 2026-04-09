@@ -109,6 +109,14 @@
 	additional_items = list(/obj/item/roguegear, /obj/item/ingot/tin)
 	craftdiff = 4
 
+/datum/anvil_recipe/engineering/bronze/smokebomb
+	name = "Smoke Bomb 3x (+Cog, +Ash)"
+	req_bar = /obj/item/ingot/bronze
+	created_item = /obj/item/smokebomb
+	additional_items = list(/obj/item/roguegear, /obj/item/ash)
+	createditem_num = 3
+	craftdiff = 3
+
 /datum/anvil_recipe/engineering/bronze/grappler
 	name = "Grappler (+1 Iron Pick, +1 Chain, +3 Cog)"
 	req_bar = /obj/item/ingot/bronze

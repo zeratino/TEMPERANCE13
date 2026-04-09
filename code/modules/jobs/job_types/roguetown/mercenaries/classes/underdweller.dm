@@ -27,7 +27,7 @@
 	backpack_contents = list(
 		/obj/item/roguekey/mercenary,
 		/obj/item/storage/belt/rogue/pouch/coins/poor,
-		/obj/item/bomb/molotov = 2,
+		/obj/item/bomb = 2,
 		/obj/item/rogueweapon/scabbard/sheath = 1
 		)
 	H.adjust_skillrank(/datum/skill/combat/axes, 4, TRUE)

@@ -19,10 +19,10 @@
 	gloves = /obj/item/clothing/gloves/roguetown/plate/iron
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	wrists = /obj/item/clothing/wrists/roguetown/splintarms
-	r_hand = /obj/item/bomb/molotov
-	l_hand = /obj/item/bomb/molotov
+	r_hand = /obj/item/bomb
+	l_hand = /obj/item/bomb
 	backpack_contents = list(
-		/obj/item/bomb/molotov = 2,
+		/obj/item/bomb = 2,
 		/obj/item/rogueweapon/huntingknife = 1,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		/obj/item/flashlight/flare/torch/lantern/prelit = 1,

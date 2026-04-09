@@ -53,7 +53,7 @@
 		/obj/item/ammo_box/clip/pistol = 4,
 		/obj/item/gun/ballistic/rifle/repeater/pistol,
 		/obj/item/storage/belt/rogue/pouch/coins/poor,
-		/obj/item/grenade/gas/smoke = 2,
+		/obj/item/smokegrenade = 2,
 		/obj/item/rogueweapon/stoneaxe/woodcut/risvon,
 	)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)

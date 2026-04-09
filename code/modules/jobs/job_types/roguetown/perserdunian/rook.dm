@@ -52,7 +52,7 @@
 	id = /obj/item/roguekey/perserdun
 	backpack_contents = list(
 		/obj/item/storage/belt/rogue/pouch/coins/poor,
-		/obj/item/grenade/gas/poison,
+		/obj/item/gasgrenade,
 		/obj/item/mg_tripod/spandau,
 		/obj/item/ammo_box/magazine/hmg/a762x59,
 		/obj/item/ammo_box/speedloader/snub = 3,

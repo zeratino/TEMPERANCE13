@@ -105,4 +105,7 @@
 	cost = 900
 	contains = list(/obj/item/clothing/neck/roguetown/blkknight)
 
-
+/datum/supply_pack/rogue/Things/smokebomb
+	name = "Smoke Bomb"
+	cost = 30
+	contains = list(/obj/item/smokebomb)
