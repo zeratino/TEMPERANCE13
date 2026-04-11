@@ -5,12 +5,12 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	allowed_races = RACES_TEMPERANCE
+	allowed_races = RACES_TEMPERANCE_NONCOMBATANT
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 
 	tutorial = "You're one of the most competent doctors around. \
-				After promotion from an Auxiliarist Leech, you now specialize in the treatment of your Empire's wounded. \
+				After promotion from an Auxiliarist Leech (or just by virtue of being a Nietzschka), you now specialize in the treatment of your Empire's wounded. \
 				Outside of combat, you hold about the same rank as a Knight Commander. \
 				You're allowed to hold weapons, but you're directly prohibited from engaging in assaults due to your value." 
 

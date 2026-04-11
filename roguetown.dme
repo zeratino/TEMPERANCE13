@@ -1880,6 +1880,7 @@
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\roguetown_species.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\construct\_construct.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\construct\constructm.dm"
+#include "code\modules\mob\living\carbon\human\species_types\roguetown\construct\doll.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\dwarf\_dwarf.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\dwarf\dwarfm.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\elf\_elf.dm"

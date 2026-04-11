@@ -1471,13 +1471,6 @@
 /obj/structure/mineral_door/wood/violet,
 /turf/open/floor/rogue/perdun,
 /area/rogue/indoors/perserdunbase)
-"wa" = (
-/obj/item/gasgrenade{
-	pixel_x = 5;
-	pixel_y = -4
-	},
-/turf/open/floor/rogue/warmetal,
-/area/rogue)
 "wg" = (
 /obj/structure/fluff/railing/sandbag,
 /turf/open/floor/rogue/perdun,
@@ -3379,17 +3372,14 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/perserdunbase)
 "Yy" = (
-/obj/item/gasgrenade{
-	pixel_x = 3;
-	pixel_y = 0
-	},
-/obj/item/gasgrenade{
-	pixel_x = -8;
-	pixel_y = 3
-	},
 /obj/structure/table/wood/perserdunsmall{
 	pixel_y = -1
 	},
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
 /turf/open/floor/rogue/perdun,
 /area/rogue/indoors/perserdunbase)
 "Yz" = (
@@ -21397,7 +21387,7 @@ ML
 TK
 sm
 vF
-wa
+vF
 vF
 vF
 Ld

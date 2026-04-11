@@ -56,7 +56,7 @@
 		/obj/item/storage/belt/rogue/pouch/coins/mid,
 		/obj/item/smokegrenade = 2,
 		/obj/item/ammo_box/magazine/luger = 3,
-		/obj/item/grenade,
+		/obj/item/bomb/dynamite,
 		/obj/item/rogueweapon/stoneaxe/woodcut/risvon,
 		/obj/item/flashlight/flare/torch/lantern,
 	)

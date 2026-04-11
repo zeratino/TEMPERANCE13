@@ -5,7 +5,7 @@
 	faction = "Station"
 	total_positions = 8
 	spawn_positions = 8
-	allowed_races = RACES_CONSCRIPT
+	allowed_races = RACES_CONSCRIPT_NONCOMBATANT
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 

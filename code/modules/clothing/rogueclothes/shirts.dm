@@ -103,8 +103,8 @@
 	l_sleeve_status = SLEEVE_NORMAL
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
-	name = "tinker suit"
-	desc = "Typical fashion of the best engineers."
+	name = "shirt and work vest"
+	desc = "Typical fashion of the common folk."
 	icon_state = "artishirt"
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut

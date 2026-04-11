@@ -28,9 +28,9 @@
 			belt = /obj/item/storage/belt/rogue/leather/knifebelt/iron
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless
 			pants = /obj/item/clothing/under/roguetown/trou/leather
-			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 			cloak = /obj/item/clothing/suit/roguetown/armor/longcoat
-			head = /obj/item/clothing/head/roguetown/inqhat
+			head = /obj/item/clothing/head/roguetown/fedora
 			backpack_contents = list(
 				/obj/item/flashlight/flare/torch = 1,
 				/obj/item/lockpick = 1, 
@@ -111,15 +111,11 @@
 		if("Old-Boy")
 			
 			to_chat(H, span_warning("Maybe you inherited your old man's hunting rifle, or bought your own. Maybe you just wanna go out there and shoot something, be a hunter, or maybe you wanna be a mercenary for hire, whatever it is, try to make a name for yourself out there."))
-			armor = /obj/item/clothing/suit/roguetown/armor/leather
-			cloak = /obj/item/clothing/cloak/tabard
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-			shirt = /obj/item/clothing/suit/roguetown/armor/leather/vest
-			pants = /obj/item/clothing/under/roguetown/trou/leather
+			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/jacket
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+			pants = /obj/item/clothing/under/roguetown/trou
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-			beltr = /obj/item/gun/ballistic/revolver/doublebarrel
 			shoes = /obj/item/clothing/shoes/roguetown/boots
-			neck = /obj/item/clothing/neck/roguetown/gorget
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 			backl = /obj/item/storage/backpack/rogue/satchel
 			backr = /obj/item/gun/ballistic/rifle/repeater/mondragon

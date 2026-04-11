@@ -6,7 +6,7 @@
 	total_positions = 3
 	spawn_positions = 3
 
-	allowed_races = RACES_TEMPERANCE
+	allowed_races = RACES_TEMPERANCE_NONCOMBATANT
 	allowed_sexes = list(MALE, FEMALE)
 	tutorial = "You're one of the few intelligent enough to understand the new gifts of medicine provided by the MACHINES. \
 				Your job is to handle the dead and wounded of your town - or whoever happens to pay for your services."

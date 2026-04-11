@@ -186,6 +186,7 @@
 						L.apply_status_effect(/datum/status_effect/debuff/cursed)
 		update_icon()
 		attacking_shovel.heldclod = new(attacking_shovel)
+		attacking_shovel.ground += attacking_shovel.max_ground
 		attacking_shovel.update_icon()
 		playsound(loc,'sound/items/dig_shovel.ogg', 100, TRUE)
 		return

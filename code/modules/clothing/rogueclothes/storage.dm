@@ -497,10 +497,6 @@
 	icon_state = "warfare_satchel"
 	item_state = "warfare_satchel"
 	component_type = /datum/component/storage/concrete/grid/amr
-	populate_contents = list(
-			/obj/item/ammo_box/boxes/amr = 4,
-	)
-
 
 
 /obj/item/storage/backpack/rogue/backpack/perserdun

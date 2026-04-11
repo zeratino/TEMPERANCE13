@@ -2026,13 +2026,15 @@
 /area/rogue/indoors/risvonbasebar)
 "qS" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/sandbag{
-	pixel_y = 6
-	},
 /obj/machinery/light/rogue/wallfire/candle/l,
 /obj/effect/decal/carpet/square{
 	dir = 8
 	},
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
 /turf/open/floor/rogue/risvon,
 /area/rogue/indoors/risvonbase)
 "qV" = (
@@ -5040,6 +5042,9 @@
 /area/rogue/indoors/risvonbase)
 "OF" = (
 /obj/structure/rack/rogue/shelf/biggest,
+/obj/item/sandbag{
+	pixel_y = 6
+	},
 /obj/item/sandbag{
 	pixel_y = 6
 	},

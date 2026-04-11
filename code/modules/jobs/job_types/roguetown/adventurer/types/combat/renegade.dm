@@ -22,14 +22,12 @@
 		if("Perpretrator")
 			to_chat(H, span_warning("In all honesty, you're probably a criminal. You have a double-barreled shotgun."))
 			armor = /obj/item/clothing/suit/roguetown/armor/leather
-			cloak = /obj/item/clothing/cloak/tabard
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
-			pants = /obj/item/clothing/under/roguetown/trou/leather
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+			pants = /obj/item/clothing/under/roguetown/trou
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			backr = /obj/item/gun/ballistic/revolver/doublebarrel
 			shoes = /obj/item/clothing/shoes/roguetown/boots
-			neck = /obj/item/clothing/neck/roguetown/gorget
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 			backl = /obj/item/storage/backpack/rogue/satchel
 			belt = /obj/item/storage/belt/rogue/leather
@@ -67,6 +65,8 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/leather
 			backl = /obj/item/storage/backpack/rogue/satchel
 			shoes = /obj/item/clothing/shoes/roguetown/boots
+			head = /obj/item/clothing/head/roguetown/brimmed
+			neck = /obj/item/clothing/neck/roguetown/gorget
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			beltr = /obj/item/gun/ballistic/revolver/pace
@@ -74,7 +74,7 @@
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless
 			pants = /obj/item/clothing/under/roguetown/trou/leather
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
-			cloak = /obj/item/clothing/cloak/raincloak/red
+			cloak = /obj/item/clothing/cloak/half/red
 			backpack_contents = list(
 				/obj/item/flashlight/flare/torch = 1,
 				/obj/item/rogueweapon/huntingknife/idagger/steel = 1,
@@ -110,14 +110,11 @@
 			
 			to_chat(H, span_warning("You're probably from a gang. Or, you happened to kill whoever held the pistol before you. Make some money, grab some guns. Try not to die."))
 			armor = /obj/item/clothing/suit/roguetown/armor/leather
-			cloak = /obj/item/clothing/cloak/half/rider/red
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 			pants = /obj/item/clothing/under/roguetown/trou/leather
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			beltr = /obj/item/gun/ballistic/rifle/repeater/jackal
 			shoes = /obj/item/clothing/shoes/roguetown/boots
-			neck = /obj/item/clothing/neck/roguetown/gorget
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 			backl = /obj/item/storage/backpack/rogue/satchel
 			belt = /obj/item/storage/belt/rogue/leather

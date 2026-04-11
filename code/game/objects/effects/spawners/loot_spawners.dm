@@ -443,6 +443,7 @@
 		/obj/item/gun/ballistic/revolver/pace = 1,
 		/obj/item/gun/ballistic/revolver/doublebarrel = 1,
 		/obj/item/gun/ballistic/shotgun/levershotgun = 1,
+		/obj/item/grenade/frag = 1,
 	)
 
 /obj/effect/spawner/lootdrop/hightierammo

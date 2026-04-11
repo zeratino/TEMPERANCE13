@@ -57,7 +57,7 @@
 		/obj/item/gasgrenade,
 		/obj/item/smokegrenade,
 		/obj/item/rogueweapon/sword/iron/short,
-		/obj/item/grenade = 2,
+		/obj/item/bomb/dynamite = 2,
 	)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)

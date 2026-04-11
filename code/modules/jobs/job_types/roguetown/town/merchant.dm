@@ -5,7 +5,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	allowed_races = RACES_TEMPERANCE
+	allowed_races = RACES_TEMPERANCE_NONCOMBATANT
 	tutorial = "Money, money, money! Fuck, it's so good! Even better, with this War Machine - and those filthy fuckin' foreigners. Scam some idiots, make cash. Grab your Explorers and make bank."
 
 

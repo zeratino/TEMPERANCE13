@@ -34,8 +34,8 @@
 	sewrepair = TRUE
 
 /obj/item/clothing/head/roguetown/fedora
-	name = "archeologist's hat"
-	desc = "A strangely-shaped hat with dust caked onto its aged leather."
+	name = "wide brimmed hat"
+	desc = "A wide brimmed hat with dust caked onto its aged leather."
 	icon_state = "curator"
 	item_state = "curator"
 	sewrepair = TRUE
@@ -305,8 +305,8 @@
 	icon_state = "shawl"
 
 /obj/item/clothing/head/roguetown/articap
-	name = "artificer's cap"
-	desc = "A sporting cap with a small gear adornment. Popular fashion amongst engineers."
+	name = "flat cap"
+	desc = "A flat cap with a small gear adornment. Popular fashion amongst the common folk."
 	icon_state = "articap"
 
 /obj/item/clothing/head/roguetown/brimmed

@@ -56,6 +56,7 @@
 		/obj/item/storage/belt/rogue/pouch/coins/mid,
 		/obj/item/smokegrenade = 3,
 		/obj/item/rogueweapon/stoneaxe/woodcut/risvon,
+		/obj/item/ammo_box/boxes/amr = 3,
 	)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
@@ -76,5 +77,6 @@
 	H.change_stat("constitution", 1)
 	H.change_stat("endurance", 1)
 	H.change_stat("perception", 5)
-	H.change_stat("speed", 3)
+	H.change_stat("speed", 5)
 	ADD_TRAIT(H, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)

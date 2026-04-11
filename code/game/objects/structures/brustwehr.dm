@@ -18,11 +18,15 @@
 				if(C.working)
 					return
 				C.working = 1
+				if(!C.ground > 0)
+					C.working = 0
+					return
 				playsound(src, 'sound/items/empty_shovel.ogg', 100, 1)
 				if(!do_after(user, 10,src))
 					to_chat(user, "Hold still to do this.")
 					C.working = 0
 					return
+				C.ground--
 				digstage++
 				C.working = 0
 				to_chat(user, "You put some ground onto the [src].")

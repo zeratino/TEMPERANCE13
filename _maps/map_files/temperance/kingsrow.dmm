@@ -4253,6 +4253,17 @@
 	},
 /turf/open/floor/rogue/brown,
 /area/rogue/indoors/shelter/town)
+"BG" = (
+/obj/structure/rack/rogue/shelf/biggest,
+/obj/effect/spawner/lootdrop/hightierguns,
+/obj/effect/spawner/lootdrop/hightierguns,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/turf/open/floor/rogue/brown,
+/area/rogue/indoors/shelter/town)
 "BK" = (
 /obj/structure/handcart{
 	dir = 8
@@ -67622,7 +67633,7 @@ tn
 xP
 iG
 uf
-iL
+BG
 SF
 Vp
 uf

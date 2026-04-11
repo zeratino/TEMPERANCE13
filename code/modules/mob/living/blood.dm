@@ -168,7 +168,14 @@
 		return FALSE
 	if(blood_volume <= 0)
 		return FALSE
-	
+	var/conbonus = 1
+	if(STACON >= 15)
+		conbonus = 15 - 10
+	else if(STACON != 10)
+		conbonus = STACON - 10
+	amt -= amt * (conbonus * 0.1)
+	if(surrendering)
+		amt = amt / 4 // Helps yield condition not be a bloodloss failure state. 
 	blood_volume = max(blood_volume - amt, 0)
 	GLOB.azure_round_stats[STATS_BLOOD_SPILT] += amt
 	if(isturf(src.loc)) //Blood loss still happens in locker, floor stays clean

@@ -6,6 +6,17 @@
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY
 
+/obj/item/natural/dirtclod/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/rogueweapon/shovel))
+		var/obj/item/rogueweapon/shovel/S = W
+		if(!S.heldclod && user.used_intent.type == /datum/intent/shovelscoop)
+			playsound(loc,'sound/items/dig_shovel.ogg', 100, TRUE)
+			src.forceMove(S)
+			S.heldclod = src
+			W.update_icon()
+			return
+	..()
+
 /obj/item/natural/dirtclod/Moved(oldLoc, dir)
 	..()
 	if(isturf(loc))
@@ -44,12 +55,6 @@
 /obj/item/natural/dirtclod/attackby(obj/item/rogueweapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/rogueweapon/shovel))
 		var/obj/item/rogueweapon/shovel/C = W
-		if(!C.heldclod && user.used_intent.type == /datum/intent/shovelscoop)
-			playsound(loc,'sound/items/dig_shovel.ogg', 100, TRUE)
-			src.forceMove(C)
-			C.heldclod = src
-			C.update_icon()
-			return
 		if(C.heldclod)
 			if(C.working)
 				return
@@ -65,20 +70,21 @@
 			C.working = 1
 			playsound(src, 'sound/items/empty_shovel.ogg', 100, 1)
 			to_chat(user, "You begin to dig a brustwehr.")
-			if(!C.heldclod) //just in case
-				to_chat(user, "You need more dirt on your shovel.")
+			if(!C.ground >= 2)
+				to_chat(user, "You need more sand on your shovel.")
 				C.working = 0
 				return 0
 			if(!do_after(user, 20,src))
 				C.working = 0
 				return
 			new /obj/structure/barricade/brustwehrincomplete(src.loc)
+			C.ground = 0
 			C.working = 0
-			qdel(src) 
 			var/obj/item/I = C.heldclod
 			C.heldclod = null
-			qdel(I)
-			C.update_icon()
+			qdel(I) //delete the clod on the shovel
+			C.update_icon() 
+			qdel(src) //delete the clod on the ground
 
 	else
 		return ..()
