@@ -22,6 +22,10 @@
 	},
 /turf/open/floor/rogue/risvon,
 /area/rogue/indoors/risvonbasebar)
+"as" = (
+/obj/machinery/light/rogue/smelter/hiron,
+/turf/open/floor/rogue/risvon,
+/area/rogue/indoors/risvonbase)
 "at" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -2963,23 +2967,11 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/risvonbase)
 "yx" = (
-/obj/structure/fluff/railing/border/west{
-	pixel_x = -7
-	},
-/obj/structure/fluff/railing/border/east{
-	pixel_x = 4;
-	pixel_y = 2;
-	layer = 4.11
-	},
-/obj/structure/fluff/railing/border/east{
-	pixel_x = 4;
-	pixel_y = -4;
-	layer = 4.11
-	},
 /obj/structure/fluff/walldeco/happy{
 	pixel_y = 31
 	},
-/turf/open/floor/rogue/risvon,
+/obj/machinery/light/rogue/forge,
+/turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/risvonbase)
 "yB" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
@@ -3818,7 +3810,7 @@
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/risvonbase)
 "EB" = (
-/obj/machinery/light/rogue/smelter/hiron,
+/obj/item/roguebin/water,
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/risvonbase)
 "EH" = (
@@ -13365,8 +13357,8 @@ uF
 Jv
 Tx
 yx
-xK
-xK
+Qw
+as
 xK
 Tx
 wu
@@ -13494,9 +13486,9 @@ xK
 xK
 lO
 Tx
-EB
+XO
 Qw
-eY
+xK
 FW
 Tx
 wu
@@ -13624,9 +13616,9 @@ iw
 KM
 XY
 Tx
-XO
+EB
 Qw
-xK
+eY
 xK
 Tx
 wu

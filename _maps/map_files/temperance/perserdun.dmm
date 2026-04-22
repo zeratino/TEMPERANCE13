@@ -1283,6 +1283,11 @@
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/rogue/warmetal,
 /area/rogue/under/cave/warmachine)
+"sv" = (
+/obj/effect/decal/cleanable/dirt/grime/dust,
+/obj/machinery/light/rogue/smelter/hiron,
+/turf/open/floor/rogue/perdun,
+/area/rogue/indoors/perserdunbase)
 "sy" = (
 /obj/structure/chair/wood/rogue/fancychair2,
 /obj/structure/fluff/walldeco/terdun{
@@ -1327,6 +1332,18 @@
 /area/rogue/indoors/perserdunbase)
 "sV" = (
 /turf/open/floor/carpet/royalblack,
+/area/rogue/indoors/perserdunbase)
+"tg" = (
+/obj/structure/table/wood/perserdunsmall,
+/obj/item/rogueweapon/hammer/iron{
+	pixel_y = 9
+	},
+/obj/item/rogueweapon/tongs/stone{
+	name = "tongs";
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/turf/open/floor/rogue/perdun,
 /area/rogue/indoors/perserdunbase)
 "tk" = (
 /obj/structure/mineral_door/bars{
@@ -1475,6 +1492,10 @@
 /area/rogue/indoors/perserdunbase)
 "vf" = (
 /obj/structure/bars,
+/turf/open/floor/rogue/perdun,
+/area/rogue/indoors/perserdunbase)
+"vh" = (
+/obj/item/roguebin/water,
 /turf/open/floor/rogue/perdun,
 /area/rogue/indoors/perserdunbase)
 "vj" = (
@@ -17114,8 +17135,8 @@ Bb
 Bb
 Bb
 Bb
-Bb
 rZ
+Bb
 ow
 hV
 pK
@@ -17244,9 +17265,9 @@ IG
 IG
 IG
 IG
-IG
 Qd
-Km
+tg
+CQ
 CQ
 CQ
 CQ
@@ -17374,12 +17395,12 @@ IG
 IG
 IG
 IG
-IG
 Qd
-au
-CQ
+vh
 Gx
-Yz
+OV
+CQ
+sv
 Qd
 Zc
 ng
@@ -17504,9 +17525,9 @@ IG
 IG
 IG
 IG
-IG
 Qd
 Ik
+CQ
 CQ
 CQ
 CQ
@@ -17634,12 +17655,12 @@ IG
 IG
 IG
 IG
-IG
 Qd
-au
-nw
+vh
 Gx
-OV
+Yz
+CQ
+au
 Bw
 nT
 hc
@@ -17764,9 +17785,9 @@ IG
 IG
 IG
 IG
-IG
-lC
+Qd
 Ik
+CQ
 CQ
 CQ
 nw
@@ -17894,12 +17915,12 @@ IG
 IG
 IG
 IG
-IG
 Qd
-au
-nw
+vh
 Gx
-OV
+Yz
+CQ
+au
 rT
 ow
 Bb
@@ -18024,9 +18045,9 @@ IG
 IG
 IG
 IG
-IG
 Qd
 Km
+CQ
 CQ
 CQ
 CQ
@@ -18154,9 +18175,9 @@ IG
 IG
 IG
 IG
-IG
 rT
 nT
+Km
 Km
 Km
 Rm
@@ -18285,8 +18306,8 @@ IG
 IG
 IG
 IG
-IG
 rT
+Bb
 Bb
 Bb
 Js
