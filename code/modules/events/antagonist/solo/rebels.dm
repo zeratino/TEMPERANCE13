@@ -53,4 +53,9 @@
 		"Apothecary"
 	)
 
+/datum/round_event_control/antagonist/solo/rebel/preRunEvent()
+	if(is_storyteller_villain_blocked())
+		return EVENT_CANT_RUN
+	return ..()
+
 /datum/round_event/antagonist/solo/rebel

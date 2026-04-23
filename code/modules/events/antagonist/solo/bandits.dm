@@ -51,6 +51,11 @@
 	typepath = /datum/round_event/antagonist/solo/bandits
 	antag_datum = /datum/antagonist/bandit
 
+/datum/round_event_control/antagonist/solo/bandits/preRunEvent()
+	if(is_storyteller_villain_blocked())
+		return EVENT_CANT_RUN
+	return ..()
+
 /datum/round_event/antagonist/solo/bandits
 	var/leader = FALSE
 

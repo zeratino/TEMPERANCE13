@@ -6,6 +6,22 @@
 ///the duration into the round for which roundstart events are still valid to run
 #define ROUNDSTART_VALID_TIMEFRAME 3 MINUTES
 
+/proc/is_storyteller_pending_or_roundstart(storyteller_type)
+	if(!ispath(storyteller_type, /datum/storyteller))
+		return FALSE
+	if(SSticker && SSticker.current_state != GAME_STATE_PLAYING && SSticker.current_state != GAME_STATE_FINISHED)
+		return SSgamemode.selected_storyteller == storyteller_type
+	if(ispath(SSgamemode.roundstart_storyteller, /datum/storyteller))
+		return SSgamemode.roundstart_storyteller == storyteller_type
+	return istype(SSgamemode.current_storyteller, storyteller_type)
+
+
+/proc/is_storyteller_villain_blocked()
+	return is_storyteller_pending_or_roundstart(/datum/storyteller/eora) || is_storyteller_pending_or_roundstart(/datum/storyteller/psydon)
+
+/proc/is_roundstart_roles_blocked_storyteller()
+	return is_storyteller_villain_blocked()
+
 SUBSYSTEM_DEF(gamemode)
 	name = "Gamemode"
 	init_order = INIT_ORDER_GAMEMODE
@@ -23,9 +39,13 @@ SUBSYSTEM_DEF(gamemode)
 	/// Our storyteller. They progresses our trackboards and picks out events
 	var/datum/storyteller/current_storyteller
 	/// Result of the storyteller vote/pick. Defaults to Astrata.
-	var/selected_storyteller = /datum/storyteller/psydon
+	var/selected_storyteller = /datum/storyteller/standard
+	/// Storyteller that won the roundstart vote/pick for this round. Remains fixed after the round begins.
+	var/roundstart_storyteller
 	/// List of all the storytellers. Populated at init. Associative from type
 	var/list/storytellers = list()
+	/// Cached storyteller type that won the previous round's storyteller vote.
+	var/last_storyteller_vote
 	/// Next process for our storyteller. The wait time is STORYTELLER_WAIT_TIME
 	var/next_storyteller_process = 0
 	/// Associative list of even track points.
@@ -415,9 +435,11 @@ SUBSYSTEM_DEF(gamemode)
 		calc_value *= current_storyteller?.starting_point_multipliers[track]
 		calc_value *= (rand(100 - current_storyteller?.roundstart_points_variance,100 + current_storyteller?.roundstart_points_variance)/100)
 		event_track_points[track] = min(round(calc_value), round(point_thresholds[track] * 1.25))
+		if(track == EVENT_TRACK_CHARACTER_INJECTION && is_roundstart_roles_blocked_storyteller())
+			event_track_points[track] = 0
 
 	/// If the storyteller guarantees an antagonist roll, add points to make it so.
-	if(current_storyteller?.guarantees_roundstart_roleset && event_track_points[EVENT_TRACK_CHARACTER_INJECTION] < point_thresholds[EVENT_TRACK_CHARACTER_INJECTION])
+	if(!is_roundstart_roles_blocked_storyteller() && current_storyteller?.guarantees_roundstart_roleset && event_track_points[EVENT_TRACK_CHARACTER_INJECTION] < point_thresholds[EVENT_TRACK_CHARACTER_INJECTION])
 		event_track_points[EVENT_TRACK_CHARACTER_INJECTION] = point_thresholds[EVENT_TRACK_CHARACTER_INJECTION]
 
 	/// If we have any forced events, ensure we get enough points for them
@@ -521,6 +543,13 @@ SUBSYSTEM_DEF(gamemode)
 		for(var/type in subtypesof(/datum/storyteller))
 			storytellers[type] = new type()
 	set_storyteller(/datum/storyteller/astrata)
+	calculate_ready_players()
+	roll_pre_setup_points()
+
+	if(!current_storyteller || current_storyteller.type != selected_storyteller)
+		init_storyteller()
+	if(!ispath(roundstart_storyteller, /datum/storyteller))
+		roundstart_storyteller = selected_storyteller
 	calculate_ready_players()
 	roll_pre_setup_points()
 	//handle_pre_setup_roundstart_events()
@@ -1278,7 +1307,7 @@ SUBSYSTEM_DEF(gamemode)
 	var/total_influence = get_follower_influence(chosen_storyteller)
 	for(var/influence_factor in initialized_storyteller.influence_factors)
 		total_influence += calculate_specific_influence(chosen_storyteller, influence_factor)
-	
+
 	total_influence += initialized_storyteller.bonus_points
 
 	return total_influence
