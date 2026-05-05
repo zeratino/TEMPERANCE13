@@ -234,11 +234,10 @@
 		var/break_counter = 0
 		//note to future developers: RT doesn't have command staff so toggle_head was removed, go back in the git history if you need to readd it
 		//departments/groups that don't have command staff would throw a javascript error since there's no corresponding reference for toggle_head()
-		var/list/headless_job_lists = list("Nobles" = GLOB.noble_positions,
-							"Courtiers" = GLOB.courtier_positions,
-							"Garrison" = GLOB.garrison_positions,
-							"Church" = GLOB.church_positions,
-							"Mercenaries" = GLOB.mercenary_positions,
+		var/list/headless_job_lists = list("Perserdun" = GLOB.perserdun_positions,
+							"Risvon" = GLOB.risvon_positions,
+							"King's Row" = GLOB.kingsrow_positions,
+							"Unaffiliated" = GLOB.nonaffiliated_positions,
 							"Abstract" = list("Appearance", "Emote", "Deadchat", "OOC", "LOOC"))
 		for(var/department in headless_job_lists)
 			output += "<div class='column'><label class='rolegroup [ckey(department)]'><input type='checkbox' name='[department]' class='hidden' onClick='toggle_checkboxes(this, \"_com\")'>[department]</label><div class='content'>"
@@ -252,10 +251,7 @@
 				"}
 				break_counter++
 			output += "</div></div>"
-		var/list/long_job_lists = list("Peasants" = GLOB.peasant_positions,
-									"Yeomen" = GLOB.yeoman_positions,
-									"Youngfolk" = GLOB.youngfolk_positions,
-									"Ghost and Other Roles" = list(ROLE_NECRO_SKELETON, ROLE_LICH_SKELETON),
+		var/list/long_job_lists = list("Ghost and Other Roles" = list(ROLE_NECRO_SKELETON, ROLE_LICH_SKELETON),
 									"Antagonist Positions" = list(ROLE_MANIAC, ROLE_WEREWOLF,
 									ROLE_VAMPIRE, ROLE_NBEAST, ROLE_BANDIT,
 									ROLE_DELF, ROLE_PREBEL, ROLE_ASPIRANT,
