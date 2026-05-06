@@ -527,8 +527,8 @@
 	desc = "Commissioned from the helmets of insolent Soldatos. For the Dictate."
 	possible_item_intents = list(/datum/intent/axe/cut/battle ,/datum/intent/axe/chop/battle, /datum/intent/mace/warhammer/pick)
 	gripped_intents = list(/datum/intent/axe/cut/battle ,/datum/intent/axe/chop/battle, /datum/intent/mace/warhammer/pick, /datum/intent/mace/smash)
-	force = 30
-	force_wielded = 35 //not as good as WILL but still beastly 
+	force = 25
+	force_wielded = 30 //not as good as WILL but still beastly 
 	icon_state = "commandantaxe"
 	pixel_y = -10
 	pixel_x = 0
