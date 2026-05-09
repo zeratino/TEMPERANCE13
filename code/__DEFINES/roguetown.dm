@@ -212,7 +212,26 @@
 	/datum/species/human/halfelf,\
 )
 
+#define RACES_CONSCRIPT list(\
+	/datum/species/human/northern,\
+	/datum/species/elf/wood,\
+	/datum/species/demihuman,\
+	/datum/species/tieberian,\
+	/datum/species/anthromorph,\
+	/datum/species/human/halfelf,\
+)
+
 #define RACES_TEMPERANCE_NONCOMBATANT list(\
+	/datum/species/human/northern,\
+	/datum/species/elf/wood,\
+	/datum/species/demihuman,\
+	/datum/species/anthromorph,\
+	/datum/species/tieberian,\
+	/datum/species/human/halfelf,\
+	/datum/species/construct/metal/porcelain,\
+)
+
+#define RACES_TEMPERANCE_BATTLEMEDIC list(\
 	/datum/species/human/northern,\
 	/datum/species/elf/wood,\
 	/datum/species/demihuman,\
