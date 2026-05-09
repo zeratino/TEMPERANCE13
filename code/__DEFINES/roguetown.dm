@@ -216,6 +216,7 @@
 	/datum/species/human/northern,\
 	/datum/species/elf/wood,\
 	/datum/species/demihuman,\
+	/datum/species/anthromorph,\
 	/datum/species/tieberian,\
 	/datum/species/human/halfelf,\
 	/datum/species/construct/metal/porcelain,\
