@@ -28,3 +28,8 @@
 		M.sate_addiction()
 	M.apply_status_effect(/datum/status_effect/buff/vitae)
 	..()
+
+/obj/item/reagent_containers/lux/cheap
+	name = "REVIVER"
+	desc = "This ugly little thing latches onto someone's heart, and produces life. This one has seen better days and likely sat far to long in storage. Doubtful buyers would care for it. Though still serviceable."
+	sellprice = 3 
