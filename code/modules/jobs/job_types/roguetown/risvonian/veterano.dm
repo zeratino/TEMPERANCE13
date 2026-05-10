@@ -11,7 +11,7 @@
 
 	tutorial = "You're Risvonian Squad Support. \
 				You're supposed to obey the orders of the Oficiro and Commandant, while working with your squadron. \
-				Ideally, you're supposed to keep your Soldati alive, while whatever your higher-ups define as 'The Enemy'. \
+				Ideally, you're supposed to keep your Soldati alive, while killing whatever your higher-ups define as 'The Enemy'. \
 				Veteranos are typically promoted from Soldati, based off of their combat and leadership prowess." 
 
 	outfit = /datum/outfit/job/roguetown/veterano
@@ -37,9 +37,9 @@
 
 /datum/outfit/job/roguetown/veterano/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
-	shoes = /obj/item/clothing/shoes/roguetown/boots
+	shoes = /obj/item/clothing/shoes/roguetown/armor/rishighboots
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron/ziggurate
-	cloak = /obj/item/clothing/cloak/templar/malumite
+	cloak = /obj/item/clothing/cloak/risofficer
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	head = /obj/item/clothing/head/roguetown/helmet/kettle/iron/visored
 	mask = /obj/item/clothing/mask/rogue/gasmask/risvonmask

@@ -12,7 +12,7 @@
 	alternate_worn_layer  = 8.9 //On top of helmet
 	body_parts_covered = NECK|HAIR|EARS|HEAD
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
-	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK|ITEM_SLOT_NECK
 	sleevetype = null
 	sleeved = null
 	dynamic_hair_suffix = ""

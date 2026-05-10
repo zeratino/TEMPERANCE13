@@ -1,6 +1,9 @@
 /datum/job
 	//The name of the job , used for preferences, bans and more. Make sure you know what you're doing before changing this.
 	var/title = "NOPE"
+	// Display title - If empty, uses the proper title instead
+	var/display_title
+	// Display only title for feminine character
 	var/f_title
 
 	//Job access. The use of minimal_access or access is determined by a config setting: config.jobs_have_minimal_access
@@ -206,7 +209,7 @@
 			H.mind.i_know_person(MF)
 
 	if(H.islatejoin && announce_latejoin)
-		var/used_title = title
+		var/used_title = display_title || title
 		if((H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F) && f_title)
 			used_title = f_title
 		scom_announce("[H.real_name] the [used_title] arrives to the Land of King's Row.")
@@ -234,7 +237,7 @@
 		else
 			mob_rank = H.mind.assigned_role
 		GLOB.actors_list[H.mobid] = list("name" = mob_name, "rank" = mob_rank)
-		
+
 	log_admin("[H.key]/([H.real_name]) has joined as [H.mind.assigned_role].")
 
 /client/verb/set_mugshot()
@@ -359,9 +362,6 @@
 	return max(0, minimal_player_age - C.player_age)
 
 /datum/job/proc/config_check()
-	return TRUE
-
-/datum/job/proc/map_check()
 	return TRUE
 
 /datum/outfit/job

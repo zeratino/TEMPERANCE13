@@ -24,6 +24,16 @@
 		return TRUE
 	..()
 
+// /obj/item/storage/belt/rogue/MiddleClick(mob/user)
+//	overarmor = !overarmor
+//	to_chat(user, span_info("I [overarmor ? "wear the belt over my cloak" : "wear the belt under my cloak"]."))
+//	if(overarmor)
+//		alternate_worn_layer = BELT_LAYER
+//	else
+//		alternate_worn_layer = UNDER_CLOAK_LAYER
+//	user.update_inv_belt()
+// basic framework for a later PR, currently commented out.
+
 /obj/item/storage/belt/rogue/leather
 	name = "belt"
 	desc = "A fine leather strap notched with holes for a buckle to secure itself."
@@ -593,7 +603,7 @@
 
 /obj/item/storage/backpack/rogue/satchel/chestrig
 	name = "chest rig"
-	desc = "A WAR machine produced piece of clothing designed specifically to hold machine gun strip clips."
+	desc = "A WAR MACHINE produced piece of clothing designed specifically to hold machine gun strip clips."
 	icon_state = "chestrig"
 	item_state = "chestrig"
 	component_type = /datum/component/storage/concrete/grid/hmg
@@ -638,6 +648,7 @@
 	desc = "An expensive piece of equipment that connects straight to AS-Y14 through the use of radio waves."
 	icon_state = "radiopack"
 	item_state = "radiopack"
+	resistance_flags = FIRE_PROOF
 	var/list/radiostatic_sounds = list('sound/foley/radiostatic/badopera.ogg', 'sound/foley/radiostatic/beep.ogg', 'sound/foley/radiostatic/ditditdit.ogg', 'sound/foley/radiostatic/hangup.ogg', 'sound/foley/radiostatic/malechatter.ogg', 'sound/foley/radiostatic/roger.ogg', 'sound/foley/radiostatic/standby.ogg', 'sound/foley/radiostatic/thinking.ogg')
 
 /obj/item/storage/backpack/rogue/satchel/radiopack/Initialize()
@@ -655,4 +666,14 @@
 	if(QDELETED(src)) //crazy error
 		return
 	playsound(src, pick(radiostatic_sounds), 80, TRUE)
+
+/obj/item/storage/belt/rogue/leather/carabinerhook
+	name = "carabiner hooks"
+	desc = "Leather-wrapped metal hooks with an actuating hinge, to clip things to other things."
+	icon_state = "carabinerhook"
+	item_state = "carabinerhook"
+	equip_sound = 'sound/blank.ogg'
+	sewrepair = FALSE
+	sellprice = 10
+	resistance_flags = FIRE_PROOF
 

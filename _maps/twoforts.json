@@ -1,0 +1,10 @@
+{
+    "map_name": "Two Forts",
+    "map_path": "map_files/twoforts",
+    "map_file": "twoforts.dmm",
+	"traits": [{"Name": "Two Forts", "Up": true}, {"Up": true, "Down": true}, {"Down": true}],
+	"minetype": null,
+	"space_empty_levels": 0,
+	"space_ruin_levels": 0,
+	"shuttles": {}
+}

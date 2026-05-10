@@ -428,51 +428,58 @@
 	icon_state = "highgun"
 	lootcount = 1
 	loot = list(
-		/obj/item/gun/ballistic/shotgun/eternal = 5,
-		/obj/item/gun/ballistic/rifle/repeater/patience	= 1,
-		/obj/item/gun/ballistic/rifle/reaper = 5,	)
+
+		/obj/item/gun/ballistic/rifle/repeater/risvocarb = 3,
+		/obj/item/gun/ballistic/rifle/repeater/mpcolt = 3,
+		/obj/item/gun/ballistic/rifle/repeater/lebel = 1,
+		/obj/item/gun/ballistic/rifle/repeater/fury = 1,
+		/obj/item/gun/ballistic/rifle/repeater/leverleg = 2,
+		/obj/item/gun/ballistic/rifle/repeater/mondragon = 1,
+		/obj/item/gun/ballistic/revolver/judge = 3,
+		/obj/item/gun/ballistic/rifle/repeater/artyluger = 1,
+		/obj/item/gun/ballistic/rifle/repeater/luger = 1,
+	)
 
 /obj/effect/spawner/lootdrop/normalguns
 	name = "normal gun spawner"
 	icon_state = "normgun"
-	lootcount = 1
+	lootcount = 3
 	loot = list(
-		/obj/item/gun/ballistic/rifle/repeater/lebel = 1,
+		/obj/item/gun/ballistic/rifle/repeater/springfield = 5,
+		/obj/item/gun/ballistic/rifle/repeater/enfield = 5,
+		/obj/item/gun/ballistic/revolver/doublebarrel = 5,
+		/obj/item/gun/ballistic/revolver/mercy = 3,
 		/obj/item/gun/ballistic/revolver/sawedoff = 1,
-		/obj/item/gun/ballistic/rifle/repeater/enfield = 1,
 		/obj/item/gun/ballistic/revolver/pace = 1,
-		/obj/item/gun/ballistic/revolver/doublebarrel = 1,
-		/obj/item/gun/ballistic/shotgun/levershotgun = 1,
-		/obj/item/gun/ballistic/revolver/mercy = 1,
-		/obj/item/grenade/frag = 1,
-		/obj/item/gun/ballistic/revolver/snub = 1,
+		/obj/item/gun/ballistic/revolver/webley = 1,
+		/obj/item/gun/ballistic/rifle/repeater/infiltrator = 1,
 	)
 
 /obj/effect/spawner/lootdrop/hightierammo
 	name = "high tier ammo spawner"
 	icon_state = "highammo"
-	lootcount = 1
+	lootcount = 3
 	loot = list(
-		/obj/item/ammo_box/boxes/amr = 1,
-		/obj/item/ammo_box/clip/reaper = 3,
+		/obj/item/ammo_box/handfuls/judge = 1,
+		/obj/item/ammo_box/handfuls/shotgun = 1,
+		/obj/item/ammo_box/speedloader/magnum = 1,
+		/obj/item/ammo_box/magazine/fury = 1,
+		/obj/item/ammo_box/magazine/cfmag = 1,
 	)
 
 /obj/effect/spawner/lootdrop/ammo
 	name = "ammo spawner"
 	icon_state = "ammo"
-	lootcount = 1
+	lootcount = 4
 	loot = list(
 		/obj/item/ammo_box/handfuls/leveraction = 2,
 		/obj/item/ammo_box/clip/pistol = 2,
 		/obj/item/ammo_box/handfuls/rifle = 2,
-		/obj/item/ammo_box/handfuls/shotgun = 1,
-		/obj/item/ammo_box/handfuls/shotgun/buckshot = 1,
-		/obj/item/ammo_box/handfuls/rattlesnake = 1,
-		/obj/item/ammo_box/clip/broomhandle = 2,
 		/obj/item/ammo_box/clip/mondragon = 2,
 		/obj/item/ammo_box/handfuls/riflelp = 2,
-		/obj/item/ammo_box/speedloader/snub = 1,
-		/obj/item/ammo_box/speedloader/magnum = 1,
+		/obj/item/ammo_box/handfuls/mercy = 2,
+		/obj/item/ammo_box/handfuls/shotgun/buckshot = 1,
+		/obj/item/ammo_box/clip/broomhandle = 2,
 	)
 
 /obj/effect/spawner/lootdrop/medicines
@@ -507,6 +514,53 @@
 	name = "high tier general loot spawnerx3"
 	icon_state = "genhix3"
 	lootcount = 3
+
+/obj/effect/spawner/lootdrop/hightiergunsoutlet
+	name = "high tier outlet gun spawner"
+	icon_state = "highgun"
+	lootcount = 1
+	loot = list(
+		/obj/item/gun/ballistic/rifle/repeater/leveraction = 5,
+		/obj/item/gun/ballistic/rifle/reaper = 3,
+		/obj/item/gun/ballistic/shotgun/eternal = 1,
+
+	)
+
+/obj/effect/spawner/lootdrop/normalgunsoutlet
+	name = "normal outlet gun spawner"
+	icon_state = "normgun"
+	lootcount = 1
+	loot = list(
+		/obj/item/gun/ballistic/revolver/snub = 1,
+		/obj/item/gun/ballistic/rifle/repeater/offiseroluger = 1,
+		/obj/item/gun/ballistic/shotgun/levershotgun = 1,
+		/obj/item/gun/ballistic/rifle/repeater/jackal = 1,
+		/obj/item/gun/ballistic/shotgun/risvon = 1,
+		/obj/item/gun/ballistic/rifle/repeater/pistol = 1,
+	)
+
+/obj/effect/spawner/lootdrop/hightierammooutlet
+	name = "high tier outlet ammo spawner"
+	icon_state = "highammo"
+	lootcount = 3
+	loot = list(
+		/obj/item/ammo_box/handfuls/leveraction = 1,
+		/obj/item/ammo_box/clip/reaper = 1,
+		/obj/item/ammo_box/handfuls/shotgun = 1,
+	)
+
+/obj/effect/spawner/lootdrop/ammooutlet
+	name = "outlet ammo spawner"
+	icon_state = "ammo"
+	lootcount = 3
+	loot = list(
+		/obj/item/ammo_box/handfuls/rifle = 2,
+		/obj/item/ammo_box/clip/pistol = 2,
+		/obj/item/ammo_box/handfuls/shotgun/buckshot = 2,
+		/obj/item/ammo_box/magazine/jackal = 2,
+		/obj/item/ammo_box/speedloader/snub = 1,
+		/obj/item/ammo_box/magazine/luger = 1,
+	)
 
 /*
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀

@@ -517,3 +517,14 @@
 	icon_state = "flamer"
 	item_state = "flamer"
 	armor = list("blunt" = 100, "slash" = 70, "stab" = 50, "piercing" = 50, "fire" = 90, "acid" = 0)
+
+/obj/item/clothing/shoes/roguetown/armor/rishighboots
+	name = "risvonian high boots"
+	desc = "If you want a picture of the future, imagine a boot stamping on a human face— forever."
+	icon_state = "rishighboots"
+	item_state = "rishighboots"
+	sleeved = 'icons/roguetown/clothing/onmob/feet.dmi'
+	armor = ARMOR_BOOTS
+	sewrepair = TRUE
+	resistance_flags = FIRE_PROOF
+

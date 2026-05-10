@@ -5,7 +5,7 @@
 	faction = "Station"
 	total_positions = 0
 	spawn_positions = 0
-	allowed_races = RACES_TEMPERANCE
+	allowed_races = RACES_CONSCRIPT
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 
@@ -50,11 +50,12 @@
 	id = /obj/item/roguekey/perserdun
 	gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 	backr = /obj/item/storage/backpack/rogue/satchel/radiopack
+	r_hand = /obj/item/gun/ballistic/revolver/flaregun
 	backpack_contents = list(
 		/obj/item/ammo_box/handfuls/shotgun/buckshot = 6,
 		/obj/item/storage/belt/rogue/pouch/coins/mid,
-		/obj/item/grenade/gas/smoke,
-		/obj/item/bomb/dynamite,
+		/obj/item/ammo_box/handfuls/a40mm/he = 2,
+		/obj/item/ammo_box/handfuls/a40mm/frag = 2,
 	)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)

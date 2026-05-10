@@ -553,8 +553,6 @@
 	desc = "It's broken."
 	icon_state = "vent3"
 
-/obj/structure/fluff/walldeco/soldato
-	name = "YOUR ENEMY"
-	desc = "Shoot this guy."
-	icon_state = "soldato_id"
-	layer = ABOVE_MOB_LAYER
+/obj/structure/fluff/walldeco/rivbattleflag
+	desc = "The unit insignia of the Fourth Forward Battalion in King's Row. A grinning maw of steel stares back at you."
+	icon_state = "rivbattleflag"

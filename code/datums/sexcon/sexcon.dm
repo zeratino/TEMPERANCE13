@@ -76,6 +76,13 @@
 	var/bottom_exposed = FALSE
 	/// Allow chest to be exposed and show breasts
 	var/top_exposed = FALSE
+	// Moved here from proc/get_generic_force_adjective to reduce list initialization/destruction
+	var/static/list/stealth_force_adjectives 	= list("subtly", "sneakily", "covertly", "stealthily", "quietly")
+	var/static/list/low_force_adjectives 		= list("gently", "carefully", "tenderly", "gingerly", "delicately", "lazily")
+	var/static/list/mid_force_adjectives 		= list("firmly", "vigorously", "eagerly", "steadily", "intently")
+	var/static/list/high_force_adjectives 		= list("roughly", "carelessly", "forcefully", "fervently", "fiercely")
+	var/static/list/extreme_force_adjectives 	= list("brutally", "violently", "relentlessly", "savagely", "mercilessly")
+	var/static/list/ludicrous_force_adjectives 	= list("madly", "uncontrollably", "desperately", "deliriously", "freekishly")
 
 /datum/sex_controller/New(mob/living/carbon/human/owner)
 	user = owner
@@ -1150,18 +1157,20 @@
 		if(SEX_MANUAL_AROUSAL_FULL)
 			return "<font color='#d146f5'>FULLY ERECT</font>"
 
-/datum/sex_controller/proc/get_generic_force_adjective()
+/datum/sex_controller/proc/get_generic_force_adjective(is_stealth = FALSE)
+	if(is_stealth)
+		return pick(stealth_force_adjectives)
 	switch(force)
 		if(SEX_FORCE_LOW)
-			return pick(list("gently", "carefully", "tenderly", "gingerly", "delicately", "lazily"))
+			return pick(low_force_adjectives)
 		if(SEX_FORCE_MID)
-			return pick(list("firmly", "vigorously", "eagerly", "steadily", "intently"))
+			return pick(mid_force_adjectives)
 		if(SEX_FORCE_HIGH)
-			return pick(list("roughly", "carelessly", "forcefully", "fervently", "fiercely"))
+			return pick(high_force_adjectives)
 		if(SEX_FORCE_EXTREME)
-			return pick(list("brutally", "violently", "relentlessly", "savagely", "mercilessly"))
+			return pick(extreme_force_adjectives)
 		if(SEX_FORCE_LUDICROUS)
-			return pick(list("madly", "uncontrollably", "desperately", "deliriously", "freekishly"))
+			return pick(ludicrous_force_adjectives)
 
 /datum/sex_controller/proc/spanify_force(string)
 	switch(force)

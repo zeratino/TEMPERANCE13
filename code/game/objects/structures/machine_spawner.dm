@@ -144,12 +144,12 @@
 	)
 /obj/effect/spawner/lootdrop/machine/reaper
 	loot = list(
-		/obj/item/gun/ballistic/rifle/reaper = 2,
+		/obj/item/gun/ballistic/rifle/reaper = 1,
 		/obj/item/ammo_box/clip/reaper = 4
 	)
 /obj/effect/spawner/lootdrop/machine/eternal
 	loot = list(
-		/obj/item/gun/ballistic/shotgun/eternal = 2,
+		/obj/item/gun/ballistic/shotgun/eternal = 1,
 		/obj/item/ammo_box/handfuls/shotgun = 4
 	)
 /obj/effect/spawner/lootdrop/machine/patience

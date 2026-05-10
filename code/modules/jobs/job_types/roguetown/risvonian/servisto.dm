@@ -5,7 +5,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	allowed_races = RACES_CONSCRIPT
+	allowed_races = RACES_TEMPERANCE_BATTLEMEDICS
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 
@@ -38,7 +38,7 @@
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron/ziggurate
-	cloak = /obj/item/clothing/cloak/templar/malumite
+	cloak = /obj/item/clothing/cloak/rismedtabard
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	head = /obj/item/clothing/head/roguetown/helmet/kettle/iron
 	mask = /obj/item/clothing/mask/rogue/gasmask/risvonmask

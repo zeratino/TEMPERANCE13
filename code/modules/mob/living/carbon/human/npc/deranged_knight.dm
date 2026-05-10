@@ -1,4 +1,4 @@
-/* * 
+/* *
  * Deranged Knight
  * A miniboss for quest system, designed to be a high-level challenge for multiple players.
  * Uses fuckoff gear that should not be looted - hence snowflake dismemberment code.
@@ -43,7 +43,7 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 			say(pick(GLOB.graggar_aggro))
 		else if(preset == "hedgeknight")
 			say(pick(GLOB.hedgeknight_aggro))
-		linepoint(target)
+		pointed(target)
 
 /mob/living/carbon/human/species/human/northern/deranged_knight/should_target(mob/living/L)
 	if(L.stat != CONSCIOUS)
@@ -102,13 +102,13 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 	var/obj/item/organ/eyes/organ_eyes = getorgan(/obj/item/organ/eyes)
 	var/obj/item/organ/ears/organ_ears = getorgan(/obj/item/organ/ears)
 	var/obj/item/bodypart/head/head = get_bodypart(BODY_ZONE_HEAD)
-	var/hairf = pick(list(/datum/sprite_accessory/hair/head/himecut, 
-						/datum/sprite_accessory/hair/head/countryponytailalt, 
-						/datum/sprite_accessory/hair/head/stacy, 
+	var/hairf = pick(list(/datum/sprite_accessory/hair/head/himecut,
+						/datum/sprite_accessory/hair/head/countryponytailalt,
+						/datum/sprite_accessory/hair/head/stacy,
 						/datum/sprite_accessory/hair/head/kusanagi_alt))
-	var/hairm = pick(list(/datum/sprite_accessory/hair/head/ponytailwitcher, 
-						/datum/sprite_accessory/hair/head/dave, 
-						/datum/sprite_accessory/hair/head/emo, 
+	var/hairm = pick(list(/datum/sprite_accessory/hair/head/ponytailwitcher,
+						/datum/sprite_accessory/hair/head/dave,
+						/datum/sprite_accessory/hair/head/emo,
 						/datum/sprite_accessory/hair/head/sabitsuki,
 						/datum/sprite_accessory/hair/head/sabitsuki_ponytail))
 
@@ -131,10 +131,10 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 	if(organ_eyes)
 		organ_eyes.eye_color = "#FFBF00"
 		organ_eyes.accessory_colors = "#FFBF00#FFBF00"
-	
+
 	if(organ_ears)
 		organ_ears.accessory_colors = "#5f5f70"
-	
+
 	skin_tone = "5f5f70"
 
 	if(prob(1))

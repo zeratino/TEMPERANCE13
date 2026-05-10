@@ -242,6 +242,32 @@
 
 	emote("drool", intentional = TRUE)
 
+/datum/emote/living/eye_roll
+	key = "eye_roll"
+	key_third_person = "eye rolls"
+	message = "rolls their eyes."
+	emote_type = EMOTE_VISIBLE
+	show_runechat = TRUE
+
+/mob/living/carbon/human/verb/eye_roll()
+	set name = "Eye Roll"
+	set category = "Emotes"
+
+	emote("eye_roll", intentional = TRUE)
+
+/datum/emote/living/facepalm
+	key = "facepalm"
+	key_third_person = "facepalms"
+	message = "facepalms."
+	emote_type =  EMOTE_AUDIBLE
+	show_runechat = TRUE
+
+/mob/living/carbon/human/verb/facepalm()
+	set name = "Facepalm"
+	set category = "Noises"
+
+	emote("facepalms", intentional = TRUE)
+
 /datum/emote/living/faint
 	key = "faint"
 	key_third_person = "faints"
@@ -724,6 +750,19 @@
 	emote_type = EMOTE_AUDIBLE
 	show_runechat = FALSE
 
+/datum/emote/living/salute
+	key = "salute"
+	key_third_person = "salutes"
+	message = "salutes."
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+	show_runechat = TRUE
+
+/mob/living/carbon/human/verb/salute()
+	set name = "Salute"
+	set category = "Noises"
+
+	emote("salute", intentional = TRUE)
+
 /datum/emote/living/scream
 	key = "scream"
 	key_third_person = "screams"
@@ -956,11 +995,12 @@
 	key = "shiver"
 	key_third_person = "shiver"
 	message = "shivers."
-	emote_type = EMOTE_VISIBLE
+	emote_type = EMOTE_AUDIBLE
+	show_runechat = TRUE
 
 /mob/living/carbon/human/verb/emote_shiver()
 	set name = "Shiver"
-	set category = "Emotes"
+	set category = "Noises"
 
 	emote("shiver", intentional = TRUE)
 

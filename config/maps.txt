@@ -30,3 +30,6 @@ map kingsworld
 	default
 	votable
 endmap
+
+map twoforts
+endmap

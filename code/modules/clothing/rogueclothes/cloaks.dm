@@ -1713,8 +1713,8 @@
 	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
 
 /obj/item/clothing/cloak/forrestercloak/snow
-	name = "snow cloak"
-	desc = "A cloak meant to keep one's body warm in the cold of the mountains as well as the dampness of Azuria."
+	name = "shortcloak"
+	desc = "A cloak meant to keep one's body warm in the cold of the mountains as well as the dampness of TEMPERANCE."
 	icon_state = "snowcloak"
 
 //eastern update
@@ -1846,6 +1846,70 @@
 		var/list/things = STR.contents()
 		for(var/obj/item/I in things)
 			STR.remove_from_storage(I, get_turf(src))
+
+/obj/item/clothing/cloak/risofficer
+	name = "risvonian officer's trenchcoat"
+	desc = "A green-brown trench coat with a scarlet mantle, worn by those who have achieved a rank of merit in the Dictate's armed forces. A mantle of volf-fur protects from wind and grants the wearer a sense of <i>gravitas.</i>"
+	icon_state = "risofficer"
+	item_state = "risofficer"
+	body_parts_covered = CHEST|GROIN|VITALS|ARMS
+	boobed = FALSE
+	slot_flags = ITEM_SLOT_CLOAK
+	flags_inv = HIDECROTCH|HIDEBOOB
+	var/overarmor = TRUE
+
+/obj/item/clothing/cloak/risofficer/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
+
+/obj/item/clothing/cloak/risofficer/dropped(mob/living/carbon/human/user)
+	..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		var/list/things = STR.contents()
+		for(var/obj/item/I in things)
+			STR.remove_from_storage(I, get_turf(src))
+
+/obj/item/clothing/cloak/risofficer/MiddleClick(mob/user)
+	overarmor = !overarmor
+	to_chat(user, span_info("I [overarmor ? "wear the coat over my armor" : "wear the coat under my armor"]."))
+	if(overarmor)
+		alternate_worn_layer = TABARD_LAYER
+	else
+		alternate_worn_layer = UNDER_ARMOR_LAYER
+	user.update_inv_cloak()
+
+/obj/item/clothing/cloak/rismedtabard
+	name = "risvonian duty-cloak"
+	desc = "A green-brown tabard with a red sash affix't to the belt, worn by those who do not forfeit violence for healing."
+	icon_state = "rismedtabard"
+	item_state = "rismedtabard"
+	body_parts_covered = CHEST|GROIN|VITALS|ARMS
+	boobed = FALSE
+	slot_flags = ITEM_SLOT_CLOAK
+	flags_inv = HIDECROTCH|HIDEBOOB
+	var/overarmor = TRUE
+
+/obj/item/clothing/cloak/rismedtabard/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
+
+/obj/item/clothing/cloak/rismedtabard/dropped(mob/living/carbon/human/user)
+	..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		var/list/things = STR.contents()
+		for(var/obj/item/I in things)
+			STR.remove_from_storage(I, get_turf(src))
+
+/obj/item/clothing/cloak/rismedtabard/MiddleClick(mob/user)
+	overarmor = !overarmor
+	to_chat(user, span_info("I [overarmor ? "wear the tabard over my armor" : "wear the tabard under my armor"]."))
+	if(overarmor)
+		alternate_worn_layer = TABARD_LAYER
+	else
+		alternate_worn_layer = UNDER_ARMOR_LAYER
+	user.update_inv_cloak()
 
 /obj/item/clothing/cloak/perserduntrenchcoat/voltigeur
 	name = "voltigeur trenchcoat"

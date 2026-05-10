@@ -40,9 +40,9 @@
 /datum/outfit/job/roguetown/commandant/pre_equip(mob/living/carbon/human/H)
 	H.verbs += /mob/living/carbon/human/proc/commandant_raid
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
-	shoes = /obj/item/clothing/shoes/roguetown/boots
+	shoes = /obj/item/clothing/shoes/roguetown/armor/rishighboots
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron/ziggurate/pauldrons
-	cloak = /obj/item/clothing/cloak/templar/malumite
+	cloak = /obj/item/clothing/cloak/risofficer
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	head = /obj/item/clothing/head/roguetown/helmet/kettle/iron/commandant
 	mask = /obj/item/clothing/mask/rogue/gasmask/risvonmask/commandant

@@ -219,6 +219,13 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 1
 
+/datum/crafting_recipe/roguetown/sewing/fakeblindfold
+	name = "fake blindfold (1 fibers, 2 cloth)"
+	result = list(/obj/item/clothing/mask/rogue/blindfold/fake)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 1
+
 /datum/crafting_recipe/roguetown/sewing/duelmask
 	name = "duelist's mask (1 fibers, 2 cloth)"
 	result = list(/obj/item/clothing/mask/rogue/duelmask)

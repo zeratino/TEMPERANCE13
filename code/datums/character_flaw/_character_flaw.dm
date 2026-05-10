@@ -26,6 +26,14 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"No Flaw (3 TRIUMPHS)"=/datum/charflaw/noflaw,
 	))
 
+GLOBAL_LIST_INIT(elf_flaws, list(
+	"Alcoholic"=/datum/charflaw/addiction/alcoholic,
+	"Addict(Meth)"=/datum/charflaw/addiction/meth,
+	"Addict(Heroin)"=/datum/charflaw/addiction/heroin,
+	"Nymphomaniac"=/datum/charflaw/addiction/lovefiend,
+	"No Flaw (3 TRIUMPHS)"=/datum/charflaw/noflaw,
+	))
+
 /datum/charflaw
 	var/name
 	var/desc

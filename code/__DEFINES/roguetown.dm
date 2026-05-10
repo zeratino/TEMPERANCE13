@@ -217,6 +217,17 @@
 	/datum/species/elf/wood,\
 	/datum/species/demihuman,\
 	/datum/species/tieberian,\
+	/datum/species/anthromorph,\
+	/datum/species/human/halfelf,\
+	/datum/species/construct/metal/porcelain,\
+)
+
+#define RACES_TEMPERANCE_BATTLEMEDICS list(\
+	/datum/species/human/northern,\
+	/datum/species/elf/wood,\
+	/datum/species/demihuman,\
+	/datum/species/tieberian,\
+	/datum/species/anthromorph,\
 	/datum/species/human/halfelf,\
 	/datum/species/construct/metal/porcelain,\
 )
