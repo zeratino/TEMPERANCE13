@@ -28,9 +28,15 @@
 	"Escape" = 'sound/music/jukeboxes/machine/machineescape.ogg',\
 	"Juliet" = 'sound/music/jukeboxes/machine/machinejuliet.ogg',\
 	"Underground" = 'sound/music/jukeboxes/machine/machineunderground.ogg',\
-	"Smack" = 'sound/music/jukeboxes/machine/machinesmack.ogg',\
-	"Breathe" = 'sound/music/jukeboxes/machine/machinebreathe.ogg',\
-	"Monster" = 'sound/music/jukeboxes/machine/machinemonster.ogg',\
+	"Smack" = 'sound/music/jukeboxes/machine/machinesmack.ogg',\ // smack my bitch up - the prodigy
+	"Breathe" = 'sound/music/jukeboxes/machine/machinebreathe.ogg',\ // breathe - the prodigy
+	"Monster" = 'sound/music/jukeboxes/machine/machinemonster.ogg',\ // monster - skillet
+	"You" = 'sound/music/jukeboxes/machine/machineyou.ogg',\ // only you - the platters
+	"Good" = 'sound/music/jukeboxes/machine/machinegood.ogg',\ // good life - kanye
+	"Romance" = 'sound/music/jukeboxes/machine/machineromance.ogg',\ // bad romance - lady gaga
+	"Surprises" = 'sound/music/jukeboxes/machine/machinesurprises.ogg',\ // no surprises - radiohead
+	"Slippy" = 'sound/music/jukeboxes/machine/machineslippy.ogg',\ // born slippy - underworld
+	"Like" = 'sound/music/jukeboxes/machine/machinelike.ogg',\ // don't like - chief keef
 	"Rave" = 'sound/music/jukeboxes/machine/machinerave.ogg',\
 ) // POP MUSIC ONLY FOR THE MACHINE -- NO CHUDMUSIC ALLOWED
 
