@@ -12,7 +12,7 @@
 		return FALSE
 	return TRUE
 
-/datum/sex_action/miscellaneous/stockjob/can_do_sex(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/miscellaneous/stockjob/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	if(!.)
 		return FALSE

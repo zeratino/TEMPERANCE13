@@ -18,6 +18,8 @@
 		return FALSE
 	if(user == target)
 		return FALSE
+	if(!check_location_accessible(user, user, BODY_ZONE_PRECISE_MOUTH))
+		return FALSE
 	var/obj/item/held_item = user.get_active_held_item()
 	if(!held_item || !istype(held_item, /obj/item/gun/ballistic/revolver))
 		return FALSE
@@ -33,7 +35,7 @@
 	user.sexcon.perform_sex_action(target, 2, 0, TRUE)
 	if(!target.sexcon.considered_limp())
 		user.sexcon.perform_deepthroat_oxyloss(user, 1.3)
-		
+
 	target.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/pistoljob/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
