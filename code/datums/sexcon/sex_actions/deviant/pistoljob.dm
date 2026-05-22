@@ -31,13 +31,12 @@
 /datum/sex_action/pistoljob/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] forces the pistol into [target]."))
 	user.sexcon.oralcourse_noise(user)
+	
 
-	user.sexcon.perform_sex_action(target, 2, 0, TRUE)
-	if(!target.sexcon.considered_limp())
+	user.sexcon.perform_sex_action(target, 0.5, 0, TRUE)
+	target.sexcon.handle_passive_ejaculation()
 		user.sexcon.perform_deepthroat_oxyloss(user, 1.3)
-
-	target.sexcon.handle_passive_ejaculation(user)
-
+	
 /datum/sex_action/pistoljob/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	user.visible_message(span_warning("[user] stops pistol-fucking [target]."))
 
