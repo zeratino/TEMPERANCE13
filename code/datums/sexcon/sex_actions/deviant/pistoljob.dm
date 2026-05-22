@@ -35,6 +35,7 @@
 
 	user.sexcon.perform_sex_action(target, 0.5, 0, TRUE)
 	target.sexcon.handle_passive_ejaculation()
+	if(!target.sexcon.considered_limp())
 		user.sexcon.perform_deepthroat_oxyloss(user, 1.3)
 	
 /datum/sex_action/pistoljob/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
