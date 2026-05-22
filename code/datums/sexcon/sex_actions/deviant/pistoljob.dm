@@ -26,7 +26,7 @@
 /datum/sex_action/pistoljob/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 		user.visible_message(span_warning"[user] places the barrel of [user.p_their()] pistol into [target]'s mouth...")
 
-/datum/sex_action/footjob/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/pistoljob/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] forces the pistol into [target]."))
 	user.sexcon.generic_sex_noise()
 
@@ -37,7 +37,7 @@
 /datum/sex_action/pistoljob/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	user.visible_message(span_warning("[user] stops pistol-fucking [target]."))
 
-  /datum/sex_action/footjob/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
+  /datum/sex_action/pistoljob/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(target.sexcon.finished_check())
 		return TRUE
 	return FALSE
