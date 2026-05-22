@@ -1,8 +1,8 @@
 /datum/sex_action/miscellaneous/pistoljob
 	name = "Prod mouth with pistol"
 	check_same_tile = FALSE
-	intensity = 2
-	debug_erp_panel_verb = FALSE
+	category = SEX_CATEGORY_PENETRATE
+	user_sex_part = SEX_PART_JAWS
 
 /datum/sex_action/miscellaneous/pistoljob/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
@@ -12,7 +12,7 @@
 		return FALSE
 	return TRUE
 
-/datum/sex_action/miscellaneous/pistoljob/can_do_sex(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/miscellaneous/pistoljob/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -28,10 +28,12 @@
 
 /datum/sex_action/pistoljob/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] forces the pistol into [target]."))
-	user.sexcon.generic_sex_noise()
+	user.sexcon.oralcourse_noise(user)
 
-	user.sexcon.perform_sex_action(target, 2, 4, TRUE)
-
+	user.sexcon.perform_sex_action(target, 2, 0, TRUE)
+	if(!target.sexcon.considered_limp())
+		user.sexcon.perform_deepthroat_oxyloss(user, 1.3)
+		
 	target.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/pistoljob/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
