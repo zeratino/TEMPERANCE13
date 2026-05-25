@@ -1,7 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "abt" = (
 /obj/structure/mineral_door/wood/wardoor,
-/obj/effect/loretile/code4,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/cave/warmachine)
 "aby" = (
@@ -1479,11 +1478,6 @@
 /obj/item/reagent_containers/glass/bucket/pot,
 /turf/open/floor/rogue/risvon,
 /area/rogue/indoors/risvonbase)
-"bno" = (
-/obj/structure/mineral_door/wood/wardoor,
-/obj/effect/loretile/code6,
-/turf/open/floor/rogue/warmetal,
-/area/rogue/under/cave/warmachine)
 "bnF" = (
 /obj/structure/closet/crate/roguecloset/metal/metal2,
 /obj/effect/spawner/lootdrop/medicines,
@@ -3467,12 +3461,6 @@
 /obj/effect/landmark/start/oficirolate,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/risvonbase)
-"deK" = (
-/obj/structure/dispenser{
-	pixel_y = 19
-	},
-/turf/open/floor/rogue/warmetal,
-/area/rogue/under/cave/warmachine)
 "deP" = (
 /turf/open/water/bath/pool{
 	dir = 5
@@ -5653,10 +5641,6 @@
 /area/rogue/outdoors/beach/forest/south)
 "fhs" = (
 /obj/structure/fluff/walldeco/chains,
-/obj/structure/fluff/walldeco/portrait{
-	pixel_y = 0;
-	pixel_x = -32
-	},
 /turf/open/floor/rogue/brown,
 /area/rogue/indoors/shelter/town)
 "fhX" = (
@@ -8000,9 +7984,6 @@
 "htI" = (
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors)
-"htU" = (
-/turf/closed/mineral/random/rogue,
-/area/rogue/under/cave/warmachine)
 "htV" = (
 /obj/structure/flora/roguetree/burnt{
 	pixel_y = 14;
@@ -8341,13 +8322,6 @@
 "hJa" = (
 /turf/closed/wall/mineral/rogue/risvon/end,
 /area/rogue/indoors/risvonbasebar)
-"hJn" = (
-/obj/structure/chair/wood/rogue/generic2{
-	dir = 2
-	},
-/obj/effect/landmark/start/maid,
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/shelter/town)
 "hJz" = (
 /turf/open/floor/rogue/rooftop/green/north,
 /area/rogue/outdoors/risvon)
@@ -8610,11 +8584,11 @@
 /area/rogue/outdoors)
 "hWn" = (
 /obj/structure/bars/grille,
-/obj/effect/spawner/lootdrop/hightiergunsoutlet,
-/obj/effect/spawner/lootdrop/hightiergunsoutlet,
 /obj/structure/closet/crate/roguecloset/metal/metal2{
 	plane = -5
 	},
+/obj/item/roguecoin/gold/pile,
+/obj/item/roguecoin/gold/pile,
 /turf/open/floor/rogue/warmetal,
 /area/rogue/under/cave/warmachine)
 "hWA" = (
@@ -10266,13 +10240,6 @@
 	},
 /turf/open/floor/rogue/grassyel,
 /area/rogue/under/cave/warmachine)
-"jFq" = (
-/obj/structure/chair/bench/comfychair{
-	dir = 1
-	},
-/obj/effect/landmark/start/displaced,
-/turf/open/floor/rogue/carpet,
-/area/rogue/indoors/shelter/town)
 "jFC" = (
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/twig,
@@ -10911,13 +10878,6 @@
 	dir = 2
 	},
 /area/rogue/indoors/shelter/town)
-"kiN" = (
-/obj/structure/chair/wood/rogue/generic2{
-	dir = 2
-	},
-/obj/effect/landmark/start/headhouse,
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/shelter/town)
 "kjb" = (
 /obj/effect/decal/remains/human{
 	color = "#808080"
@@ -10982,12 +10942,6 @@
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/rogue/warmetal,
 /area/rogue/outdoors/perserdun)
-"knL" = (
-/obj/structure/dispenser{
-	pixel_y = 19
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/under/cave/warmachine)
 "kof" = (
 /turf/open/water/river/flow,
 /area/rogue/outdoors/beach/forest/south)
@@ -11733,8 +11687,6 @@
 /obj/effect/landmark/start/villagerlate,
 /obj/effect/landmark/start/bulwarklate,
 /obj/effect/landmark/start/hierarchlate,
-/obj/effect/landmark/start/displacedlate,
-/obj/effect/landmark/start/maidlate,
 /obj/structure/far_travel,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
@@ -13098,13 +13050,6 @@
 /obj/effect/decal/cleanable/dirt/grime/grime4,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/perserdunbase)
-"mqL" = (
-/obj/structure/table/wood/long_table/mid/alt,
-/obj/structure/fluff/walldeco/portrait{
-	pixel_y = 32
-	},
-/turf/open/floor/rogue/carpet/lord/center,
-/area/rogue/indoors/shelter/town)
 "mqN" = (
 /obj/structure/fluff/railing/wood/north{
 	dir = 4;
@@ -14593,7 +14538,7 @@
 /obj/structure/closet/crate/roguecloset/metal{
 	pixel_x = 11
 	},
-/obj/item/gun/ballistic/rifle/repeater/jackal,
+/obj/effect/spawner/lootdrop/general_loot_hi,
 /turf/open/floor/rogue/warmetal,
 /area/rogue/under/cave/warmachine)
 "nOL" = (
@@ -14603,7 +14548,7 @@
 "nOT" = (
 /obj/structure/spider/stickyweb/mirespider,
 /mob/living/simple_animal/hostile/retaliate/rogue/mirespider,
-/obj/effect/spawner/lootdrop/normalgunsoutlet,
+/obj/item/roguecoin/silver/pile,
 /turf/open/floor/rogue/warmetal,
 /area/rogue/under/cave/warmachine)
 "nPD" = (
@@ -14818,11 +14763,6 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/risvonbase)
-"nZF" = (
-/obj/structure/mineral_door/wood/wardoor,
-/obj/effect/loretile/code5,
-/turf/open/floor/rogue/warmetal,
-/area/rogue/under/cave/warmachine)
 "oab" = (
 /obj/structure/hotspring/border/five,
 /turf/open/floor/rogue/grasscold,
@@ -16532,7 +16472,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/caves)
 "pwz" = (
-/obj/effect/spawner/lootdrop/normalgunsoutlet,
+/obj/item/roguecoin/silver/pile,
 /turf/open/floor/rogue/warmetal,
 /area/rogue/under/cave/warmachine)
 "pwT" = (
@@ -20128,12 +20068,6 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/risvon,
 /area/rogue/indoors/risvonbase)
-"sWK" = (
-/obj/structure/fluff/walldeco/saturn{
-	pixel_y = -32
-	},
-/turf/open/floor/rogue/carpet,
-/area/rogue/indoors/shelter/town)
 "sWW" = (
 /obj/structure/bars/passage/shutter{
 	redstone_id = "hospital"
@@ -21286,13 +21220,6 @@
 /obj/item/roguecoin/gold/virtuepile,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/warmachine)
-"tXv" = (
-/obj/structure/dispenser{
-	pixel_y = 19
-	},
-/obj/effect/decal/cleanable/dirt/grime/dust,
-/turf/open/floor/rogue/warmetal,
-/area/rogue/under/cave/warmachine)
 "tXS" = (
 /turf/closed/wall/mineral/rogue/scary/vertical,
 /area/rogue)
@@ -21569,7 +21496,7 @@
 /area/rogue/outdoors/town)
 "uhu" = (
 /obj/structure/table/wood/perserdunsmall/smallmetal,
-/obj/item/gun/ballistic/revolver/pace,
+/obj/effect/spawner/lootdrop/valuable_candle_spawner,
 /turf/open/floor/rogue/warmetal,
 /area/rogue/under/cave/warmachine)
 "uhA" = (
@@ -22379,7 +22306,7 @@
 /area/rogue/outdoors/beach/forest/south)
 "uTT" = (
 /obj/structure/spider/stickyweb/mirespider,
-/obj/effect/spawner/lootdrop/normalgunsoutlet,
+/obj/effect/spawner/lootdrop/valuable_clutter_spawner,
 /turf/open/floor/rogue/warmetal,
 /area/rogue/under/cave/warmachine)
 "uUm" = (
@@ -23772,7 +23699,7 @@
 /obj/structure/closet/crate/roguecloset/metal{
 	pixel_x = 11
 	},
-/obj/effect/spawner/lootdrop/normalgunsoutlet,
+/obj/effect/spawner/lootdrop/valuable_tableware_spawner,
 /turf/open/floor/rogue/warmetal,
 /area/rogue/under/cave/warmachine)
 "wpb" = (
@@ -24428,12 +24355,10 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/beach/forest/south)
 "wYs" = (
-/obj/structure/mineral_door/perserdoor/bulkhead{
-	lockid = "royal";
-	locked = 1
-	},
-/turf/open/floor/rogue/brown,
-/area/rogue/indoors/shelter/town)
+/obj/structure/chair/bench/church/smallbench,
+/obj/effect/spawner/lootdrop/peasant_weapon_spawner,
+/turf/open/floor/rogue/warmetal,
+/area/rogue/under/cave/warmachine)
 "wYv" = (
 /turf/closed/wall/mineral/rogue/risvon/tshape{
 	dir = 8
@@ -64396,7 +64321,7 @@ vbM
 vbM
 vbM
 hdl
-knL
+tgv
 tgv
 tgv
 tgv
@@ -64713,7 +64638,7 @@ vbM
 vbM
 vbM
 mbR
-deK
+aYN
 hpg
 hpg
 hpg
@@ -69225,7 +69150,7 @@ gPO
 htV
 jEZ
 gPO
-bno
+fPr
 aYN
 aYN
 aYN
@@ -73764,7 +73689,7 @@ uKs
 mqk
 mqk
 mqk
-nZF
+fPr
 njr
 hpg
 fPr
@@ -75268,7 +75193,7 @@ vbM
 vbM
 vbM
 mbR
-tXv
+mqk
 mqk
 mqk
 mqk
@@ -193243,9 +193168,9 @@ asF
 aYN
 aYN
 hdl
-woJ
+cPp
 aYN
-hFc
+wYs
 hFc
 aYN
 nMv
@@ -194452,7 +194377,7 @@ aYN
 vun
 hdl
 eOp
-htU
+aYN
 ctT
 mqk
 uzn
@@ -225380,7 +225305,7 @@ bac
 tIc
 wLo
 wLo
-wYs
+wLo
 asu
 asu
 asu
@@ -226285,13 +226210,13 @@ bac
 bac
 tIc
 eNQ
-hJn
+vdw
 xZk
 tIc
 asu
 tIc
 eNQ
-hJn
+vdw
 xZk
 tIc
 rpm
@@ -227493,13 +227418,13 @@ mze
 bac
 tIc
 lDR
-kiN
+vdw
 xZk
 tIc
 asu
 tIc
 eNQ
-hJn
+vdw
 xZk
 tIc
 ndr
@@ -372449,7 +372374,7 @@ wzK
 wzK
 wzK
 tIc
-mqL
+bmD
 igY
 igY
 xMw
@@ -377293,7 +377218,7 @@ oxk
 uXp
 uXp
 uXp
-sWK
+uXp
 icM
 tYx
 tYx
@@ -377897,7 +377822,7 @@ xeg
 uXp
 uXp
 xOI
-jFq
+aTV
 tIc
 mWK
 mWK
