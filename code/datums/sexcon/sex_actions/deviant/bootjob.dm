@@ -26,7 +26,7 @@
 	user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] humps into [target]'s boot."))
 	user.sexcon.outercourse_noise(target)
 
-user.sexcon.perform_sex_action(user, 2, 0.5, TRUE)
+	user.sexcon.perform_sex_action(user, 2, 0.5, TRUE)
 	user.sexcon.handle_passive_ejaculation()
 
 /datum/sex_action/bootjob/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
