@@ -31,7 +31,7 @@
 	user.sexcon.generic_sex_noise()
 
 	user.sexcon.perform_sex_action(target, 2, 4, TRUE)
-    target.sexcon.handle_passive_ejaculation(user)
+	target.sexcon.handle_passive_ejaculation(user)
 
 /datum/sex_action/stockjob/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	user.visible_message(span_warning("[user] stops grinding their [user.get_active_held_item()] against [target]."))
