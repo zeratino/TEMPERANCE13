@@ -36,7 +36,7 @@
 /datum/sex_action/stockjob/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	user.visible_message(span_warning("[user] stops grinding their [user.get_active_held_item()] against [target]."))
 
-  /datum/sex_action/stockjob/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/sex_action/stockjob/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(target.sexcon.finished_check())
 		return TRUE
 	return FALSE
