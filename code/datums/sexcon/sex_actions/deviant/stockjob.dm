@@ -17,8 +17,8 @@
 	if(user == target)
 		return FALSE
 	var/obj/item/held_item = user.get_active_held_item()
-	if(!istype(held_item, /obj/item/gun/ballistic) && istype(held_item, /obj/item/gun/ballistic/pistol))
-		return FALSE
+	if(istype(held_item, /obj/item/gun/ballistic))
+		return TRUE
 	return TRUE
 
 /datum/sex_action/stockjob/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
