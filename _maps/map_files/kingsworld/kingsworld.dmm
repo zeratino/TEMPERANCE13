@@ -24269,13 +24269,6 @@
 /obj/structure/fluff/grindwheel,
 /turf/open/floor/rogue/perdun,
 /area/rogue/indoors/perserdunbase)
-"vAE" = (
-/obj/structure/fluff/walldeco/rivbattleflag{
-	pixel_y = -32;
-	name = "standard"
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/risvonbase)
 "vAX" = (
 /obj/structure/rogue/trophy/deer,
 /obj/structure/handcart{
@@ -343681,7 +343674,7 @@ ris
 eQR
 kHi
 udT
-vAE
+uow
 mHV
 upZ
 upZ
