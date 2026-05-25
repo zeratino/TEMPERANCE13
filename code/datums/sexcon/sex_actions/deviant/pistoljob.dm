@@ -1,8 +1,8 @@
 /datum/sex_action/miscellaneous/pistoljob
 	name = "Prod mouth with firearm"
-	check_same_tile = FALSE
 	category = SEX_CATEGORY_PENETRATE
 	user_sex_part = SEX_PART_JAWS
+	target_sex_part = SEX_PART_JAWS
 
 /datum/sex_action/miscellaneous/pistoljob/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
