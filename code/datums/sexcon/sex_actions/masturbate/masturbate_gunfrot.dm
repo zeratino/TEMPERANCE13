@@ -8,7 +8,7 @@
 	if(user != target)
 		return FALSE
 	var/obj/item/held_item = user.get_active_held_item()
-	if(!held_item || !istype(held_item, /obj/item/gun/ballistic/revolver, /obj/item/gun/ballistic/rifle, /obj/item/gun/ballistic/shotgun))
+	if(!istype(held_item, /obj/item/gun/ballistic))
 		return FALSE
 	return TRUE
 
