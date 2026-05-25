@@ -12,10 +12,9 @@
 /datum/sex_action/bootjob/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-	if(!check_location_accessible(user, user, BODY_ZONE_PRECISE_GROIN, TRUE))
-		return FALSE
 	if(!user.getorganslot(ORGAN_SLOT_PENIS, ORGAN_SLOT_VAGINA))
 		return FALSE
+	return TRUE
 
 /datum/sex_action/bootjob/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	user.visible_message(span_warning("[user] straddles [target]'s boots and begins to grind against them!"))
