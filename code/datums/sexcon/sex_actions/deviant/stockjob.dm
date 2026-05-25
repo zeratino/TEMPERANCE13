@@ -24,7 +24,7 @@
 	return TRUE
 
 /datum/sex_action/stockjob/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
-		user.visible_message(span_warning"[user] begins grinding the stock of [user.p_their()] [user.get_active_held_item()] into [target]'s groin..."")
+		user.visible_message(span_warning"[user] begins grinding the stock of [user.p_their()] [user.get_active_held_item()] into [target]'s groin...")
 
 /datum/sex_action/stockjob/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] grinds their [user.get_active_held_item()] against [target]'s groin."))
