@@ -8,6 +8,7 @@
 	var/obj/item/held_item = user.get_active_held_item()
 	if(!istype(held_item, /obj/item/gun/ballistic) && istype(held_item, /obj/item/gun/ballistic/pistol))
 		return FALSE
+	return TRUE
 
 /datum/sex_action/miscellaneous/stockjob/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
@@ -18,6 +19,7 @@
 	var/obj/item/held_item = user.get_active_held_item()
 	if(!istype(held_item, /obj/item/gun/ballistic) && istype(held_item, /obj/item/gun/ballistic/pistol))
 		return FALSE
+	return TRUE
 
 /datum/sex_action/stockjob/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 		user.visible_message(span_warning("[user] begins grinding the stock of [user.p_their()] [user.get_active_held_item()] into [target]'s groin..."))
