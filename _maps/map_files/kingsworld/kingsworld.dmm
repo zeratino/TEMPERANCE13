@@ -1910,6 +1910,14 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/cave/warmachine)
+"bCF" = (
+/obj/structure/fluff/walldeco/rivbattleflag{
+	pixel_y = -32;
+	name = "standard";
+	pixel_x = -32
+	},
+/turf/open/floor/rogue/risvon,
+/area/rogue/indoors/risvonbase)
 "bCI" = (
 /obj/structure/bed/rogue/inn{
 	dir = 8
@@ -6706,6 +6714,14 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
+"fSD" = (
+/obj/structure/fluff/railing/sandbag,
+/obj/structure/fluff/walldeco/rivbattleflag{
+	pixel_y = -32;
+	name = "standard"
+	},
+/turf/open/floor/rogue/risvon,
+/area/rogue/indoors/risvonbase)
 "fSP" = (
 /obj/item/roguebin/water,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -8090,6 +8106,13 @@
 	pixel_x = 23
 	},
 /turf/closed/wall/mineral/rogue/risvon/long,
+/area/rogue/indoors/risvonbase)
+"hjU" = (
+/obj/structure/fluff/walldeco/rivbattleflag{
+	pixel_y = -32;
+	name = "standard"
+	},
+/turf/open/floor/rogue/risvon,
 /area/rogue/indoors/risvonbase)
 "hkN" = (
 /obj/structure/chair/bench/comfychair{
@@ -9888,6 +9911,13 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/shelter/town/sargoth)
+"iOb" = (
+/obj/structure/fluff/walldeco/rivbattleflag{
+	pixel_y = 32;
+	name = "standard"
+	},
+/turf/open/floor/rogue/risvon,
+/area/rogue/indoors/risvonbase)
 "iOl" = (
 /turf/closed/wall/mineral/rogue/scary/end,
 /area/rogue/under/cave/warmachine)
@@ -19012,9 +19042,6 @@
 	pixel_y = 1;
 	pixel_x = 21
 	},
-/obj/structure/fluff/walldeco/ubk{
-	pixel_y = -32
-	},
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/exposed/risvonbase)
 "qTf" = (
@@ -20900,6 +20927,10 @@
 "sIx" = (
 /obj/structure/fluff/railing/border/north{
 	dir = 2
+	},
+/obj/structure/fluff/walldeco/rivbattleflag{
+	pixel_x = 32;
+	name = "standard"
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/risvonbase)
@@ -24238,6 +24269,13 @@
 /obj/structure/fluff/grindwheel,
 /turf/open/floor/rogue/perdun,
 /area/rogue/indoors/perserdunbase)
+"vAE" = (
+/obj/structure/fluff/walldeco/rivbattleflag{
+	pixel_y = -32;
+	name = "standard"
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/risvonbase)
 "vAX" = (
 /obj/structure/rogue/trophy/deer,
 /obj/structure/handcart{
@@ -24331,6 +24369,10 @@
 "vIF" = (
 /obj/structure/fluff/railing/border/north{
 	dir = 2
+	},
+/obj/structure/fluff/walldeco/rivbattleflag{
+	pixel_x = 32;
+	name = "standard"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/risvonbase)
@@ -24579,6 +24621,14 @@
 /obj/structure/roguetent,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/risvon)
+"vUv" = (
+/obj/machinery/light/rogue/wallfire/candle/r,
+/obj/structure/fluff/walldeco/rivbattleflag{
+	pixel_x = -32;
+	name = "standard"
+	},
+/turf/open/floor/rogue/risvon,
+/area/rogue/indoors/risvonbase)
 "vVa" = (
 /obj/structure/chair/bench/couch,
 /obj/structure/rogue/trophy/deer,
@@ -25037,6 +25087,17 @@
 	},
 /turf/open/floor/rogue/perdun,
 /area/rogue/indoors/perserdunbase)
+"wrH" = (
+/obj/structure/fluff/railing/sandbag{
+	dir = 1;
+	pixel_y = 11
+	},
+/obj/structure/fluff/walldeco/rivbattleflag{
+	pixel_y = 32;
+	name = "standard"
+	},
+/turf/open/floor/rogue/risvon,
+/area/rogue/indoors/risvonbase)
 "wrK" = (
 /obj/effect/decal/cleanable/dirt/grime/grime3,
 /turf/open/floor/rogue/med,
@@ -26299,6 +26360,10 @@
 	},
 /obj/item/storage/belt/rogue/pouch/ammobag{
 	pixel_y = -7
+	},
+/obj/structure/fluff/walldeco/rivbattleflag{
+	pixel_y = -32;
+	name = "standard"
 	},
 /turf/open/floor/rogue/risvon,
 /area/rogue/indoors/risvonbase)
@@ -181441,9 +181506,9 @@ bqp
 wby
 bys
 goG
-lSw
+fSD
 sUh
-egz
+tml
 tml
 czu
 qIM
@@ -190189,7 +190254,7 @@ bHz
 bHz
 qSG
 sUh
-caA
+wrH
 kfC
 kfC
 kfC
@@ -191395,9 +191460,9 @@ bHz
 fUV
 bHz
 bHz
-jZR
+bHz
 sUh
-caA
+wrH
 kfC
 kfC
 kfC
@@ -192288,7 +192353,7 @@ aKt
 ihx
 sXL
 ihx
-ihx
+bCF
 oim
 yjE
 bDE
@@ -343616,7 +343681,7 @@ ris
 eQR
 kHi
 udT
-uow
+vAE
 mHV
 upZ
 upZ
@@ -346922,7 +346987,7 @@ uLE
 uLE
 uLE
 scx
-ihx
+iOb
 ihx
 ihx
 ihx
@@ -347220,7 +347285,7 @@ ihx
 ihx
 sUh
 ihx
-qZW
+vUv
 ihx
 ihx
 yay
@@ -349036,7 +349101,7 @@ ihx
 qVu
 ihx
 ihx
-ihx
+hjU
 sUh
 upZ
 upZ
@@ -350244,7 +350309,7 @@ ihx
 nss
 ihx
 ihx
-ihx
+hjU
 sUh
 upZ
 upZ
