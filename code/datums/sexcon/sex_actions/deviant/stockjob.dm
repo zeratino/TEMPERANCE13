@@ -6,7 +6,7 @@
 	if(user == target)
 		return FALSE
 	var/obj/item/held_item = user.get_active_held_item()
-	if(!held_item || !istype(held_item, /obj/item/gun/ballistic/rifle, /obj/item/gun/ballistic/shotgun))
+	if(!held_item || !istype(held_item, /obj/item/gun/ballistic) && istype(held_item, /obj/item/gun/ballistic/pistol)
 		return FALSE
 
 /datum/sex_action/miscellaneous/stockjob/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
@@ -16,7 +16,7 @@
 	if(user == target)
 		return FALSE
 	var/obj/item/held_item = user.get_active_held_item()
-	if(!held_item || !istype(held_item, /obj/item/gun/ballistic/rifle, /obj/item/gun/ballistic/shotgun))
+	if(!istype(held_item, /obj/item/gun/ballistic) && istype(held_item, /obj/item/gun/ballistic/pistol))
 		return FALSE
 
 /datum/sex_action/stockjob/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
