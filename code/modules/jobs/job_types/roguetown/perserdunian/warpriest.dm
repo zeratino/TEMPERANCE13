@@ -78,7 +78,7 @@
 	H.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/whips, 3, TRUE) //flagellant
+	H.adjust_skillrank(/datum/skill/combat/whips, 4, TRUE) //flagellant
 	H.change_stat("strength", -2)
 	H.change_stat("constitution", 3)
 	H.change_stat("endurance", 3)
