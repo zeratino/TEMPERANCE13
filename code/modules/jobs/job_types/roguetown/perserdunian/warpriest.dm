@@ -60,6 +60,7 @@
 		/obj/item/ammo_box/handfuls/mercy,
 		/obj/item/ammo_box/handfuls/mercy,
 		/obj/item/clothing/mask/rogue/gasmask/perserdunmask, // they start with it in their backpack so they don't look dumb in the lobby lol
+		/obj/item/weapon/rogueweapon/whip,
 	)
 
 	H.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
@@ -77,6 +78,7 @@
 	H.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whips, 3, TRUE) //flagellant
 	H.change_stat("strength", -2)
 	H.change_stat("constitution", 3)
 	H.change_stat("endurance", 3)
