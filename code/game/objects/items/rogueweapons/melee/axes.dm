@@ -190,6 +190,30 @@
 			if("onbelt")
 				return list("shrink" = 0.5,"sx" = 1,"sy" = -1,"nx" = 1,"ny" = -1,"wx" = 4,"wy" = -1,"ex" = -1,"ey" = -1,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 8,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0,)
 
+//bullet parrying proc. Its Aura.
+/obj/item/rogueweapon/stoneaxe/oath/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the projectile", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, args)
+	var/mob/attacker
+	var/obj/item/I
+	if(attack_type == THROWN_PROJECTILE_ATTACK)
+		if(istype(hitby, /obj/item)) // can't trust mob -> item assignments
+			I = hitby
+		if(I?.thrownby)
+			attacker = I.thrownby
+	if(attack_type == PROJECTILE_ATTACK)
+		var/obj/projectile/P = hitby
+		if(P?.firer)
+			attacker = P.firer
+	if(attacker && istype(attacker))
+		if(!owner.can_see_cone(attacker))
+			return FALSE
+		if(prob(50))
+			owner.visible_message(span_danger("[owner] swings [src] forward in an arc, swatting away the [hitby] with [src]!"))
+			src.remove_bintegrity(1) // Shouldnt be terribly punishing, but its still not infinite
+			playsound(src, BLADEWOOSH_LARGE, 100, TRUE, -1)
+			return TRUE
+	return FALSE
+
 /obj/item/rogueweapon/stoneaxe/woodcut
 	name = "axe"
 	force = 20
