@@ -208,7 +208,7 @@
 		if(!owner.can_see_cone(attacker))
 			return FALSE
 		if(prob(50))
-			owner.visible_message(span_danger("[owner] swings [src] forward in an arc, swatting away the [hitby] with [src]!"))
+			owner.visible_message(span_danger("[owner] swings [src] forward in an arc, swatting the [hitby] away!"))
 			src.remove_bintegrity(1) // Shouldnt be terribly punishing, but its still not infinite
 			playsound(src, BLADEWOOSH_LARGE, 100, TRUE, -1)
 			return TRUE
