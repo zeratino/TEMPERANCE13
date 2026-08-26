@@ -16,6 +16,12 @@
 "aj" = (
 /turf/open/floor/rogue/tile/bath,
 /area/rogue)
+"an" = (
+/obj/structure/fluff/statue/tdummy{
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/grassred,
+/area/rogue)
 "ao" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/machinery/light/rogue/wallfire/candle/l,
@@ -89,6 +95,10 @@
 "bk" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/rogue/cobble,
+/area/rogue)
+"bs" = (
+/obj/structure/flora/roguetree/stump/trenches,
+/turf/open/floor/rogue/dirt,
 /area/rogue)
 "bw" = (
 /turf/closed/wall/mineral/rogue/risvon/tshape/dir1,
@@ -991,6 +1001,14 @@
 	},
 /obj/effect/decal/remains/corpse/body/body3,
 /turf/open/floor/rogue/cobble/mossy,
+/area/rogue)
+"kY" = (
+/obj/structure/crater{
+	dir = 4;
+	pixel_x = -19;
+	pixel_y = -12
+	},
+/turf/open/floor/rogue/dirt,
 /area/rogue)
 "kZ" = (
 /obj/machinery/light/rogue/wallfire/candle{
@@ -1947,6 +1965,10 @@
 	},
 /obj/structure/curtain/black,
 /turf/closed/wall/mineral/rogue/risvon,
+/area/rogue)
+"vZ" = (
+/obj/structure/flora/roguetree/trenches,
+/turf/open/floor/rogue/dirt,
 /area/rogue)
 "wb" = (
 /obj/structure/mineral_door/bars{
@@ -3401,6 +3423,10 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue)
+"Mk" = (
+/obj/effect/decal/remains/corpse/body,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
 "Mm" = (
 /obj/effect/decal/cobbleedge{
 	pixel_y = -25;
@@ -4048,6 +4074,10 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue)
+"Vk" = (
+/obj/structure/flora/mushroomcluster,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
 "Vm" = (
 /obj/structure/stairs{
 	dir = 8
@@ -4154,6 +4184,10 @@
 	},
 /turf/open/floor/rogue/risvon,
 /area/rogue)
+"Ws" = (
+/obj/structure/flora/roguetree/trenchburnt,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
 "WD" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
@@ -4252,6 +4286,10 @@
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/risvon,
+/area/rogue)
+"Xg" = (
+/obj/structure/flora/roguetree/burnt,
+/turf/open/floor/rogue/dirt,
 /area/rogue)
 "Xj" = (
 /obj/structure/table/wood/long_table/mid,
@@ -4447,6 +4485,10 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue)
+"ZC" = (
+/obj/structure/flora/rogueshroom/trenches,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
 "ZD" = (
 /obj/effect/decal/cobbleedge{
 	dir = 9;
@@ -4470,6 +4512,10 @@
 "ZH" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
 /turf/open/floor/rogue/church,
+/area/rogue)
+"ZJ" = (
+/obj/structure/flora/tinymushrooms,
+/turf/open/floor/rogue/dirt,
 /area/rogue)
 "ZL" = (
 /obj/effect/decal/mossy{
@@ -100258,7 +100304,7 @@ cB
 vU
 pA
 pA
-Cr
+an
 pA
 PW
 cH
@@ -104941,7 +104987,7 @@ YW
 YW
 YW
 YW
-YW
+Mk
 YW
 YW
 ta
@@ -104961,7 +105007,7 @@ YW
 YW
 PW
 YW
-YW
+Xg
 YW
 YW
 YW
@@ -105065,7 +105111,7 @@ YW
 YW
 YW
 YW
-YW
+kY
 YW
 YW
 YW
@@ -105167,7 +105213,7 @@ YW
 YB
 YW
 YW
-YW
+Xg
 YW
 YW
 YW
@@ -105258,7 +105304,7 @@ YW
 YW
 YW
 YW
-YW
+bs
 PW
 YW
 YW
@@ -105358,7 +105404,7 @@ YW
 YW
 YW
 YW
-YW
+Vk
 YW
 YW
 PW
@@ -105568,12 +105614,12 @@ Ub
 PW
 YW
 YW
+Ws
 YW
 YW
 YW
 YW
-YW
-YW
+vZ
 YW
 PW
 PW
@@ -105976,7 +106022,7 @@ YW
 YW
 PW
 PW
-YW
+ZJ
 YW
 DX
 DX
@@ -106388,7 +106434,7 @@ YW
 YW
 YW
 YW
-YW
+ZC
 YW
 YW
 YW
@@ -106912,7 +106958,7 @@ YW
 YW
 YW
 YW
-YW
+ZJ
 YW
 YW
 to
