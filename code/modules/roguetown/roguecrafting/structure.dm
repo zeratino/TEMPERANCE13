@@ -867,34 +867,3 @@
 
 
 /// temperance stuff
-
-/datum/crafting_recipe/roguetown/structure/sandbag
-	name = "sandbags (1 sandbag)"
-	result = /obj/structure/fluff/railing/sandbag
-	reqs = list(/obj/item/sandbag = 1)
-	ontile = TRUE
-	verbage_simple = "set up"
-	verbage = "sets up"
-	buildsame = TRUE
-	craftdiff = 0
-	craftsound = 'sound/foley/softbuild.ogg'
-
-/datum/crafting_recipe/roguetown/turfs/wood/barbedwire // doesnt actually make a wall - but idgaf
-	name = "barbed wire (1 barbed wire)"
-	result = /obj/structure/barbedwire
-	reqs = list(/obj/item/barbedwire = 1)
-	craftdiff = 0
-	verbage_simple = "set up"
-	verbage = "sets up"
-	skillcraft = /datum/skill/craft/crafting
-	craftsound = 'sound/foley/barbedwire.ogg'
-
-/datum/crafting_recipe/roguetown/structure/landmine
-	name = "landmine (1 disarmed mine)"
-	result = /obj/effect/mine/explosive
-	reqs = list(/obj/item/landmine = 1)
-	craftdiff = 0
-	verbage_simple = "set up"
-	verbage = "sets up"
-	skillcraft = /datum/skill/craft/crafting
-	craftsound = 'sound/foley/mine_arm.ogg'

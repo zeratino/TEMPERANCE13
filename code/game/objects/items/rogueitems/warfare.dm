@@ -66,3 +66,64 @@
 					qdel(src)
 			else
 				to_chat(usr, span_warning("This can only be planted in the dirt!"))
+
+/obj/item/landmine/afterattack(var/atom/A, var/mob/user, proximity)
+	..()
+	if(proximity == 1)
+		if(isturf(A) && ismob(user))
+			var/turf/T = A
+			var/mob/M = user
+			for(var/obj/structure/L in T)
+				to_chat(user, span_warning("There's already a landmine here!"))
+				return
+			playsound(loc,'sound/items/dig_shovel.ogg', 100, TRUE)
+			M.visible_message(span_notice("[user] begins to plant [src]..."), span_notice("You begin to plant [src]..."))
+			if(do_after(user, 3 SECONDS, target = T))
+				playsound(loc,'sound/items/empty_shovel.ogg', 100, TRUE)
+				M.visible_message(span_notice("[user] plants [src] in the ground."), span_notice("You finish planting [src]."))
+				new /obj/effect/mine/explosive(T)
+				qdel(src)
+			else
+				return
+
+/obj/item/sandbag/afterattack(var/atom/A, var/mob/user, proximity)
+	..()
+	if(proximity == 1)
+		if(isturf(A) && ismob(user))
+			var/turf/T = A
+			var/mob/M = user
+			for(var/obj/structure/S in T)
+				if(user.dir == S.dir)
+					to_chat(user, span_warning("There's already something there!"))
+					return
+			M.visible_message(span_notice("[user] begins to set up the [src]..."), span_notice("You begin to set up the [src]..."))
+			if(do_after(user, 1 SECONDS, target = T))
+				playsound(loc,'sound/foley/softbuild.ogg', 100, TRUE)
+				M.visible_message(span_notice("[user] sets up the [src]."), span_notice("You finish setting up the [src]."))
+				var/obj/structure/fluff/railing/sandbag/B = new(T)
+				B.dir = user.dir
+				qdel(src)
+			else
+				return
+
+/obj/item/barbedwire/afterattack(var/atom/A, var/mob/user, proximity)
+	..()
+	if(proximity == 1)
+		if(isturf(A) && ismob(user))
+			var/turf/T = A
+			var/mob/M = user
+			for(var/obj/structure/W in T)
+				to_chat(user, span_warning("There's already something there!"))
+				return
+			M.visible_message(span_notice("[user] begins to set up the line of [src]..."), span_notice("You begin to set up the line of [src]..."))
+			if(do_after(user, 1 SECONDS, target = T))
+				playsound(loc,'sound/foley/barbedwire.ogg', 100, TRUE)
+				M.visible_message(span_notice("[user] sets up the line of [src]."), span_notice("You finish setting up the line of [src]."))
+				new /obj/structure/barbedwire(T)
+				qdel(src)
+			else
+				return
+
+
+
+
