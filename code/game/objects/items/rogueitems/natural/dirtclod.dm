@@ -45,6 +45,7 @@
 /obj/item/natural/dirtclod/attackby(obj/item/rogueweapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/rogueweapon/shovel))
 		var/obj/item/rogueweapon/shovel/C = W
+		var/turf/T = get_turf(src)
 		if(!C.heldclod && user.used_intent.type == /datum/intent/shovelscoop)
 			playsound(loc,'sound/items/dig_shovel.ogg', 100, TRUE)
 			src.forceMove(C)
@@ -52,17 +53,14 @@
 			C.update_icon()
 			return
 		if(C.heldclod)
+			if(locate(/obj/structure/) in T)
+				to_chat(user, span_warning("There is no more space."))
+				return
+			if(istype(T, /turf/open/water/))
+				to_chat(user, span_warning("You can't dig brustwehrs on water."))
+				return		
 			if(C.working)
 				return
-			if((
-				locate(/obj/structure/barricade/brustwehr) || \
-				locate(/obj/structure/fluff/railing/sandbag)) in src.loc.contents \
-				)
-				to_chat(user, "\red There is no more space.")
-				return 0
-			if(istype(src, /turf/open/water))
-				to_chat(user, "\red You can't dig brustwehrs on water.")
-				return 0
 			C.working = 1
 			playsound(src, 'sound/items/empty_shovel.ogg', 100, 1)
 			to_chat(user, "You begin to dig a brustwehr.")
