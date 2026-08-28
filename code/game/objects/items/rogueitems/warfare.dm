@@ -108,6 +108,7 @@
 				M.visible_message(span_notice("[user] sets up the [src]."), span_notice("You finish setting up the [src]."))
 				var/obj/structure/fluff/railing/sandbag/B = new(T)
 				B.dir = user.dir
+				B.getwlayer(B.dir)
 				qdel(src)
 			else
 				return
