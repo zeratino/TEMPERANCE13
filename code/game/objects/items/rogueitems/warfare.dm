@@ -73,6 +73,9 @@
 		if(isturf(A) && ismob(user))
 			var/turf/T = A
 			var/mob/M = user
+			if(istype(T, /turf/open/water) || istype(T, /turf/open/lava))
+				to_chat(user, span_warning("You can't plant a landmine in there!"))
+				return
 			for(var/obj/structure/L in T)
 				to_chat(user, span_warning("There's already a landmine here!"))
 				return
@@ -92,6 +95,9 @@
 		if(isturf(A) && ismob(user))
 			var/turf/T = A
 			var/mob/M = user
+			if(istype(T, /turf/open/water) || istype(T, /turf/open/lava))
+				to_chat(user, span_warning("You can't set up a sandbag line in there!"))
+				return
 			for(var/obj/structure/S in T)
 				if(user.dir == S.dir)
 					to_chat(user, span_warning("There's already something there!"))
@@ -112,6 +118,9 @@
 		if(isturf(A) && ismob(user))
 			var/turf/T = A
 			var/mob/M = user
+			if(istype(T, /turf/open/water) || istype(T, /turf/open/lava))
+				to_chat(user, span_warning("You can't set up barbed wire line there!"))
+				return
 			for(var/obj/structure/W in T)
 				to_chat(user, span_warning("There's already something there!"))
 				return
