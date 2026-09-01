@@ -46,6 +46,7 @@
 	if(istype(W,/obj/item/rogueweapon/shovel))
 		var/obj/item/rogueweapon/shovel/C = W
 		var/turf/T = get_turf(src)
+		var/obj/structure/S = locate(/obj/structure) in T
 		if(!C.heldclod && user.used_intent.type == /datum/intent/shovelscoop)
 			playsound(loc,'sound/items/dig_shovel.ogg', 100, TRUE)
 			src.forceMove(C)
@@ -54,8 +55,9 @@
 			return
 		if(C.heldclod)
 			if(locate(/obj/structure/) in T)
-				to_chat(user, span_warning("There is no more space."))
-				return
+				if(S && !istype(S,/obj/structure/fluff/railing/sandbag))
+					to_chat(user, span_warning("There is no more space."))
+					return
 			if(istype(T, /turf/open/water/))
 				to_chat(user, span_warning("You can't dig brustwehrs on water."))
 				return		
