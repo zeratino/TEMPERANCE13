@@ -104,12 +104,13 @@
 			if(M_turf && M_turf.z == epicenter.z)
 				var/dist = get_dist(M_turf, epicenter)
 				var/distant_fire_sound = sound(pick(dist_fire_sound))
-				if(dist <= 60 && dist >= 8)
+				var/dir = get_dir(M_turf, epicenter)
+				var/turf/plrsfx = get_ranged_target_turf(M_turf, dir, 6) // DIRECTIONAL SOUND
+				if(dist <= 60 && dist >= 7)
 					if(dist <= 30)
 						far_volume += 40 //if within 30 tiles, make sound louder
-					M.playsound_local(M_turf, null, far_volume, 1, frequency, falloff = 5, S = distant_fire_sound)
+					M.playsound_local(plrsfx, null, far_volume, 1, frequency, falloff = 45, S = distant_fire_sound)
 	playsound(user, pick(fire_sound), fire_sound_volume)
-
 
 /obj/item/gun/proc/shoot_live_shot(mob/living/user as mob|obj, pointblank = 0, mob/pbtarget = null, message = 1)
 	if(recoil)

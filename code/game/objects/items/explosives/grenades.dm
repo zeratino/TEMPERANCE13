@@ -109,6 +109,13 @@
 	uwu.radius = fradius
 	uwu.do_shrapnel(src, target)
 	explosion(src, devastation_range = 0, heavy_impact_range = 1, light_impact_range = 1, flash_range = 0, smoke = FALSE, soundin = pick('sound/misc/explode/arty1.ogg','sound/misc/explode/arty2.ogg','sound/misc/explode/arty3.ogg','sound/misc/explode/arty4.ogg','sound/misc/explode/arty5.ogg','sound/misc/explode/arty6.ogg'))
+	play_positional_sound(
+		get_turf(src),
+		list('sound/misc/explode/explosionclose (1).ogg','sound/misc/explode/explosionclose (2).ogg','sound/misc/explode/explosionclose (3).ogg'),
+		list('sound/misc/explode/explosionfar (1).ogg','sound/misc/explode/explosionfar (2).ogg','sound/misc/explode/explosionfar (3).ogg'),
+		range = 60,
+		close_range = 30
+		)
 	qdel(src)
 
 /*

@@ -79,6 +79,13 @@
 				snuff()
 			else
 				explosion(T, devastation_r, heavy_r, light_r, flame_range = flame_r, smoke = smoker, soundin = pick(explosion_sound))
+				play_positional_sound(
+					get_turf(src),
+					list('sound/misc/explode/explosionclose (1).ogg','sound/misc/explode/explosionclose (2).ogg','sound/misc/explode/explosionclose (3).ogg'),
+					list('sound/misc/explode/explosionfar (1).ogg','sound/misc/explode/explosionfar (2).ogg','sound/misc/explode/explosionfar (3).ogg'),
+					range = 90,
+					close_range = 30
+					)
 				qdel(src)
 		else if(shatter)
 			if(prob(prob2fail))
