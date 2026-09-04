@@ -4,7 +4,7 @@
 #define SHIELD_BLOCK_METAL 	/datum/intent/shield/block/metal
 #define SHIELD_SMASH 		/datum/intent/shield/smash
 #define SHIELD_SMASH_METAL 	/datum/intent/shield/smash/metal
-#define SHIELD_BANG_COOLDOWN (3 SECONDS)
+#define SHIELD_BANG_COOLDOWN (3 SECONDS)	
 
 /obj/item/rogueweapon/shield
 	name = ""
@@ -211,10 +211,10 @@
 	resistance_flags = null
 	flags_1 = CONDUCT_1
 	wdefense = 11
-	coverage = 50
+	coverage = 60
 	attacked_sound = list('sound/combat/parry/shield/metalshield (1).ogg','sound/combat/parry/shield/metalshield (2).ogg','sound/combat/parry/shield/metalshield (3).ogg')
 	parrysound = list('sound/combat/parry/shield/metalshield (1).ogg','sound/combat/parry/shield/metalshield (2).ogg','sound/combat/parry/shield/metalshield (3).ogg')
-	max_integrity = 240
+	max_integrity = 340
 	blade_dulling = DULLING_SHAFT_METAL
 	sellprice = 30
 
