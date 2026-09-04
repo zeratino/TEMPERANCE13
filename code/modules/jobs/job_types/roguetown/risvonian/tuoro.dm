@@ -57,7 +57,7 @@
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
@@ -75,12 +75,11 @@
 				/obj/item/storage/belt/rogue/pouch/coins/mid,
 				/obj/item/grenade/gas/smoke,
 				/obj/item/bomb/dynamite,
-				/obj/item/rogueweapon/stoneaxe/woodcut/risvon,
 				/obj/item/gun/ballistic/rifle/repeater/jackal,
 				/obj/item/ammo_box/magazine/jackal = 3,)
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		if	("INSANGUINATO (MELEE)")
-			H.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
 			backpack_contents = list(
 				/obj/item/storage/belt/rogue/pouch/coins/mid,
 				/obj/item/grenade/gas/smoke,

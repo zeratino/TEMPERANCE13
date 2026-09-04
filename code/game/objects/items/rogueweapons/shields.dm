@@ -4,7 +4,7 @@
 #define SHIELD_BLOCK_METAL 	/datum/intent/shield/block/metal
 #define SHIELD_SMASH 		/datum/intent/shield/smash
 #define SHIELD_SMASH_METAL 	/datum/intent/shield/smash/metal
-#define SHIELD_BANG_COOLDOWN (3 SECONDS)	
+#define SHIELD_BANG_COOLDOWN (3 SECONDS)
 
 /obj/item/rogueweapon/shield
 	name = ""
