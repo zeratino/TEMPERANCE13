@@ -67,6 +67,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	var/next_gmove
 	var/misting = 0
 	draw_icon = TRUE
+	hud_type = /datum/hud/adminghost //as far as i can tell it's fine if players have this
 
 /mob/dead/observer/admin
 	hud_type = /datum/hud/adminghost
@@ -80,7 +81,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 /mob/dead/observer/rogue/Move(n, direct)
 	if(world.time < next_gmove)
 		return
-	next_gmove = world.time + 2
+	next_gmove = world.time + 1
 
 	setDir(direct)
 
@@ -137,21 +138,11 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 				T = get_turf(Y)
 
 		gender = body.gender
-		if(body.mind && body.mind.name)
-			if(body.mind.ghostname)
-				name = body.mind.ghostname
-			else
-				name = body.mind.name
-		else
-			if(body.real_name)
-				name = body.real_name
-			else
-				name = random_unique_name(gender)
+
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 
 		set_suicide(body.suiciding) // Transfer whether they committed suicide.
-
 		if(draw_icon)
 			if(ishuman(body))
 //				var/mob/living/carbon/human/body_human = body
@@ -180,14 +171,21 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 				facial_hairstyle = body_human.facial_hairstyle
 				facial_hair_color = brighten_color(body_human.facial_hair_color)
 			*/
+		if(body.mind && body.mind.name)
+			if(body.mind.ghostname)
+				name = body.mind.ghostname
+			else if(body.real_name && body.real_name != "Unknown")
+				name = body.real_name
+			else if(body.name && body.name != "Unknown")
+				name = body.mind.name
+			else
+				name = random_unique_name(gender)
 	update_icon()
-
 	if(!T)
 		testing("NO T")
 		T = SSmapping.get_station_center()
 
 	forceMove(T)
-
 	if(!name)							//To prevent nameless ghosts
 		name = random_unique_name(gender)
 	real_name = name
@@ -578,8 +576,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Teleport"
 	set desc= "Teleport to a location"
 	set hidden = 1
-	if(!check_rights(R_WATCH))
-		return
+/*	if(!check_rights(R_WATCH))
+		return*/
 	if(!isobserver(usr))
 		to_chat(usr, span_warning("Not when you're not dead!"))
 		return

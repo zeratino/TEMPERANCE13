@@ -41,3 +41,13 @@
 		return
 
 	dsay(msg)
+
+/proc/toggle_deadchat(toggle = null)
+	if(toggle != null) //if we're specifically en/disabling ooc
+		if(toggle != GLOB.deadchat_allowed)
+			GLOB.deadchat_allowed = toggle
+		else
+			return
+	else //otherwise just toggle it
+		GLOB.deadchat_allowed = !GLOB.deadchat_allowed
+	message_admins("<B>Deadchat has been globally [GLOB.deadchat_allowed ? "enabled" : "disabled"].</B>")

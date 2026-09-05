@@ -117,8 +117,19 @@
 
 ///Speak as a dead person (ghost etc)
 /mob/proc/say_dead(message)
-
-	return // RTCHANGE
+	var/turf/T = get_turf(src)
+	if(src.client.prefs.muted & MUTE_DEADCHAT)
+		to_chat(src, span_danger("I cannot use Deadchat (temp muted)."))
+		return
+	if(is_banned_from(src.ckey, "Deadchat"))
+		to_chat(src, span_danger("I cannot use Deadchat (perma muted)."))
+		return
+	if(!GLOB.deadchat_allowed)
+		to_chat(src, span_danger("Deadchat is currently disabled."))
+		return
+	deadchat_broadcast(" says, \"[message]\"", "<b>[real_name]</b>", src, T, src.ckey, DEADCHAT_REGULAR)
+	return 
+	//deadchat_broadcast(" has died at <b>[get_area_name(T)]</b>.", "<b>[mind.name]</b>", follow_target = src, turf_target = T, message_type=DEADCHAT_DEATHRATTLE)
 
 ///Check if this message is an emote
 /mob/proc/check_emote(message, forced)

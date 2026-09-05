@@ -25,11 +25,11 @@
 
 	. = say_dead(message)
 
-/mob/dead/observer/rogue/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
-	return
+///mob/dead/observer/rogue/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
+//	return
 
-/mob/dead/observer/rogue/say_dead(message)
-	return
+///mob/dead/observer/rogue/say_dead(message)
+//	return
 
 /mob/dead/observer/screye/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
 	return
