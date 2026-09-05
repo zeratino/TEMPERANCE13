@@ -28,6 +28,12 @@
 	"Escape" = 'sound/music/jukeboxes/machine/machineescape.ogg',\
 	"Juliet" = 'sound/music/jukeboxes/machine/machinejuliet.ogg',\
 	"Underground" = 'sound/music/jukeboxes/machine/machineunderground.ogg',\
+	"Smack" = 'sound/music/jukeboxes/machine/machinesmack.ogg',\
+	"Monster" = 'sound/music/jukeboxes/machine/machinemonster.ogg',\ 
+	"Breathe" = 'sound/music/jukeboxes/machine/machinebreathe.ogg',\
+	"You" = 'sound/music/jukeboxes/machine/machineyou.ogg',\
+	"Romance" = 'sound/music/jukeboxes/machine/machineromance.ogg',\
+	"Slippy" = 'sound/music/jukeboxes/machine/machineslippy.ogg',\
 	"Rave" = 'sound/music/jukeboxes/machine/machinerave.ogg',\
 ) // POP MUSIC ONLY FOR THE MACHINE -- NO CHUDMUSIC ALLOWED
 
