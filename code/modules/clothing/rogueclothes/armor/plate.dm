@@ -104,7 +104,7 @@
 	equip_delay_self = 12 SECONDS
 	unequip_delay_self = 12 SECONDS
 	equip_delay_other = 3 SECONDS
-	strip_delay = 6 SECONDS
+	strip_delay = STRIP_DELAY_ARMOR
 	smelt_bar_num = 4
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted
@@ -179,7 +179,7 @@
 	equip_delay_self = 8 SECONDS
 	unequip_delay_self = 8 SECONDS
 	equip_delay_other = 3 SECONDS
-	strip_delay = 6 SECONDS
+	strip_delay = STRIP_DELAY_ARMOR
 	smelt_bar_num = 3
 
 /obj/item/clothing/suit/roguetown/armor/heartfelt/lord
@@ -409,6 +409,10 @@
 /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/ComponentInitialize()	//No movement rustle component.
 	return
  
+/obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/enginseer
+	name = "archomachine-weaved duster"
+	desc = "Intricate formulas are woven into the heavy coat, reinforced with metal plates. A fine union of arcane craft and machinery only possible by the ingenuinity of an Enginseer."
+
 /obj/item/clothing/suit/roguetown/armor/plate/scale/huntmaster
 	name = "huntmaster duster"
 	desc = "Chipped and torn from tooth and claw. Leather over iron remains after all these years."

@@ -6,6 +6,7 @@
 	icon_living = "EB-scout_MG"
 	icon_dead = "EB-scout_dead"
 	gender = NEUTER
+	speech_span = SPAN_ROBOT
 	mob_biotypes = MOB_ROBOTIC|MOB_HUMANOID
 	robust_searching = 1
 	turns_per_move = 1

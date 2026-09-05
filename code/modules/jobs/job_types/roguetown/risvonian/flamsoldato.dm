@@ -27,22 +27,8 @@
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		if(istype(H.wear_ring, /obj/item/roguekey/risvon))
-			var/obj/item/clothing/S = H.wear_ring
-			var/index = findtext(H.real_name, " ")
-			if(index)
-				index = copytext(H.real_name, 1,index)
-			if(!index)
-				index = H.real_name
-			for(var/mob/living/carbon/human/P in GLOB.player_list) //Exclusive spawn audio and message for Risvon and others (IF THEY HAVE THE NAIL OR TAG.)
-				if(istype(P.wear_ring, /obj/item/roguekey/))
-					var/obj/item/roguekey/R = P.wear_ring
-					if(R.type == /obj/item/roguekey/risvon && P.stat != DEAD)
-						to_chat(P, span_notice("You feel the tides shifting in your favor."))
-						playsound(P, 'sound/music/flamspawn.ogg', 100, FALSE)
-					if(R.type == /obj/item/roguekey/perserdun && P.stat != DEAD)
-						to_chat(P, span_warning("You can feel physical embodiement of dread approaching."))
-						playsound(P, 'sound/music/flamspawn.ogg', 100, FALSE)
-			S.name = " [index]'s nailtag"
+			var/obj/item/roguekey/risvon/S = H.wear_ring
+			S.set_soldier_name(H)
 
 /datum/outfit/job/roguetown/flamsoldato/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord

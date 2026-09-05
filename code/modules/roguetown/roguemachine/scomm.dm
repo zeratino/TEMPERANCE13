@@ -1,9 +1,14 @@
 #define GARRISON_SCOM_COLOR "#FF4242"
+#define LEADER_SCOM_COLOR "#fffc61"
+#define CMO_SCOM_COLOR "#85fbff"
 #define RADIO_SOUNDS
 #define SCOMNET_EMPIRE "empire"
 #define SCOMNET_ZIGS "zigs"
 #define SCOMNET_KINGS "kings"
 #define SCOMNET_HUNTERS "hunters"
+
+/obj/structure/roguemachine/scomm/empire
+	faction_net = SCOMNET_EMPIRE
 
 /obj/structure/roguemachine/scomm
 	name = "SCOM"
@@ -24,6 +29,7 @@
 	var/obj/structure/roguemachine/scomm/called_by = null
 	var/spawned_rat = FALSE
 	var/garrisonline = FALSE
+	var/faction_net = SCOMNET_ZIGS
 
 /obj/structure/roguemachine/scomm/Initialize()
 	. = ..()
@@ -32,6 +38,11 @@
 /obj/structure/roguemachine/scomm/Destroy()
 	lose_hearing_sensitivity()
 	return ..()
+
+/proc/scom_send_to_beholders(message, faction_net)
+	for(var/mob/living/simple_animal/hostile/rogue/robot/beholder/B in GLOB.mob_list)
+		if(B.scom_faction_net == faction_net)
+			to_chat(B, span_robot("<b>RADIO:</b> [message]"))
 
 /obj/structure/roguemachine/scomm/OnCrafted(dirin, mob/user)
 	. = ..()
@@ -288,6 +299,7 @@
 				if(S.garrisonline)
 					S.repeat_message(raw_message, src, usedcolor, message_language)
 			SSroguemachine.crown?.repeat_message(raw_message, src, usedcolor, message_language)
+			scom_send_to_beholders(raw_message, faction_net)
 			return
 		for(var/obj/structure/roguemachine/scomm/S in SSroguemachine.scomm_machines)
 			if(!S.calling)
@@ -296,6 +308,7 @@
 			S.repeat_message(raw_message, src, usedcolor, message_language)
 		for(var/obj/item/listenstone/S in SSroguemachine.scomm_machines)
 			S.repeat_message(raw_message, src, usedcolor, message_language)//make the listenstone hear scom
+		scom_send_to_beholders(raw_message, faction_net)
 		SSroguemachine.crown?.repeat_message(raw_message, src, usedcolor, message_language)
 
 /obj/structure/roguemachine/scomm/proc/dictate_laws()
@@ -328,7 +341,7 @@
 /obj/item/scomstone
 	name = "communication piece"
 	icon_state = "scomstone1"
-	desc = "A wrist-mounted communication device. Used by the Zigs."
+	desc = "A wrist-mounted communication device far ahead of its time, deeply affixed to its wearer. Removing it against its will is an arduous and laborious task."
 	gripped_intents = null
 	dropshrink = 0.75
 	possible_item_intents = list(INTENT_GENERIC)
@@ -340,6 +353,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	experimental_inhand = FALSE
 	muteinmouth = TRUE
+	strip_delay = STRIP_DELAY_LOCKED
 	var/listening = TRUE
 	var/speaking = TRUE
 	var/messagereceivedsound = 'sound/misc/ris_radio.ogg'
@@ -365,6 +379,7 @@
 	for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
 		if(S.faction_net == faction_net)
 			S.repeat_message(input_text, src, usedcolor)
+	scom_send_to_beholders(input_text, faction_net)
 
 /obj/item/scomstone/MiddleClick(mob/user)
 	if(.)
@@ -427,7 +442,7 @@
 /obj/item/scomstone/empire
 
 	icon_state = "scomstoner1"
-	desc = "A wrist-mounted device used by the Empire."
+	desc = "A wrist-mounted communication device far ahead of its time, deeply affixed to its wearer. Removing it against its will is an arduous and laborious task."
 	faction_net = SCOMNET_EMPIRE
 
 //needs testing
@@ -445,6 +460,7 @@
 		input_text = "<small>[input_text]</small>"
 	for(var/obj/item/scomstone/empire/S in SSroguemachine.scomm_machines)//make the listenstone hear scomstone
 		S.repeat_message(input_text, src, usedcolor)
+	scom_send_to_beholders(input_text, faction_net)
 
 //LISTENSTONE		LISTENSTONE
 /obj/item/listenstone
@@ -519,7 +535,7 @@
 /obj/item/mattcoin
 	name = "communication device"
 	icon_state = "scomstoner1"
-	desc = "A wrist-mounted device used by the Empire."
+	desc = "A wrist-mounted communication device far ahead of its time, deeply affixed to its wearer. Removing it against its will is an arduous and laborious task."
 	gripped_intents = null
 	dropshrink = 0.75
 	possible_item_intents = list(INTENT_GENERIC)
@@ -737,7 +753,7 @@
 /obj/item/scomstone/garrison
 	name = "communications device"
 	icon_state = "scomstoner1"
-	desc = "A wrist-mounted device used by the Empire."
+	desc = "A wrist-mounted communication device far ahead of its time, deeply affixed to its wearer. Removing it against its will is an arduous and laborious task."
 	var/garrisonline = TRUE
 	messagereceivedsound = 'sound/misc/per_radio.ogg'
 	hearrange = 0
@@ -746,7 +762,7 @@
 
 /obj/item/scomstone/garrison/attack_right(mob/living/carbon/human/user)
 	user.changeNext_move(CLICK_CD_INTENTCAP)
-	visible_message(span_notice ("[user] presses their ring against their mouth."))
+	visible_message(span_notice ("[user] moves their wrist by their mouth."))
 	var/input_text = input(user, "Enter your message:", "Message")
 	if(!input_text)
 		return
@@ -779,14 +795,14 @@
 /obj/item/scomstone/kingsrow
 	name = "communication piece"
 	icon_state = "scomstone"
-	desc = "A wrist-mounted communication device. Used by the Royalists."
+	desc = "A wrist-mounted communication device far ahead of its time, deeply affixed to its wearer. Removing it against its will is an arduous and laborious task."
 	faction_net = SCOMNET_KINGS
 	drop_sound = 'sound/foley/coinphy (1).ogg'
 
 /obj/item/scomstone/rislead
 	name = "communication piece"
 	icon_state = "scomstone1"
-	desc = "A wrist-mounted communication device. Used by the Zigs."
+	desc = "A wrist-mounted communication device far ahead of its time, deeply affixed to its wearer. Removing it against its will is an arduous and laborious task."
 	gripped_intents = null
 	dropshrink = 0.75
 	possible_item_intents = list(INTENT_GENERIC)
@@ -810,7 +826,26 @@
 
 /obj/item/scomstone/rislead/attack_right(mob/living/carbon/human/user)
 	user.changeNext_move(CLICK_CD_INTENTCAP)
-	visible_message(span_notice ("[user] presses their ring against their mouth."))
+	visible_message(span_notice ("[user] moves their wrist by their mouth."))
+	var/input_text = input(user, "Enter your message:", "Message")
+	if(!input_text)
+		return
+	var/usedcolor = user.voice_color
+	if(user.voicecolor_override)
+		usedcolor = user.voicecolor_override
+	user.whisper(input_text)
+	if(length(input_text) > 100) //When these people talk too much, put that shit in slow motion, yeah
+		input_text = "<small>[input_text]</small>"
+	for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
+		if(S.faction_net == faction_net)
+			input_text = "<span style='color: [LEADER_SCOM_COLOR]'>[input_text]</span>"
+			S.repeat_message(input_text, src, usedcolor)
+
+/obj/item/scomstone/rislead/lesser
+
+/obj/item/scomstone/rislead/lesser/attack_right(mob/living/carbon/human/user)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
+	visible_message(span_notice ("[user] moves their wrist by their mouth."))
 	var/input_text = input(user, "Enter your message:", "Message")
 	if(!input_text)
 		return
@@ -825,10 +860,67 @@
 			input_text = "<span style='color: [GARRISON_SCOM_COLOR]'>[input_text]</span>"
 			S.repeat_message(input_text, src, usedcolor)
 
+/obj/item/scomstone/rislead/cmo
+
+/obj/item/scomstone/rislead/cmo/attack_right(mob/living/carbon/human/user)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
+	visible_message(span_notice ("[user] moves their wrist by their mouth."))
+	var/input_text = input(user, "Enter your message:", "Message")
+	if(!input_text)
+		return
+	var/usedcolor = user.voice_color
+	if(user.voicecolor_override)
+		usedcolor = user.voicecolor_override
+	user.whisper(input_text)
+	if(length(input_text) > 100) //When these people talk too much, put that shit in slow motion, yeah
+		input_text = "<small>[input_text]</small>"
+	for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
+		if(S.faction_net == faction_net)
+			input_text = "<span style='color: [CMO_SCOM_COLOR]'>[input_text]</span>"
+			S.repeat_message(input_text, src, usedcolor)
+
+/obj/item/scomstone/perlead/lesser
+
+/obj/item/scomstone/perlead/lesser/attack_right(mob/living/carbon/human/user)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
+	visible_message(span_notice ("[user] moves their wrist by their mouth."))
+	var/input_text = input(user, "Enter your message:", "Message")
+	if(!input_text)
+		return
+	var/usedcolor = user.voice_color
+	if(user.voicecolor_override)
+		usedcolor = user.voicecolor_override
+	user.whisper(input_text)
+	if(length(input_text) > 100) //When these people talk too much, put that shit in slow motion, yeah
+		input_text = "<small>[input_text]</small>"
+	for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
+		if(S.faction_net == faction_net)
+			input_text = "<span style='color: [GARRISON_SCOM_COLOR]'>[input_text]</span>"
+			S.repeat_message(input_text, src, usedcolor)
+
+/obj/item/scomstone/perlead/cmo
+
+/obj/item/scomstone/perlead/cmo/attack_right(mob/living/carbon/human/user)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
+	visible_message(span_notice ("[user] moves their wrist by their mouth."))
+	var/input_text = input(user, "Enter your message:", "Message")
+	if(!input_text)
+		return
+	var/usedcolor = user.voice_color
+	if(user.voicecolor_override)
+		usedcolor = user.voicecolor_override
+	user.whisper(input_text)
+	if(length(input_text) > 100) //When these people talk too much, put that shit in slow motion, yeah
+		input_text = "<small>[input_text]</small>"
+	for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
+		if(S.faction_net == faction_net)
+			input_text = "<span style='color: [CMO_SCOM_COLOR]'>[input_text]</span>"
+			S.repeat_message(input_text, src, usedcolor)
+
 /obj/item/scomstone/perlead
 	name = "communications device"
 	icon_state = "scomstoner1"
-	desc = "A wrist-mounted device used by the Empire."
+	desc = "A wrist-mounted communication device far ahead of its time, deeply affixed to its wearer. Removing it against its will is an arduous and laborious task."
 	messagereceivedsound = 'sound/misc/per_radio.ogg'
 	hearrange = 0
 	sellprice = 100
@@ -836,7 +928,7 @@
 
 /obj/item/scomstone/perlead/attack_right(mob/living/carbon/human/user)
 	user.changeNext_move(CLICK_CD_INTENTCAP)
-	visible_message(span_notice ("[user] presses their ring against their mouth."))
+	visible_message(span_notice ("[user] moves their wrist by their mouth."))
 	var/input_text = input(user, "Enter your message:", "Message")
 	if(!input_text)
 		return
@@ -848,13 +940,13 @@
 		input_text = "<small>[input_text]</small>"
 	for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
 		if(S.faction_net == faction_net)
-			input_text = "<span style='color: [GARRISON_SCOM_COLOR]'>[input_text]</span>"
+			input_text = "<span style='color: [LEADER_SCOM_COLOR]'>[input_text]</span>"
 			S.repeat_message(input_text, src, usedcolor)
 
 /obj/item/scomstone/hunter
 	name = "communications device"
 	icon_state = "scomstoner1"
-	desc = "A wrist-mounted device used by the Huntsman's Party."
+	desc = "A wrist-mounted communication device far ahead of its time, deeply affixed to its wearer. Removing it against its will is an arduous and laborious task."
 	var/garrisonline = TRUE
 	hearrange = 0
 	sellprice = 100
@@ -862,7 +954,7 @@
 
 /obj/item/scomstone/hunter/attack_right(mob/living/carbon/human/user)
 	user.changeNext_move(CLICK_CD_INTENTCAP)
-	visible_message(span_notice ("[user] presses their ring against their mouth."))
+	visible_message(span_notice ("[user] moves their wrist by their mouth."))
 	var/input_text = input(user, "Enter your message:", "Message")
 	if(!input_text)
 		return
@@ -885,14 +977,14 @@
 /obj/item/scomstone/huntlead
 	name = "communications device"
 	icon_state = "scomstoner1"
-	desc = "A wrist-mounted device used by the Huntsman's Party."
+	desc = "A wrist-mounted communication device far ahead of its time, deeply affixed to its wearer. Removing it against its will is an arduous and laborious task."
 	hearrange = 0
 	sellprice = 100
 	faction_net = SCOMNET_HUNTERS
 
 /obj/item/scomstone/huntlead/attack_right(mob/living/carbon/human/user)
 	user.changeNext_move(CLICK_CD_INTENTCAP)
-	visible_message(span_notice ("[user] presses their ring against their mouth."))
+	visible_message(span_notice ("[user] moves their wrist by their mouth."))
 	var/input_text = input(user, "Enter your message:", "Message")
 	if(!input_text)
 		return
@@ -904,5 +996,5 @@
 		input_text = "<small>[input_text]</small>"
 	for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
 		if(S.faction_net == faction_net)
-			input_text = "<span style='color: [GARRISON_SCOM_COLOR]'>[input_text]</span>"
+			input_text = "<span style='color: [LEADER_SCOM_COLOR]'>[input_text]</span>"
 			S.repeat_message(input_text, src, usedcolor)

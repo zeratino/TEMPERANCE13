@@ -718,6 +718,10 @@ GLOBAL_VAR_INIT(mobids, 1)
 		else
 			usr.stripPanelEquip(what,src,slot)
 
+	if(href_list["strip_all"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		usr.stripPanelUnequipAll(src)
+		return
+
 	if(usr.machine == src)
 		if(Adjacent(usr))
 			show_inv(usr)
@@ -727,6 +731,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 // The src mob is trying to strip an item from someone
 // Defined in living.dm
 /mob/proc/stripPanelUnequip(obj/item/what, mob/who)
+	return
+
+// The src mob is trying to strip everything off an unclaimed corpse at once
+// Defined in living.dm
+/mob/proc/stripPanelUnequipAll(mob/who)
 	return
 
 // The src mob is trying to place an item on someone

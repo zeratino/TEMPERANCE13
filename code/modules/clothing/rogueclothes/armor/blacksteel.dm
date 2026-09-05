@@ -17,7 +17,7 @@
 	equip_delay_self = 12 SECONDS
 	unequip_delay_self = 12 SECONDS
 	equip_delay_other = 3 SECONDS
-	strip_delay = 6 SECONDS
+	strip_delay = STRIP_DELAY_ARMOR
 	smelt_bar_num = 4 
 
 /obj/item/clothing/suit/roguetown/armor/plate/blacksteel_full_plate
@@ -37,7 +37,7 @@
 	equip_delay_self = 12 SECONDS
 	unequip_delay_self = 12 SECONDS
 	equip_delay_other = 3 SECONDS
-	strip_delay = 6 SECONDS
+	strip_delay = STRIP_DELAY_ARMOR
 	smelt_bar_num = 4
 
 /obj/item/clothing/suit/roguetown/armor/plate/blacksteel_half_plate

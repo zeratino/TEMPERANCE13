@@ -1454,3 +1454,37 @@
 
 /obj/structure/fluff/statue/trick
 	icon_state = "trick"
+
+/obj/structure/fluff/pipe //different from structure/bars/pipe bc that one has functionality
+	name = "pipe"
+	desc = "A bunch of pipes. Difficult to break, and strangely disconnected from the function of what they're attached to."
+	icon = 'icons/turf/pipewall.dmi'
+	icon_state = "iron_box_notwall"
+	density = FALSE
+	layer = BELOW_OPEN_DOOR_LAYER
+	plane = GAME_PLANE
+	max_integrity = 1000
+	damage_deflection = 5
+	blade_dulling = DULLING_BASHCHOP
+	obj_flags = CAN_BE_HIT
+	attacked_sound = list('sound/combat/hits/onmetal/grille (1).ogg', 'sound/combat/hits/onmetal/grille (2).ogg', 'sound/combat/hits/onmetal/grille (3).ogg')
+
+/obj/structure/fluff/pipe/end 
+
+	icon_state = "iron_end_notwall"
+
+/obj/structure/fluff/pipe/line 
+
+	icon_state = "iron_line_notwall"
+
+/obj/structure/fluff/pipe/corner 
+
+	icon_state = "iron_corner_notwall"
+
+/obj/structure/fluff/pipe/joint
+
+	icon_state = "iron_joint_notwall"
+
+/obj/structure/fluff/pipe/junction 
+
+	icon_state = "iron_junction_notwall"

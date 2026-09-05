@@ -548,17 +548,38 @@
 
 /obj/item/roguekey/risvon
 	name = "nailtag"
-	desc = "This key opens doors to the Dictate's outpost. It's also a soldier's identification."
+	desc = "This tag provides information on the soldier wearing it. It's also used as a scanning ID for doors and magnetic key to locks. Seems to be quite difficult to remove against one's will."
 	icon_state = "risvontag"
 	lockid = "risvontag"
 	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_RING
+	strip_delay = STRIP_DELAY_LOCKED
+
+/obj/item/roguekey/risvon/proc/set_soldier_name(mob/living/carbon/human/H)
+	if(!H)
+		return
+	var/index = findtext(H.real_name, " ")
+	if(index)
+		index = copytext(H.real_name, 1, index)
+	else
+		index = H.real_name
+	name = span_red("[index]'s nailtag")
 
 /obj/item/roguekey/perserdun
 	name = "dogtag"
-	desc = "This useful little thing provides information on the soldier wearing it. It's also used as a scanning tag for doors."
+	desc = "This tag provides information on the soldier wearing it. It's also used as a scanning ID for doors and magnetic key to locks. Seems to be quite difficult to remove against one's will."
 	icon_state = "perserduntag"
 	lockid = "perserdun"
 	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_RING
+
+/obj/item/roguekey/perserdun/proc/set_soldier_name(mob/living/carbon/human/H)
+	if(!H)
+		return
+	var/index = findtext(H.real_name, " ")
+	if(index)
+		index = copytext(H.real_name, 1, index)
+	else
+		index = H.real_name
+	name = span_blue("[index]'s dogtag")
 
 //Apartment and shop keys
 /obj/item/roguekey/apartments

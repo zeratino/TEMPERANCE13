@@ -234,8 +234,8 @@
 	anvilrepair = null
 
 /obj/item/needle/pestra
-	name = "needle of pestra"
-	desc = span_green("This needle has been blessed by the goddess of medicine herself!")
+	name = "anomalous needle"
+	desc = span_green("This needle bears an inexplicable anomaly, as though it is perpetually drawing threads from alternate timelines.")
 	infinite = TRUE
 
 /obj/item/needle/aalloy

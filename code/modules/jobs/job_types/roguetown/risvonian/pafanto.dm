@@ -28,13 +28,8 @@
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		if(istype(H.wear_ring, /obj/item/roguekey/risvon))
-			var/obj/item/clothing/S = H.wear_ring
-			var/index = findtext(H.real_name, " ")
-			if(index)
-				index = copytext(H.real_name, 1,index)
-			if(!index)
-				index = H.real_name
-			S.name = " [index]'s nailtag"
+			var/obj/item/roguekey/risvon/S = H.wear_ring
+			S.set_soldier_name(H)
 
 
 

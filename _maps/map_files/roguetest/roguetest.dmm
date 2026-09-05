@@ -393,8 +393,16 @@
 "lC" = (
 /turf/closed/wall/mineral/rogue/decostone/cand,
 /area/rogue/indoors)
+"lI" = (
+/obj/structure/machine/bellow{
+	color = #808080
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
 "lN" = (
-/obj/structure/machine/spawner/delay,
+/obj/structure/machine/bellow{
+	bellow_id = fire
+	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
 "lO" = (
@@ -845,7 +853,9 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "DJ" = (
-/obj/structure/machine/spawner,
+/obj/structure/machine/spawner{
+	bellow_id = fire
+	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
 "DW" = (
@@ -2836,10 +2846,10 @@ BJ
 BJ
 BJ
 BJ
+lN
 BJ
 BJ
-BJ
-BJ
+lN
 BJ
 HA
 WN
@@ -2988,7 +2998,7 @@ jD
 HW
 BJ
 BJ
-lN
+BJ
 BJ
 BJ
 BJ
@@ -3047,7 +3057,7 @@ ys
 KF
 BJ
 BJ
-BJ
+lI
 BJ
 HA
 XE

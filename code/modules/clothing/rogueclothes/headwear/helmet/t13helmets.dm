@@ -104,6 +104,13 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
 	bloody_icon = 'icons/effects/blood64.dmi'
 
+/obj/item/clothing/head/roguetown/roguehood/shalal/heavyhood/cmo
+	name = "archomachine-weaved hood"
+	desc = "A heavy, reinforced hood. The cloth is laced with intricate formulas, hinting at an Enginseer's ability to weave their art into even the simplest fabric."
+	block2add = FOV_DEFAULT
+	color = CLOTHING_RED
+	armor = ARMOR_HEAD_HELMET_VISOR
+
 // light helmets
 
 /obj/item/clothing/head/roguetown/helmet/leather/grandmaster

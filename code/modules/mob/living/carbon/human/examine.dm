@@ -473,7 +473,7 @@
 
 	//ID
 	if(wear_ring && !(SLOT_RING in obscured))
-		if(is_stupid)
+		if(is_stupid && !istype(wear_ring, /obj/item/roguekey/risvon) && !istype(wear_ring, /obj/item/roguekey/perserdun))
 			. += "[m3] some sort of ring!"
 		else if(is_smart && istype(wear_ring, /obj/item/clothing/ring/active))
 			var/str = "[m3] [wear_ring.get_examine_string(user)] on [m2] hands. "

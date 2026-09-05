@@ -35,6 +35,23 @@
 /mob/living/proc/spread_bodyparts()
 	return
 
+/mob/living/proc/gib_limbs()
+	var/prev_lying = lying
+	if(stat != DEAD)
+		death(TRUE)
+	if(client)
+		SSdroning.kill_droning(client)
+	playsound(src.loc, pick('sound/combat/gib (1).ogg', 'sound/combat/gib (2).ogg'), 200, FALSE, 3)
+	if(!prev_lying)
+		gib_animation()
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		for(var/obj/item/bodypart/BP in H.bodyparts)
+			if(BP.body_part == CHEST)
+				continue
+			BP.drop_limb(TRUE)
+	return TRUE
+
 /// Length of the animation in dust_animation.dmi
 #define DUST_ANIMATION_TIME 1.3 SECONDS
 
