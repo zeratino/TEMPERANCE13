@@ -29,6 +29,15 @@
 		if(istype(H.wear_ring, /obj/item/roguekey/risvon))
 			var/obj/item/roguekey/risvon/S = H.wear_ring
 			S.set_soldier_name(H)
+			for(var/mob/living/carbon/human/P in GLOB.player_list) //Exclusive spawn audio and message for Risvon and others (IF THEY HAVE THE NAIL OR TAG.)
+				if(istype(P.wear_ring, /obj/item/roguekey/))
+					var/obj/item/roguekey/R = P.wear_ring
+					if(R.type == /obj/item/roguekey/risvon && P.stat != DEAD)
+						to_chat(P, span_notice("You feel the tides shifting in your favor."))
+						playsound(P, 'sound/music/flamspawn.ogg', 100, FALSE)
+					if(R.type == /obj/item/roguekey/perserdun && P.stat != DEAD)
+						to_chat(P, span_warning("You can feel physical embodiement of dread approaching."))
+						playsound(P, 'sound/music/flamspawn.ogg', 100, FALSE)
 
 /datum/outfit/job/roguetown/flamsoldato/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord

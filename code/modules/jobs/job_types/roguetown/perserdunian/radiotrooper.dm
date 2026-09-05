@@ -29,6 +29,15 @@
 		if(istype(H.wear_ring, /obj/item/roguekey/perserdun))
 			var/obj/item/roguekey/perserdun/S = H.wear_ring
 			S.set_soldier_name(H)
+			for(var/mob/living/carbon/human/P in GLOB.player_list) //Exclusive spawn audio and message for Perserdun and others (IF THEY HAVE THE NAIL OR TAG.)
+				if(istype(P.wear_ring, /obj/item/roguekey/))
+					var/obj/item/roguekey/R = P.wear_ring
+					if(R.type == /obj/item/roguekey/perserdun && P.stat != DEAD)
+						to_chat(P, span_notice("You feel an overwhelming sense of duty."))
+						playsound(P, 'sound/music/radiospawn.ogg', 100, FALSE)
+					if(R.type == /obj/item/roguekey/risvon && P.stat != DEAD)
+						to_chat(P, span_warning("You can feel the thump of artillery shake your core."))
+						playsound(P, 'sound/music/radiospawn.ogg', 100, FALSE)
 
 /datum/outfit/job/roguetown/radiotrooper/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
