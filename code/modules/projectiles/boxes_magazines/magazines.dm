@@ -14,7 +14,7 @@
 	multiple_sprites = AMMO_BOX_PER_BULLET
 	ammo_type = /obj/item/ammo_casing/a22lr
 	caliber = "a22lr"
-	max_ammo = 7
+	max_ammo = 11
 	multiload = 1
 	icon_state = "handgunmag"
 	sellprice = 6
