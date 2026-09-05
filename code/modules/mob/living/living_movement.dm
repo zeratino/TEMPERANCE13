@@ -1,6 +1,5 @@
 /mob/living/Moved()
 	. = ..()
-	stop_looking()
 	update_turf_movespeed(loc)
 	update_pixel_shifting(TRUE)
 //	if(m_intent == MOVE_INTENT_RUN)

@@ -2054,6 +2054,7 @@
 	if(!istype(T))
 		return
 	changeNext_move(CLICK_CD_MELEE)
+	add_movespeed_modifier(MOVESPEED_ID_MOB_FARLOOK, update=TRUE, priority=100, override=TRUE, multiplicative_slowdown=3, blacklisted_movetypes=FLOATING)
 
 	var/_x = T.x-loc.x
 	var/_y = T.y-loc.y
@@ -2061,7 +2062,6 @@
 	var/message = span_info("[src] looks into the distance.")
 	if(dist > 7 || dist  <= 2)
 		return
-	hide_cone()
 	var/ttime = 11
 	if(STAPER > 5)
 		ttime = 10 - (STAPER - 5)
@@ -2069,7 +2069,7 @@
 			ttime = 1
 	if(STAPER <= 10)
 		var/offset = (10 - STAPER) * 2
-		if(STAPER == 10)
+		if(STAPER == 8)
 			offset = 1
 		else
 			message = span_info("[src] struggles to look ahead.")
@@ -2151,6 +2151,7 @@
 		client.pixel_x = 0
 		client.pixel_y = 0
 	reset_perspective()
+	remove_movespeed_modifier(MOVESPEED_ID_MOB_FARLOOK, update=TRUE)
 	update_cone_show()
 //	UnregisterSignal(src, COMSIG_MOVABLE_PRE_MOVE)
 

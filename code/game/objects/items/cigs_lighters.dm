@@ -26,7 +26,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	w_class = WEIGHT_CLASS_TINY
 	heat = 1000
 	grind_results = list(/datum/reagent/phosphorus = 2)
-
+	possible_item_intents = list(/datum/intent/use, /datum/intent/hit)
+	
 /obj/item/match/process()
 	smoketime--
 	if(smoketime < 1)

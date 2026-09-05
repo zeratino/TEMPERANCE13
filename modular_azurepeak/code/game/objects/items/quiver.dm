@@ -330,7 +330,7 @@
 	item_state = "smokebox"
 	slot_flags = ITEM_SLOT_HIP
 	max_storage = 10
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_TINY
 	grid_height = 64
 	grid_width = 32
 
@@ -366,3 +366,55 @@
 		var/obj/item/clothing/mask/cigarette/rollie/nicotine/A = new()
 		arrows += A
 	update_icon()
+
+/obj/item/quiver/matchbox
+	name = "matchbox"
+	desc = "A box for all your lighting needs."
+	icon = 'icons/obj/cigarettes.dmi'
+	icon_state = "matchbox"
+	item_state = "zippo"
+	slot_flags = ITEM_SLOT_HIP
+	max_storage = 16
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
+
+/obj/item/quiver/matchbox/attackby(obj/A, loc, params)
+	if(A.type in subtypesof(/obj/item/match))
+		if(arrows.len < max_storage)
+			if(ismob(loc))
+				var/mob/M = loc
+				M.doUnEquip(A, TRUE, src, TRUE, silent = TRUE)
+			else
+				A.forceMove(src)
+			arrows += A
+			update_icon()
+		else
+
+	..()
+
+/obj/item/quiver/matchbox/attack_right(mob/user)
+	if(arrows.len)
+		var/obj/O = arrows[arrows.len]
+		arrows -= O
+		O.forceMove(user.loc)
+		user.put_in_hands(O)
+		update_icon()
+		return TRUE
+
+/obj/item/quiver/matchbox/update_icon()
+	return
+
+/obj/item/quiver/matchbox/Initialize()
+	. = ..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/match/A = new()
+		arrows += A
+	update_icon()
+
+/obj/item/quiver/matchbox/attackby(obj/item/match/W as obj, mob/user as mob, params)
+	if(istype(W, /obj/item/match ||(user.used_intent.type == /datum/intent/use)))
+		if(prob(30))
+			W.matchignite()
+		else
+			playsound(src, "sound/items/match_fail.ogg", 100, FALSE)
