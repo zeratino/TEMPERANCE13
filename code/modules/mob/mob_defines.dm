@@ -312,7 +312,6 @@
 
 	var/datum/weakref/offered_item_ref
 
-	var/client/aghosted = null
 
 	/// cooldown for the next time this person can offer
 	COOLDOWN_DECLARE(offer_cooldown)

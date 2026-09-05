@@ -13,6 +13,8 @@
 	var/datum/click_intercept = null
 	///Used for admin AI interaction
 	var/AI_Interact = FALSE
+	//Current aghosted body recieving BODY messages
+	var/mob/current_aghost_body = null
 
  	///Used to cache this client's bans to save on DB queries
 	var/ban_cache = null

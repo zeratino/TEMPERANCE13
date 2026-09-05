@@ -479,7 +479,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	client?.verbs -= GLOB.ghost_verbs
 	SStgui.on_transfer(src, mind.current) // Transfer NanoUIs.
 	mind.current.key = key
-	mind.current.aghosted = null
+	if(client)
+		client.current_aghost_body = null
 	return TRUE
 
 /mob/dead/observer/returntolobby(modifier as num)

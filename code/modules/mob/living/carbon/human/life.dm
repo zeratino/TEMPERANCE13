@@ -75,7 +75,7 @@
 		charflaw.flaw_on_life(src)
 	if(health <= 0)
 		adjustOxyLoss(0.5)
-	if(mode == NPC_AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP) && !aghosted)
+	if(mode == NPC_AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))
 		if(mob_timers["slo"])
 			if(world.time > mob_timers["slo"] + 90 SECONDS)
 				Sleeping(100)

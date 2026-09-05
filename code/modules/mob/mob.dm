@@ -178,12 +178,15 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(self_message)
 		hearers -= src
 	for(var/mob/M in hearers)
-		if(!M.client && !M.aghosted)
-			continue
-		if(M.aghosted)
-			if(!isclient(M.aghosted))
+		if(!M.client)
+			var/found_aghost = FALSE
+			for(var/client/C in GLOB.clients)
+				if(C.current_aghost_body == M)
+					to_chat(C, span_green("(BODY) ") + "[message]")
+					found_aghost = TRUE
+					break
+			if(found_aghost)
 				continue
-			to_chat(M.aghosted, span_green("(BODY) ")+"[message]")
 			continue
 		//This entire if/else chain could be in two lines but isn't for readibilties sake.
 		var/msg = message
@@ -218,10 +221,13 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(self_message)
 		hearers -= src
 	for(var/mob/M in hearers)
-		if(M.aghosted)
-			if(!isclient(M.aghosted))
-				continue
-			to_chat(M.aghosted, span_green("(BODY) ")+"[message]")
+		var/found_aghost = FALSE
+		for(var/client/C in GLOB.clients)
+			if(C.current_aghost_body == M)
+				to_chat(C, span_green("(BODY) ") + "[message]")
+				found_aghost = TRUE
+				break
+		if(found_aghost)
 			continue
 		M.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
 		if(runechat_message && M.can_see_runechat(src) && M.can_hear())
