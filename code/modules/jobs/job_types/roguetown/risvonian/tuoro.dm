@@ -37,7 +37,7 @@
 
 /datum/outfit/job/roguetown/tuoro/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
-	shoes = /obj/item/clothing/shoes/roguetown/armor/ebboots/armored
+	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron/ziggurate
 	cloak = /obj/item/clothing/cloak/templar/malumite
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
@@ -80,6 +80,7 @@
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		if	("INSANGUINATO (MELEE)")
 			H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
+			shoes = /obj/item/clothing/shoes/roguetown/armor/ebboots/armored
 			backpack_contents = list(
 				/obj/item/storage/belt/rogue/pouch/coins/mid,
 				/obj/item/grenade/gas/smoke,
