@@ -101,6 +101,11 @@
 		/datum/sprite_accessory/horns/tieflingalt
 		)
 
+/datum/customizer/organ/horns/anthro/halftiefling
+	customizer_choices = list(/datum/customizer_choice/organ/horns/anthro)
+	allows_disabling = FALSE
+	default_disabled =  FALSE
+
 /datum/customizer/organ/horns/anthro
 	customizer_choices = list(/datum/customizer_choice/organ/horns/anthro)
 	allows_disabling = TRUE

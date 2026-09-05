@@ -83,6 +83,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		AA.onNewMob(src)
 	set_nutrition(rand(NUTRITION_LEVEL_START_MIN, NUTRITION_LEVEL_START_MAX))
 	set_hydration(rand(HYDRATION_LEVEL_START_MIN, HYDRATION_LEVEL_START_MAX))
+	set_vitae(rand(VITAE_LEVEL_START_MIN, VITAE_LEVEL_START_MAX))
 	. = ..()
 	become_hearing_sensitive()
 	update_config_movespeed()
@@ -1331,17 +1332,32 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 /mob/proc/adjust_hydration(change)
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
-		nutrition = HYDRATION_LEVEL_FULL
+		hydration = HYDRATION_LEVEL_FULL
 	hydration = max(0, hydration + change)
 	if(hydration > HYDRATION_LEVEL_FULL)
 		hydration = HYDRATION_LEVEL_FULL
 
 /mob/proc/set_hydration(change)
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
-		nutrition = HYDRATION_LEVEL_FULL
+		hydration = HYDRATION_LEVEL_FULL
 	hydration = max(0, change)
 	if(hydration > HYDRATION_LEVEL_FULL)
 		hydration = HYDRATION_LEVEL_FULL
+
+/mob/proc/adjust_vitae(change)
+	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
+		bloodpool = VITAE_LEVEL_FULL
+	bloodpool = max(0, bloodpool + change)
+	if(bloodpool > VITAE_LEVEL_FULL)
+		bloodpool = VITAE_LEVEL_FULL
+
+/mob/proc/set_vitae(change)
+	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
+		bloodpool = VITAE_LEVEL_FULL
+	bloodpool = max(0, change)
+	if(bloodpool > VITAE_LEVEL_FULL)
+		bloodpool = VITAE_LEVEL_FULL
+
 
 ///Set the movement type of the mob and update it's movespeed
 /mob/setMovetype(newval)

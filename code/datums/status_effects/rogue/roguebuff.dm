@@ -41,6 +41,10 @@
 	effectedstats = list("constitution" = 1,"endurance" = 1)
 	duration = 15 MINUTES
 
+/datum/status_effect/buff/foodbuff/on_apply()
+	. = ..()
+	owner.bloodpool += VITAE_LEVEL_THIRSTY
+
 /atom/movable/screen/alert/status_effect/buff/foodbuff
 	name = "Great Meal"
 	desc = ""

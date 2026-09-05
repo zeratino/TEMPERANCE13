@@ -871,6 +871,16 @@
 		return FALSE
 	return ..()
 
+/mob/living/carbon/human/adjust_vitae(change)
+	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
+		return FALSE
+	return ..()
+
+/mob/living/carbon/human/set_vitae(change)
+	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
+		return FALSE
+	return ..()
+
 /mob/living/carbon/human/species
 	var/race = null
 

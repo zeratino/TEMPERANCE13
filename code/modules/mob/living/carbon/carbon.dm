@@ -395,7 +395,7 @@
 		breakouttime -= time_mod
 	if(mind && mind.has_antag_datum(/datum/antagonist/zombie))
 		breakouttime = 10 SECONDS
-	if(STASTR > 15)
+	if(STASTR > 15 || HAS_TRAIT(src, TRAIT_UNSTOPPABLE))
 		cuff_break = INSTANT_CUFFBREAK
 		breakouttime = I.breakouttime
 	if(!cuff_break)

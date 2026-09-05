@@ -16,6 +16,7 @@
 		/datum/species/human/northern,
 		/datum/species/elf/wood,
 		/datum/species/tieberian,
+		/datum/species/hualian,
 	)
 
 	set_species(pick(species))

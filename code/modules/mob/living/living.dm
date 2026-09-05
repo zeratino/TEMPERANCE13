@@ -1147,6 +1147,9 @@
 	if(L.compliance)
 		resist_chance = 100
 
+	if(HAS_TRAIT(src, TRAIT_UNSTOPPABLE))
+		resist_chance = 100
+
 	if(moving_resist && client) //we resisted by trying to move
 		client.move_delay = world.time + 20
 	stamina_add(rand(5,15))
