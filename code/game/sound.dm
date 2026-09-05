@@ -417,3 +417,22 @@
 							'sound/foley/footsteps/armor/gear4.ogg',
 							)
 	return soundin
+
+/proc/play_positional_sound(turf/epicenter, list/close_sounds, list/distant_sounds, range = 90, close_range = 30) //DO NOT FORGET TO INPUT THE RANGES!!!
+	var/frequency = get_rand_frequency()
+	for(var/mob/living/M in range(range, epicenter))
+		if(M && M.client) // Client Check
+			var/turf/M_turf = get_turf(M)
+			if(M_turf && M_turf.z == epicenter.z)
+				var/far_volume = 50
+				var/dist = get_dist(M_turf, epicenter)
+				var/dir = get_dir(M_turf, epicenter)
+				var/turf/plrsfx = get_ranged_target_turf(M_turf, dir, 7) // DIRECTIONAL SOUND
+				var/S
+				if(dist <= range && dist >= 7)
+					if(dist <= close_range)
+						far_volume += 50 //if within close range, make sound louder
+						S = sound(pick(close_sounds))
+					else
+						S = sound(pick(distant_sounds))
+					M.playsound_local(plrsfx, null, far_volume, 1, frequency, falloff = 45, S = S)
