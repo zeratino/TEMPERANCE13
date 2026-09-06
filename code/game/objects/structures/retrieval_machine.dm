@@ -7,6 +7,7 @@
 	resistance_flags = INDESTRUCTIBLE
 	density = TRUE
 	layer = MOB_LAYER + 0.01
+	var/list/active_quests = list()
 	var/active = FALSE
 
 /obj/structure/machine/astrarium/proc/get_department_name(department_flag)
@@ -27,7 +28,6 @@
 	if(!user)
 		return
 	open_interface(user)
-
 
 /obj/structure/machine/astrarium/proc/get_user_job(mob/user)
 	if(!user)
@@ -134,6 +134,10 @@
 
 			<a class=button href=byond://?src=\ref[src];action=translocation>
 				INITIATE REALITY-MARBLE TRANSLOCATION PROTOCOL
+			</a>
+
+			<a class=button href=byond://?src=\ref[src];action=missions>
+				CHRONOLOGICAL CORRECTION TASK MODULE
 			</a>
 
 			<br>
@@ -244,7 +248,6 @@
 
 	user << browse(html, "window=astrarium;size=500x600")
 
-
 /obj/structure/machine/astrarium/proc/generate_sitrep(datum/job/user_job)
 	var/list/personnel = list()
 
@@ -312,7 +315,6 @@
 
 	return html
 
-
 /obj/structure/machine/astrarium/proc/translocation_interface(mob/user)
 	var/html = {"
 		<html>
@@ -372,7 +374,6 @@
 
 	user << browse(html, "window=astrarium;size=400x350")
 
-
 /obj/structure/machine/astrarium/Topic(href, href_list)
 	. = ..()
 
@@ -398,6 +399,27 @@
 
 		if("translocation")
 			translocation_interface(usr)
+
+		if("missions")
+			missions_interface(usr)
+
+		if("mission_status")
+			mission_status_interface(usr)
+
+		if("mission_kill")
+			mission_kill(usr)
+
+		if("mission_raid")
+			mission_raid(usr)
+
+		if("mission_retrieve")
+			mission_retrieve(usr)
+
+		if("mission_export")
+			mission_export(usr)
+
+		if("compile_mission")
+			compile_mission(usr)
 
 		if("begin_translocation")
 			var/x_coord = input(usr, "ENTER DESTINATION X COORDINATE", "ASTRARIUM") as num|null
@@ -426,7 +448,6 @@
 				return
 
 			translocate(usr, target, user_job.department_flag)
-
 
 /obj/structure/machine/astrarium/proc/translocate(mob/user, turf/target, department_flag)
 	if(active)

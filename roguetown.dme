@@ -1053,6 +1053,7 @@
 #include "code\game\objects\structures\noticeboard.dm"
 #include "code\game\objects\structures\plasticflaps.dm"
 #include "code\game\objects\structures\retrieval_machine.dm"
+#include "code\game\objects\structures\retrieval_machine_quests.dm"
 #include "code\game\objects\structures\roguetent.dm"
 #include "code\game\objects\structures\roguewindow.dm"
 #include "code\game\objects\structures\spawner.dm"
