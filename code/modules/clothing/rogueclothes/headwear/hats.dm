@@ -178,8 +178,8 @@
 	dynamic_hair_suffix = null
 
 /obj/item/clothing/head/roguetown/inqhat
-	name = "imperial galerum"
-	desc = "Commonly worn by Perserdunian Field Bishops. Designed to keep one's eyes away from the heavens, and focus on the blood upon the soil."
+	name = "galerum of roses"
+	desc = "Popularized by children's tales of highwaymen and dashing heroes. Designed for flair and panache. This one has a rose attached to it."
 	icon_state = "inqhat"
 	item_state = "inqhat"
 	sewrepair = TRUE
@@ -188,7 +188,7 @@
 	body_parts_covered = HEAD|EARS
 	slot_flags = ITEM_SLOT_HEAD
 	armor = ARMOR_PADDED_GOOD
-	prevent_crits = list(BCLASS_CUT)
+	prevent_crits = list(BCLASS_CUT, BCLASS_PIERCE)
 	blocksound = SOFTHIT
 	max_integrity = ARMOR_INT_HELMET_CLOTH
 	color = null

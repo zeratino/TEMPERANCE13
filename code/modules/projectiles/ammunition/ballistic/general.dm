@@ -165,6 +165,13 @@
 	projectile_type = /obj/projectile/bullet/a40mmsmoke
 	sellprice = 5
 
+/obj/item/ammo_casing/a40mm/gas
+	name = "\improper 40mm gas grenade"
+	desc = "A 40mm gas grenade. Uncommon compared to other types of 40mm grenades - usually reserved for specialists, such as the Protectorate's chemical units."
+	icon_state = "40mmgas-handful-1"
+	projectile_type = /obj/projectile/bullet/a40mmgas
+	sellprice = 5
+
 /obj/item/ammo_casing/a40mm/frag
 	name = "\improper 40mm frag grenade"
 	desc = "A 40mm frag grenade. Found in the WAR MACHINE, but some limited prototypes are hand-produced- albeit, they're very inconsistent. Fortunately, these seem to be actual WAR MACHINE grenades."

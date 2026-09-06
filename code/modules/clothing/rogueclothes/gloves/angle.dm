@@ -16,8 +16,8 @@
 	salvage_result = /obj/item/natural/fur
 
 /obj/item/clothing/gloves/roguetown/angle/grenzelgloves
-	name = "grenzelhoft gloves"
-	desc = "Regal gloves of Grenzelhoftian design, more a fashion statement than actual protection."
+	name = "canvassed leather gloves"
+	desc = "Regal gloves of canvassed design, more a fashion statement than actual protection."
 	icon_state = "grenzelgloves"
 	item_state = "grenzelgloves"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'

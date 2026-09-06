@@ -872,6 +872,168 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	jobspawn_override = list("Risvonian Conscript")
 	delete_after_roundstart = FALSE
 
+//Vos Arderla Spawns
+
+/obj/effect/landmark/start/rebelleader
+	name = "Rebel Leader"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/rebelleaderlate
+	name = "Rebel Leader"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Leader")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/farmerrebel
+	name = "Rebel Farmer"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/farmerrebellate
+	name = "Rebel Farmer"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Farmer")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/smithyrebel
+	name = "Rebel Smithy"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/smithyrebellate
+	name = "Rebel Smithy"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Smithy")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/lumberjackrebel
+	name = "Rebel Lumberjack"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/lumberjackrebellate
+	name = "Rebel Lumberjack"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Lumberjack")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/veterinarianrebel
+	name = "Rebel Veterinarian"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/veterinarianrebellate
+	name = "Rebel Veterinarian"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Veterinarian")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/officerrebel
+	name = "Rebel Office Worker"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/officerrebellate
+	name = "Rebel Office Worker"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Office Worker")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/tailorrebel
+	name = "Rebel Tailor"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/tailorrebellate
+	name = "Rebel Tailor"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Tailor")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/cookrebel
+	name = "Rebel Cook"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/cookrebellate
+	name = "Rebel Cook"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Cook")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/hunterrebel
+	name = "Rebel Hunter"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/hunterrebellate
+	name = "Rebel Hunter"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Hunter")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/minerrebel
+	name = "Rebel Miner"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/minerrebellate
+	name = "Rebel Miner"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Miner")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/butcherrebel
+	name = "Rebel Butcher"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/butcherrebellate
+	name = "Rebel Butcher"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Butcher")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/vagrantrebel
+	name = "Rebel Vagrant"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/vagrantrebellate
+	name = "Rebel Vagrant"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Vagrant")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/veteranrebel
+	name = "Rebel Veteran"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/veteranrebellate
+	name = "Rebel Veteran"
+	icon_state = "arrow"
+	jobspawn_override = list("Rebel Veteran")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/protectorate
+	name = "Protectorate Guardsman"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/protectoralate
+	name = "Protectorate Guardsman"
+	icon_state = "arrow"
+	jobspawn_override = list("Protectorate Guardsman")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/suppressionist
+	name = "Protectorate Triumverate"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/suppressionistlate
+	name = "Protectorate Triumverate"
+	icon_state = "arrow"
+	jobspawn_override = list("Protectorate Triumverate")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/sterilizer
+	name = "Protectorate Sterilizer"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sterilizerlate
+	name = "Protectorate Sterilizer"
+	icon_state = "arrow"
+	jobspawn_override = list("Protectorate Sterilizer")
+	delete_after_roundstart = FALSE
+
 //Antagonist spawns
 
 /obj/effect/landmark/start/wizard

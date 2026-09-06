@@ -196,6 +196,9 @@ GLOBAL_LIST_INIT(perserdun_positions, list(
 	"Partisan",
 	"Envoy",
 	"Radio Officer",
+	"Protectorate Guardsman",
+	"Protectorate Triumverate",
+	"Protectorate Sterilizer",
 ))
 
 GLOBAL_LIST_INIT(risvon_positions, list(
@@ -240,6 +243,22 @@ GLOBAL_LIST_INIT(hunter_positions, list(
 	"Huntsman",
 ))
 
+GLOBAL_LIST_INIT(rebel_positions, list(
+	"Rebel Leader",
+	"Rebel Veteran",
+	"Rebel Veterinarian",
+	"Rebel Office Worker",
+	"Rebel Butcher",
+	"Rebel Tailor",
+	"Rebel Cook",
+	"Rebel Miner",
+	"Rebel Hunter",
+	"Rebel Lumberjack",
+	"Rebel Smithy",
+	"Rebel Farmer",
+	"Rebel Vagrant",
+))
+
 GLOBAL_LIST_INIT(job_assignment_order, get_job_assignment_order())
 
 /proc/get_job_assignment_order()
@@ -249,6 +268,7 @@ GLOBAL_LIST_INIT(job_assignment_order, get_job_assignment_order())
 	sorting_order += GLOB.kingsrow_positions
 	sorting_order += GLOB.nonaffiliated_positions
 	sorting_order += GLOB.hunter_positions
+	sorting_order += GLOB.rebel_positions
 	return sorting_order
 
 GLOBAL_LIST_INIT(exp_jobsmap, list(

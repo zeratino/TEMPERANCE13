@@ -236,6 +236,22 @@
 	S.start()
 	playsound(src, 'sound/misc/explode/smokeexplosion.ogg', 100, FALSE, 0)
 
+/obj/projectile/bullet/a40mmgas
+	name = "40mm grenade"
+	damage = 0
+	armor_penetration = 0
+	hitscan = FALSE
+	spread = 0
+	speed = 0.2
+
+/obj/projectile/bullet/a40mmgas/on_hit(target)
+	..()
+	var/datum/effect_system/smoke_spread/poison_gas/bad/S = new /datum/effect_system/smoke_spread/poison_gas/bad
+	var/turf/T = src.loc
+	S.set_up(3, T)
+	S.start()
+	playsound(src, 'sound/misc/explode/smokeexplosion.ogg', 100, FALSE, 0)
+
 /obj/projectile/bullet/a40mmfrag
 	name = "40mm grenade"
 	damage = 0

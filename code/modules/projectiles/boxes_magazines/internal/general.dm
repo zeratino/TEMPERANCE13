@@ -122,6 +122,14 @@
 	max_ammo = 1
 	multiload = 0
 
+/obj/item/ammo_box/magazine/internal/revolver/purifier
+	name = "Purifier internal magazine"
+	desc = "You should probably tell an admin."
+	ammo_type = /obj/item/ammo_casing/a40mm/gas
+	caliber = "40mm"
+	max_ammo = 5
+	multiload = 1
+
 //pistols
 
 /obj/item/ammo_box/magazine/internal/boltaction/pistol

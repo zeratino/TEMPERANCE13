@@ -123,25 +123,16 @@
 		add_overlay(pic)
 
 
-/obj/item/clothing/suit/roguetown/shirt/freifechter
-	name = "padded fencing shirt"
-	desc = "A strong loosely worn quilted shirt that places little weight on the arms, usually worn underneath a flexible leather vest. It won't cover your legs."
-	icon = 'icons/roguetown/clothing/armor.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
-	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/freifechter
+	name = "padded shirt"
+	desc = "A strong loosely worn quilted shirt that places little weight on the arms, usually worn underneath a strong leather vest. It won't cover your legs."
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	icon_state = "fencingshirt"
 	color = "#FFFFFF"
-	var/shiftable = FALSE
-	armor = ARMOR_PADDED
-	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER + 35
-	sellprice = 25
-	blocksound = SOFTUNDERHIT
-	blade_dulling = DULLING_BASHCHOP
-	break_sound = 'sound/foley/cloth_rip.ogg'
-	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
-	sewrepair = TRUE
-	cold_protection = 10
+	shiftable = FALSE
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/freifechter/black
+	color = CLOTHING_BLACK
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/freifechter/housekeeper
 	name = "hardened waistcoat"
@@ -160,7 +151,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/grenzelhoft
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
-	name = "grenzelhoftian hip-shirt"
+	name = "tailored hip-shirt"
 	desc = "Padded shirt for extra comfort and protection, adorned in vibrant colors."
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	icon_state = "grenzelshirt"

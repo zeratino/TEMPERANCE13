@@ -640,3 +640,48 @@
 	if(QDELETED(src))
 		return
 	qdel(src)
+
+/obj/item/clothing/suit/roguetown/shirt/officeshirt1
+	name = "white office shirt with tie"
+	desc = "A crisp, white collared shirt. This one comes with a neatly tied tie."
+	icon_state = "officeshirt1"
+	item_state = "officeshirt1"
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	body_parts_covered = CHEST|ARMS|VITALS
+
+/obj/item/clothing/suit/roguetown/shirt/officeshirt2
+	name = "black office shirt"
+	desc = "A crisp, black collared shirt."
+	icon_state = "officeshirt2"
+	item_state = "officeshirt2"
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	body_parts_covered = CHEST|ARMS|VITALS
+
+/obj/item/clothing/suit/roguetown/shirt/officeshirt3
+	name = "white office shirt"
+	desc = "A crisp, white collared shirt."
+	icon_state = "officeshirt3"
+	item_state = "officeshirt3"
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	body_parts_covered = CHEST|ARMS|VITALS
+
+/obj/item/clothing/suit/roguetown/shirt/officeshirt4
+	name = "grey office shirt"
+	desc = "A crisp, white collared shirt - at least, it used to be. It's now a dull grey from the dust and debris."
+	icon_state = "officeshirt4"
+	item_state = "officeshirt4"
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	body_parts_covered = CHEST|ARMS|VITALS
+
+/obj/item/clothing/suit/roguetown/shirt/officeshirt5
+	name = "brown office shirt"
+	desc = "A crisp, brown collared shirt. This one is short-sleeved, and has a few stains on it from the last time it was worn."
+	icon_state = "officeshirt5"
+	item_state = "officeshirt5"
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	body_parts_covered = CHEST|ARMS|VITALS

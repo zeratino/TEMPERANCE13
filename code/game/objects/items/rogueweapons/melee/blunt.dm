@@ -503,3 +503,38 @@
 	throw_speed = 6 //Daredevil LARP
 	armor_penetration = 30 // Slightly worse than tossblades
 	embedding = list("embedded_pain_multiplier" = 6, "embed_chance" = 50, "embedded_fall_chance" = 30) //high chance at embed, high chance to fall out on its own.
+
+/obj/item/rogueweapon/mace/cudgel/protectorate
+	name = "protectorate peacekeeper"
+	desc = "A MACHINE-made, telescopic cudgel - a staple Protectorate sidearm."
+	force = 10
+	icon_state = "riotcudgel_c"
+	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/dagger/sucker_punch/wallop, /datum/intent/mace/smash, /datum/intent/effect/daze)
+	gripped_intents = null
+	wlength = WLENGTH_SHORT
+	w_class = WEIGHT_CLASS_NORMAL
+	wbalance = WBALANCE_HEAVY
+	minstr = 7
+	wdefense = 2
+	resistance_flags = FLAMMABLE
+	blade_dulling = DULLING_SHAFT_METAL
+	grid_width = 32
+	grid_height = 96
+	var/extended = 0
+
+/obj/item/rogueweapon/mace/cudgel/protectorate/attack_self(mob/user)
+	extended = !extended
+	playsound(src.loc, 'sound/blank.ogg', 50, TRUE)
+	if(extended)
+		force = 35
+		wdefense = 6
+		w_class = WEIGHT_CLASS_NORMAL
+		throwforce = 23
+		icon_state = "riotcudgel_o"
+		playsound(user, 'sound/items/knife_open.ogg', 100, TRUE)
+	else
+		force = 10
+		w_class = WEIGHT_CLASS_SMALL
+		throwforce = 5
+		icon_state = "riotcudgel_c"
+		wdefense = 2

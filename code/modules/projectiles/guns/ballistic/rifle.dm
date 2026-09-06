@@ -297,7 +297,7 @@
 
 /obj/item/gun/ballistic/rifle/repeater/lewis
 	name = "KR 'Leonard'"
-	desc = "One of the only light machine guns produced the by WAR machine. Chambered in .30. This one sports a gun shield at the front, won't block any rounds coming your way, but it'll still be good enough to stop an axe or a shortsword. There is a tally mark for each man who's held it before you. It's at XII."
+	desc = "One of the only light machine guns produced the by WAR machine. Chambered in .30 - There is a tally mark for each man who's held it before you. It's at XII."
 	icon = 'icons/roguetown/weapons/64guns.dmi'
 	icon_state = "lewisgun"
 	item_state = "lewisgun"

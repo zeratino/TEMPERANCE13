@@ -173,3 +173,20 @@
 	icon = 'icons/roguetown/clothing/special/maids.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/maids.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/maids.dmi'
+
+/obj/item/clothing/head/roguetown/helmet/riot
+	name = "protectorate pot-helm"
+	desc = "A MACHINED helmet with a chin-strap to ensure stability. Exposes the face."
+	body_parts_covered = HEAD|HAIR|EARS
+	flags_inv = HIDEEARS|HIDEHAIR
+	armor = ARMOR_HEAD_HELMET
+	prevent_crits = list(BCLASS_TWIST)
+	allowed_race = ALL_RACES_TYPES
+	icon = 'icons/roguetown/clothing/head.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head.dmi'
+	icon_state = "riothelm"
+	item_state = "riothelm"
+	block2add = FOV_DEFAULT
+	bloody_icon = 'icons/effects/blood64.dmi'
+	smeltresult = /obj/item/ingot/steel
+	max_integrity = 300

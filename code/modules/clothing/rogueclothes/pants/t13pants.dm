@@ -29,3 +29,15 @@
 	icon = 'icons/roguetown/clothing/special/housekeeper.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/housekeeper.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/housekeeper.dmi'
+
+/obj/item/clothing/under/roguetown/tights/riot
+	name = "protectorate field-pants"
+	desc = "Dyed in the menacing blue of the PCP. Offers a modest amount of protection from the elements."
+	icon_state = "riotpants"
+	item_state = "riotpants"
+	icon = 'icons/roguetown/clothing/pants.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/pants.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_pants.dmi'
+	armor_class = ARMOR_CLASS_LIGHT
+	max_integrity = ARMOR_INT_LEG_HARDLEATHER
+	armor = ARMOR_LEATHER_GOOD

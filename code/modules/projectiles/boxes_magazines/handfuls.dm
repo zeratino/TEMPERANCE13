@@ -110,6 +110,12 @@
 	ammo_type = /obj/item/ammo_casing/a40mm/smoke
 	icon_state = "40mmsmoke-handful"
 
+/obj/item/ammo_box/handfuls/a40mm/gas
+	name = "handful of 40mm gas grenades"
+	desc = "A handful of 40mm gas grenades."
+	ammo_type = /obj/item/ammo_casing/a40mm/gas
+	icon_state = "40mmgas-handful"
+
 /obj/item/ammo_box/handfuls/a40mm/he
 	name = "handful of 40mm HE grenades"
 	desc = "A handful of 40mm high explosive grenades."

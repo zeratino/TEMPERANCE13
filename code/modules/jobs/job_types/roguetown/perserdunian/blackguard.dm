@@ -21,7 +21,7 @@
 	min_pq = 0
 	max_pq = null
 
-	cmode_music = 'sound/music/combat_trenchraider.ogg'
+	cmode_music = 'sound/music/combat_sterilizer.ogg'
 
 /datum/job/roguetown/blackguard/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()

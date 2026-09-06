@@ -22,14 +22,6 @@
 	if(timeleft)
 		QDEL_IN(src, timeleft) //delete after it runs out
 
-
-/obj/structure/timed_blocker/CanPass(atom/movable/mover, turf/target)	//only imperials can freely pass thru
-	var/mob/living/carbon/human/H = mover
-	if(H.job in GLOB.perserdun_positions)
-		return TRUE
-	return FALSE
-
-
 /obj/structure/timed_blocker/twenty
 	timeleft = 20 MINUTES
 

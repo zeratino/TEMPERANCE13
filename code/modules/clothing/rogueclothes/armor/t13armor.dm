@@ -255,3 +255,36 @@
 /obj/item/clothing/suit/roguetown/armor/plate/hauberk/alt
 	desc = "A thick iron breastplate over a sturdy hauberk. This one has seen a plethora of use."
 	icon_state = "icuirasshauberk"
+
+/obj/item/clothing/suit/roguetown/armor/plate/half/riot
+	name = "protectorate cuirass"
+	icon_state = "riotcuirass"
+	desc = "A sturdy, MACHINED cuirass that covers the vitals. Protective against bullets and bludgeons alike."
+	body_parts_covered = CHEST|GROIN|VITALS|ARMS|NECK
+	prevent_crits = list(BCLASS_PIERCE, BCLASS_TWIST)
+	max_integrity = ARMOR_INT_CHEST_PLATE_PSYDON
+	armor = list("blunt" = 90, "slash" = 70, "stab" = 50, "piercing" = 80, "fire" = 50, "acid" = 0)
+	icon = 'icons/roguetown/clothing/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
+
+/obj/item/clothing/suit/roguetown/armor/plate/full/riot
+	name = "protectorate suppression suit"
+	icon_state = "riotplate"
+	desc = "A MACHINED suit of layered armor - the best the Protectorate can offer for their elite units. Exceedingly difficult to take off."
+	smeltresult = /obj/item/ingot/steel
+	armor = ARMOR_PLATE_GOOD
+	allowed_race = ALL_RACES_TYPES
+	flags_inv = HIDEJUMPSUIT
+	prevent_crits = list(BCLASS_PIERCE, BCLASS_TWIST)
+	equip_delay_self = 5 SECONDS
+	unequip_delay_self = 10 SECONDS
+	equip_delay_other = 1 SECONDS
+	strip_delay = 2 SECONDS
+	smelt_bar_num = 4
+	max_integrity = ARMOR_INT_CHEST_PLATE_STEEL
+	body_parts_covered = CHEST | GROIN | VITALS | LEGS | ARMS | NECK
+	armor = list("blunt" = 90, "slash" = 90, "stab" = 90, "piercing" = 80, "fire" = 50, "acid" = 0)
+	icon = 'icons/roguetown/clothing/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'

@@ -86,6 +86,9 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	var/list/king_list = list(
 		"<center><font color='#f9a602'><B>---Kingsrow---</B></font></center>"
 	)
+	var/list/rebel_list = list(
+		"<center><font color='#f90202'><B>---Vos Arderla Rebels---</B></font></center>"
+	)
 	var/list/chud_list = list(
 		"<center><B>---Unaffiliated Nobodies---</B></center>"
 	)
@@ -123,12 +126,14 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 			risv_list += "<B>[job_name]</B> ([job_players.len]) - [job_players.Join(", ")]<br>"
 		if (job_name in GLOB.kingsrow_positions)
 			king_list += "<B>[job_name]</B> ([job_players.len]) - [job_players.Join(", ")]<br>"
+		if (job_name in GLOB.rebel_positions)
+			rebel_list += "<B>[job_name]</B> ([job_players.len]) - [job_players.Join(", ")]<br>"
 		if (job_name in GLOB.nonaffiliated_positions)
 			chud_list += "<B>[job_name]</B> ([job_players.len]) - [job_players.Join(", ")]<br>"
 
 	sortTim(job_list, cmp = GLOBAL_PROC_REF(cmp_text_asc))
 
-	dat += pers_list + risv_list + king_list + chud_list
+	dat += pers_list + risv_list + king_list + rebel_list + chud_list
 	var/datum/browser/popup = new(src, "lobby_window", "<div align='center'>LOBBY</div>", 330, 430)
 	popup.set_window_options("can_close=1;can_minimize=0;can_maximize=0;can_resize=1;")
 	popup.set_content(dat.Join())

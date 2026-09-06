@@ -35,7 +35,6 @@
 		/obj/item/roguecoin/copper/pile = 3,
 
 		// Garbage and Miscellanous
-		/obj/item/rogue/instrument/flute = 3,
 		/obj/item/ash = 5,
 		/obj/item/natural/glass_shard = 5,
 		/obj/item/candle/yellow = 3,

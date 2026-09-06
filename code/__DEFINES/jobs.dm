@@ -231,6 +231,11 @@
 #define RADIOTROOPER (1<<13)
 #define PERSERDUN_CONSCRIPT (1<<14) //tester role
 #define MAGISTER (1<<15)
+#define PROTECTORATE (1<<16) //Vos Arderla Exclusive, riot control
+#define SUPPRESSIONIST (1<<17) //Vos Arderla Exclusive, riot specialist
+#define PERSERDUN_CONSCRIPT (1<<18) //tester role
+#define STERILIZER (1<<19) //Vos Arderla Exclusive, poison specialist
+
 
 #define RISVON	(1<<13)
 
@@ -270,7 +275,23 @@
 #define MOUNTEBANK (1<<3) // 3 slot medic role
 #define HUNTSMAN (1<<4) // 16 slot standard soldier. Can select risvon/perserdun origin for loadout adjustments
 
-#define UNAFFILIATED (1<<16)
+#define REBELS (1<<16)
+
+#define REBELLEADER (1<<0)
+#define FARMERREBEL (1<<1)
+#define BUTCHERREBEL (1<<2)
+#define HUNTERREBEL (1<<3)
+#define LUMBERJACKREBEL (1<<4)
+#define MINERREBEL (1<<5)
+#define COOKREBEL (1<<6)
+#define VETERANREBEL (1<<7)
+#define OFFICEREBEL (1<<8)
+#define VAGRANTREBEL (1<<9)
+#define TAILORREBEL (1<<10)
+#define SMITHYREBEL (1<<11)
+#define VETERINARIANREBEL (1<<12)
+
+#define UNAFFILIATED (1<<17)
 
 #define FOREIGNER (1<<0)
 #define PIONEER (1<<2)
@@ -310,7 +331,10 @@
 #define JDO_PARTISAN 1.91
 #define JDO_ENVOY 1.92
 #define JDO_RADIOTROOPER 1.93
-#define JDO_PERSERDUN_CONSCRIPT 1.94
+#define JDO_PROTECTORATE 1.94
+#define JDO_SUPPRESSIONIST 1.95
+#define JDO_PERSERDUN_CONSCRIPT 1.96
+#define JDO_STERILIZER 1.97
 
 // RISVON
 #define JDO_COMMANDANT 2.0
@@ -352,6 +376,21 @@
 #define JDO_MOUNTEBANK 5.3
 #define JDO_HUNTSMAN 5.4
 
+//REBELS
+#define JDO_REBELLEADER 6
+#define JDO_FARMERREBEL 6.1
+#define JDO_BUTCHERREBEL 6.2
+#define JDO_HUNTERREBEL 6.3
+#define JDO_LUMBERJACKREBEL 6.4
+#define JDO_MINERREBEL 6.5
+#define JDO_COOKREBEL 6.6
+#define JDO_VETERANREBEL 6.7
+#define JDO_OFFICEREBEL 6.8
+#define JDO_VETERINARIANREBEL 6.9
+#define JDO_TAILORREBEL 6.10
+#define JDO_SMITHYREBEL 6.11
+#define JDO_VAGRANTREBEL 6.12
+
 #define PERSERDUN_ROLES \
 	/datum/job/roguetown/grandmaster,\
 	/datum/job/roguetown/magister,\
@@ -365,7 +404,10 @@
 	/datum/job/roguetown/chirurgeon,\
 	/datum/job/roguetown/partisan,\
 	/datum/job/roguetown/envoy,\
-	/datum/job/roguetown/perserconscript
+	/datum/job/roguetown/perserconscript,\
+	/datum/job/roguetown/protectorate,\
+	/datum/job/roguetown/suppressionist,\
+	/datum/job/roguetown/sterilizer
 
 #define RISVON_ROLES \
 	/datum/job/roguetown/commandant,\
@@ -405,3 +447,17 @@
 	/datum/job/roguetown/huntsteward,\
 	/datum/job/roguetown/mountebank,\
 	/datum/job/roguetown/huntmaster
+
+#define REBEL_ROLES \
+	/datum/job/roguetown/rebelleader,\
+	/datum/job/roguetown/farmerrebel,\
+	/datum/job/roguetown/butcherrebel,\
+	/datum/job/roguetown/hunterrebel,\
+	/datum/job/roguetown/lumberjackrebel,\
+	/datum/job/roguetown/minerrebel,\
+	/datum/job/roguetown/cookrebel,\
+	/datum/job/roguetown/veteranrebel,\
+	/datum/job/roguetown/officerrebel,\
+	/datum/job/roguetown/veterinarianrebel,\
+	/datum/job/roguetown/tailorrebel,\
+	/datum/job/roguetown/smithyrebel

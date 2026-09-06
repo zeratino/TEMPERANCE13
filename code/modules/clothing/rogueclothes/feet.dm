@@ -190,7 +190,7 @@
 	item_state = "albootsb"
 
 /obj/item/clothing/shoes/roguetown/boots/otavan
-	name = "otavan leather boots"
+	name = "Arderlian leather boots"
 	desc = "Boots of outstanding craft, your fragile feet have never felt so protected and comfortable before."
 	body_parts_covered = FEET
 	icon_state = "fencerboots"
@@ -205,7 +205,7 @@
 	sewrepair = TRUE
 
 /obj/item/clothing/shoes/roguetown/grenzelhoft
-	name = "grenzelhoft boots"
+	name = "canvassed boots"
 	icon_state = "grenzelboots"
 	item_state = "grenzelboots"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
@@ -215,6 +215,9 @@
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
 	sewrepair = TRUE
+
+/obj/item/clothing/shoes/roguetown/grenzelhoft/black
+	color = CLOTHING_BLACK
 
 /obj/item/clothing/shoes/roguetown/boots/leather/elven_boots
 	name = "woad elven boots"

@@ -1,31 +1,31 @@
 /obj/effect/proc_holder/spell/invoked/projectile/acidsplash
-	name = "Acid Splash"
-	desc = "A slow-moving glob of acid that sprays over an area upon impact."
+	name = "Underbarrel Acid Sprayer"
+	desc = "Spray globs of acid that sprays over an area upon impact."
 	range = 8
 	projectile_type = /obj/projectile/magic/acidsplash
 	overlay_state = "acid_splash"
-	sound = list('sound/magic/whiteflame.ogg')
+	sound = list('sound/combat/Ranged/flame1.ogg')
 	active = FALSE
 
 	releasedrain = 30
 	chargedrain = 1
-	chargetime = 3
-	recharge_time = 15 SECONDS //cooldown
+	chargetime = 1
+	recharge_time = 5 SECONDS //cooldown
 
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	movement_interrupt = FALSE
 	antimagic_allowed = FALSE //can you use it if you are antimagicked?
-	spell_tier = 2
-	invocation = "Tabificus!"
+	spell_tier = 5
+	invocation = "HAHAHAHAHA!!"
 	invocation_type = "shout"
-	glow_color = GLOW_COLOR_ARCANE
-	glow_intensity = GLOW_INTENSITY_LOW
+	glow_color = null
+	glow_intensity = null
 	charging_slowdown = 3
-	chargedloop = /datum/looping_sound/invokegen
-	associated_skill = /datum/skill/magic/arcane //can be arcane, druidic, blood, holy
+	chargedloop = /datum/looping_sound/blank
+	associated_skill = /datum/skill/combat/revolvers
 	cost = 3
-
+	req_items = list(/obj/item/gun/ballistic/revolver/purifier)
 	xp_gain = TRUE
 	miracle = FALSE
 
@@ -35,13 +35,13 @@
 	. = ..()
 
 /obj/projectile/magic/acidsplash //port. todo: the sounds these came with aren't good and drink_blood sounds like ur slurpin pintle
-	name = "acid bubble"
-	icon_state = "green_laser"
-	damage = 10
+	name = "acid spray"
+	icon_state = "neurotoxin"
+	damage = 20
 	damage_type = BURN
 	flag = "magic"
 	range = 15
-	speed = 5 //higher is slower
+	speed = 1 //higher is slower
 	var/aoe_range = 1
 
 /obj/projectile/magic/acidsplash/on_hit(atom/target, blocked = FALSE)
@@ -79,7 +79,7 @@
 
 /obj/effect/temp_visual/acidsplash
 	icon = 'icons/effects/effects.dmi'
-	icon_state = "greenshatter2"
+	icon_state = "acid"
 	name = "horrible acrid brine"
 	desc = "Best not touch this."
 	randomdir = TRUE

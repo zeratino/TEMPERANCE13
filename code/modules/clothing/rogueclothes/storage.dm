@@ -534,6 +534,26 @@
 		/obj/item/ammo_box/clip/pistol,
 	)
 
+/obj/item/storage/belt/rogue/pouch/ammobag/judge
+	populate_contents = list(
+		/obj/item/ammo_box/handfuls/judge,
+		/obj/item/ammo_box/handfuls/judge,
+		/obj/item/ammo_box/handfuls/judge,
+		/obj/item/ammo_box/handfuls/judge,
+		/obj/item/ammo_box/handfuls/judge,
+		/obj/item/ammo_box/handfuls/judge,
+	)
+
+/obj/item/storage/belt/rogue/pouch/ammobag/gas
+	populate_contents = list(
+		/obj/item/ammo_box/handfuls/a40mm/gas,
+		/obj/item/ammo_box/handfuls/a40mm/gas,
+		/obj/item/ammo_box/handfuls/a40mm/gas,
+		/obj/item/ammo_box/handfuls/a40mm/gas,
+		/obj/item/ammo_box/handfuls/a40mm/gas,
+		/obj/item/ammo_box/handfuls/a40mm/gas,
+	)
+
 /obj/item/storage/belt/rogue/pouch/panbag
 	name = "ammo pan strapbag"
 	desc = "A strap on bag meant to hold light machine gun ammo pans. It's a bit of a heavy item, but it does its job well."

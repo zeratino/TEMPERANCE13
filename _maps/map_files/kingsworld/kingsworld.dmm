@@ -20291,12 +20291,6 @@
 	icon_state = "floor6"
 	},
 /obj/effect/decal/cleanable/blood/gibs/old,
-/obj/item/clothing/head/roguetown/papakha{
-	name = "Exquisite Papakha"
-	},
-/obj/item/reagent_containers/glass/bottle/rogue/beer/nocshine{
-	name = "The Jovial Reserve"
-	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/caves)
 "sGV" = (
@@ -63207,11 +63201,11 @@ iBi
 iBi
 iBi
 iBi
-iBi
+oOy
 obi
 obi
 obi
-iBi
+ssN
 iBi
 iBi
 iBi
@@ -63509,11 +63503,11 @@ iBi
 iBi
 iBi
 iBi
-iBi
+oOy
 obi
 obi
 obi
-iBi
+ssN
 iBi
 iBi
 iBi
@@ -63811,11 +63805,11 @@ iBi
 iBi
 iBi
 iBi
-iBi
+oOy
 obi
 obi
 obi
-iBi
+ssN
 iBi
 iBi
 iBi
@@ -64113,11 +64107,11 @@ iBi
 iBi
 iBi
 iBi
-iBi
+oOy
 obi
 obi
 obi
-iBi
+ssN
 iBi
 iBi
 iBi
@@ -64415,11 +64409,11 @@ iBi
 iBi
 iBi
 iBi
-iBi
+oOy
 obi
 obi
 obi
-iBi
+ssN
 iBi
 iBi
 iBi
