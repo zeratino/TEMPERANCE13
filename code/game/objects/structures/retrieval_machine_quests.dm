@@ -679,6 +679,6 @@
 /datum/astrarium_quest/kill/Destroy()
 	if(target)
 		UnregisterSignal(target, COMSIG_LIVING_DEATH)
+		qdel(target)
 		target = null
-
 	return ..()
