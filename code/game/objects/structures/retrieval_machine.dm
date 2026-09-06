@@ -7,7 +7,20 @@
 	resistance_flags = INDESTRUCTIBLE
 	density = TRUE
 	layer = MOB_LAYER + 0.01
+	var/list/active_quests = list()
 	var/active = FALSE
+	var/list/kill_quest_pool = list(
+		/datum/astrarium_quest/kill/wolf,
+		/datum/astrarium_quest/kill/robot,
+		/datum/astrarium_quest/kill/orc,
+		/datum/astrarium_quest/kill/goblin
+	)
+	var/list/raid_quest_pool = list(
+		/datum/astrarium_quest/raid/wolf,
+		/datum/astrarium_quest/raid/robot,
+		/datum/astrarium_quest/raid/orc,
+		/datum/astrarium_quest/raid/goblin
+	)
 
 /obj/structure/machine/astrarium/proc/get_department_name(department_flag)
 	switch(department_flag)
@@ -27,7 +40,6 @@
 	if(!user)
 		return
 	open_interface(user)
-
 
 /obj/structure/machine/astrarium/proc/get_user_job(mob/user)
 	if(!user)
@@ -134,6 +146,10 @@
 
 			<a class=button href=byond://?src=\ref[src];action=translocation>
 				INITIATE REALITY-MARBLE TRANSLOCATION PROTOCOL
+			</a>
+
+			<a class=button href=byond://?src=\ref[src];action=missions>
+				CHRONOLOGICAL CORRECTION TASK MODULE
 			</a>
 
 			<br>
@@ -244,7 +260,6 @@
 
 	user << browse(html, "window=astrarium;size=500x600")
 
-
 /obj/structure/machine/astrarium/proc/generate_sitrep(datum/job/user_job)
 	var/list/personnel = list()
 
@@ -312,7 +327,6 @@
 
 	return html
 
-
 /obj/structure/machine/astrarium/proc/translocation_interface(mob/user)
 	var/html = {"
 		<html>
@@ -371,62 +385,6 @@
 	"}
 
 	user << browse(html, "window=astrarium;size=400x350")
-
-
-/obj/structure/machine/astrarium/Topic(href, href_list)
-	. = ..()
-
-	if(.)
-		return
-
-	if(!usr)
-		return
-
-	var/datum/job/user_job = get_user_job(usr)
-
-	if(!user_job || !user_job.department_flag)
-		to_chat(usr, span_warning("The MACHINE does not recognize your credentials."))
-		return
-
-	switch(href_list["action"])
-
-		if("main")
-			open_interface(usr)
-
-		if("sitrep")
-			sitrep_interface(usr)
-
-		if("translocation")
-			translocation_interface(usr)
-
-		if("begin_translocation")
-			var/x_coord = input(usr, "ENTER DESTINATION X COORDINATE", "ASTRARIUM") as num|null
-
-			if(isnull(x_coord))
-				open_interface(usr)
-				return
-
-			var/y_coord = input(usr, "ENTER DESTINATION Y COORDINATE", "ASTRARIUM") as num|null
-
-			if(isnull(y_coord))
-				open_interface(usr)
-				return
-
-			var/z_coord = input(usr, "ENTER DESTINATION Z COORDINATE", "ASTRARIUM") as num|null
-
-			if(isnull(z_coord))
-				open_interface(usr)
-				return
-
-			var/turf/target = locate(x_coord, y_coord, z_coord)
-
-			if(!target)
-				say("CANNOT LOCATE THE SPECIFIED COORDINATES.")
-				open_interface(usr)
-				return
-
-			translocate(usr, target, user_job.department_flag)
-
 
 /obj/structure/machine/astrarium/proc/translocate(mob/user, turf/target, department_flag)
 	if(active)
@@ -535,3 +493,115 @@
 		return FALSE
 	addtimer(CALLBACK(src, PROC_REF(delete_self)), 2)
 	return TRUE
+
+/obj/structure/machine/astrarium/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/temporal_compass))
+		var/obj/item/temporal_compass/C = I
+		if(C.inserted)
+			return
+		if(!C.quest || !(C.quest in active_quests))
+			to_chat(user, span_warning("The MACHINE rejects the Temporal Compass. No corresponding mission exists."))
+			return
+		if(C.quest.compass != C)
+			to_chat(user, span_warning("The MACHINE rejects the Temporal Compass. Its temporal signature is invalid."))
+			return
+		C.stop_tracking()
+		C.tracking = FALSE
+		C.inserted = TRUE
+		C.quest.compass_inserted = TRUE
+		C.quest = null
+		C.owner = null
+		qdel(C)
+		to_chat(user, span_notice("ASTRARIUM: TEMPORAL COMPASS ACCEPTED."))
+		to_chat(user, span_notice("ASTRARIUM: MISSION TIMELINE SIGNATURE SUCCESSFULLY CROSS-REFERENCED."))
+		missions_interface(user)
+		return
+	return ..()
+
+/obj/item/temporal_compass
+	name = "Temporal Compass"
+	desc = "A strange instrument capable of detecting disturbances across the timeline."
+	icon = 'icons/obj/clockwork_objects.dmi'
+	icon_state = "dread_ipad"
+	var/datum/astrarium_quest/quest
+	var/mob/living/owner
+	var/department_flag
+	var/tracking = FALSE
+	var/track_timer
+	var/inserted = FALSE
+
+/obj/item/temporal_compass/Initialize(mapload)
+	. = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/temporal_compass/proc/activate(mob/living/user)
+	if(!user)
+		return FALSE
+	if(inserted)
+		return FALSE
+	if(!owner)
+		owner = user
+		if(user.mind)
+			var/datum/job/J = SSjob.GetJob(user.mind.assigned_role)
+			if(J)
+				department_flag = J.department_flag
+		if(!department_flag)
+			owner = null
+			to_chat(user, span_warning("The compass fails to recognize your temporal signature. You are irrelevant to this timeline."))
+			return FALSE
+		to_chat(user, span_notice("The Temporal Compass attunes itself to your temporal signature."))
+		to_chat(user, span_notice("Temporal department signature registered: [department_flag]."))
+	tracking = !tracking
+	if(tracking)
+		to_chat(user, span_notice("The Temporal Compass begins tracking the designated target."))
+		start_tracking()
+	else
+		to_chat(user, span_warning("The Temporal Compass ceases tracking."))
+	return TRUE
+
+/obj/item/temporal_compass/proc/start_tracking()
+	stop_tracking()
+	track_timer = addtimer(CALLBACK(src, PROC_REF(track_target)), 2 SECONDS, TIMER_LOOP | TIMER_STOPPABLE)
+
+/obj/item/temporal_compass/proc/stop_tracking()
+	if(track_timer)
+		deltimer(track_timer)
+		track_timer = null
+
+/obj/item/temporal_compass/proc/track_target()
+	if(!tracking || !owner || !quest)
+		return
+	var/datum/astrarium_quest/kill/K = quest
+	if(istype(K))
+		K.check_target_activation()
+	var/turf/owner_turf = get_turf(owner)
+	if(!owner_turf)
+		return
+	var/turf/destination
+	if(istype(K) && !K.target_spawned)
+		destination = K.get_target_location()
+	else
+		var/mob/living/target = quest.get_target()
+		if(!target)
+			return
+		destination = get_turf(target)
+	if(!destination)
+		return
+	var/distance = get_dist(owner_turf, destination)
+	to_chat(owner, span_notice("TEMPORAL COMPASS: [K && !K.target_spawned ? "Anomaly coordinates" : "Target"] detected [dir2text(get_dir(owner_turf, destination))]. Distance: [distance] tiles."))
+
+/obj/item/temporal_compass/attack_self(mob/living/user)
+	. = ..()
+	if(!user)
+		return
+	activate(user)
+
+/obj/item/temporal_compass/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item))
+		. = ..()
+
+/obj/item/temporal_compass/Destroy()
+	stop_tracking()
+	owner = null
+	quest = null
+	return ..()
