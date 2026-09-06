@@ -39,6 +39,14 @@
 		if("mission_export")
 			mission_export(usr)
 
+		if("send_export")
+			var/datum/astrarium_quest/export/E = locate(href_list["quest"])
+			if(!E || !(E in active_quests))
+				missions_interface(usr)
+				return
+			send_export(usr, E)
+			return
+
 		if("mission_status")
 			var/datum/astrarium_quest/Q = locate(href_list["quest"])
 			if(!Q || !(Q in active_quests))
@@ -173,7 +181,7 @@
 				<div class=status>
 					<b>[Q.name]</b>
 					<br><br>
-					[Q.description]
+					[Q.get_description()]
 					<br><br>
 					STATUS:
 					<span class=[Q.get_status_class()]>
@@ -365,6 +373,46 @@
 				COMPILE TIMELINE RESULTS
 			</a>
 		"}
+
+	else if(istype(quest, /datum/astrarium_quest/export))
+		var/datum/astrarium_quest/export/E = quest
+
+		E.check_export()
+
+		html += {"
+			<h2>EXPORT PARAMETERS</h2>
+
+			<div class=description>
+				REQUESTED MATERIAL:
+				<b>[E.get_export_name()]</b>
+				<br><br>
+
+				REQUIRED:
+				<b>[E.required_amount]</b>
+				<br>
+
+				CURRENT:
+				<b>[E.current_amount]</b>
+				<br><br>
+
+				Place the requested materials inside a crate and bring
+				the crate within [E.export_range] tiles of the ASTRARIUM.
+			</div>
+		"}
+
+		if(E.export_completed)
+			html += {"
+				<a class='button compile' href=byond://?src=\ref[src];action=send_export;quest=\ref[quest]>
+					SEND EXPORT
+				</a>
+			"}
+
+		html += {"
+			<a class='button cancel' href=byond://?src=\ref[src];action=cancel_mission;quest=\ref[quest]>
+				EMERGENCY PARADOX CANCEL
+			</a>
+		"}
+
 	else
 		html += {"
 			<h2>MISSION CONTROL</h2>
@@ -394,17 +442,31 @@
 	user << browse(html, "window=astrarium;size=500x600")
 
 /obj/structure/machine/astrarium/proc/mission_kill(mob/user)
-	var/datum/astrarium_quest/kill/wolf/Q = new(src)
+	if(!kill_quest_pool || !kill_quest_pool.len)
+		to_chat(user, span_warning("ASTRARIUM: No purge protocols are currently available."))
+		missions_interface(user)
+		return
+	var/quest_type = pick(kill_quest_pool)
+	var/datum/astrarium_quest/kill/Q = new quest_type(src)
 	if(!start_quest(Q))
 		to_chat(user, span_warning("ASTRARIUM: Unable to initialize the purge mission."))
 		missions_interface(user)
 		return
-	to_chat(user, span_notice("ASTRARIUM: PURGE MISSION INITIALIZED."))
+	to_chat(user, span_notice("ASTRARIUM: [Q.name] INITIALIZED."))
 	missions_interface(user)
 
 /obj/structure/machine/astrarium/proc/mission_raid(mob/user)
-	say("RAID PROTOCOL SELECTED.")
-	say("Mission parameters are currently unavailable.")
+	if(!raid_quest_pool || !raid_quest_pool.len)
+		to_chat(user, span_warning("ASTRARIUM: No raid protocols are currently available."))
+		missions_interface(user)
+		return
+	var/quest_type = pick(raid_quest_pool)
+	var/datum/astrarium_quest/raid/Q = new quest_type(src)
+	if(!start_quest(Q))
+		to_chat(user, span_warning("ASTRARIUM: Unable to initialize the raid mission."))
+		missions_interface(user)
+		return
+	to_chat(user, span_notice("ASTRARIUM: [Q.name] INITIALIZED."))
 	missions_interface(user)
 
 /obj/structure/machine/astrarium/proc/mission_retrieve(mob/user)
@@ -413,8 +475,15 @@
 	missions_interface(user)
 
 /obj/structure/machine/astrarium/proc/mission_export(mob/user)
-	say("EXPORT PROTOCOL SELECTED.")
-	say("Mission parameters are currently unavailable.")
+	var/datum/astrarium_quest/export/Q = new(src)
+
+	if(!start_quest(Q))
+		to_chat(user, span_warning("ASTRARIUM: Unable to initialize the export mission."))
+		missions_interface(user)
+		return
+
+	to_chat(user, span_notice("ASTRARIUM: [Q.get_export_name()] EXPORT PROTOCOL INITIALIZED."))
+	to_chat(user, span_notice("ASTRARIUM: REQUIRED QUANTITY: [Q.required_amount]."))
 	missions_interface(user)
 
 /obj/structure/machine/astrarium/proc/start_quest(datum/astrarium_quest/quest)
@@ -486,7 +555,6 @@
 	return ..()
 
 /datum/astrarium_quest
-/datum/astrarium_quest
 	var/obj/structure/machine/astrarium/astrarium
 	var/name = "Unknown Mission"
 	var/description = "No mission description available."
@@ -495,6 +563,9 @@
 	var/obj/item/temporal_compass/compass
 	var/compass_inserted = FALSE
 
+/datum/astrarium_quest/proc/get_description()
+	return description
+	
 /datum/astrarium_quest/New(obj/structure/machine/astrarium/A)
 	astrarium = A
 	return ..()
@@ -558,19 +629,11 @@
 	var/activation_range = 12
 	var/target_spawned = FALSE
 
-/datum/astrarium_quest/kill/wolf
-	name = "WOLF PURGE"
-	description = "A hostile wolf anomaly has been detected within the operational perimeter. Locate the anomaly and eliminate it."
-
-/datum/astrarium_quest/kill/wolf/New(obj/structure/machine/astrarium/A)
-	..(A)
-	target_type = /mob/living/simple_animal/hostile/retaliate/rogue/wolf
-
 /datum/astrarium_quest/kill/New(obj/structure/machine/astrarium/A, target_type_path)
 	..(A)
 	target_type = target_type_path
 
-/datum/astrarium_quest/kill/start()
+/datum/astrarium_quest/kill/proc/select_target_location()
 	if(!astrarium)
 		return FALSE
 	var/turf/origin = get_turf(astrarium)
@@ -591,7 +654,12 @@
 	if(!valid_turfs.len)
 		return FALSE
 	target_location = pick(valid_turfs)
-	compass = new /obj/item/temporal_compass(origin)
+	return TRUE
+
+/datum/astrarium_quest/kill/start()
+	if(!select_target_location())
+		return FALSE
+	compass = new /obj/item/temporal_compass(get_turf(astrarium))
 	if(!compass)
 		target_location = null
 		return FALSE
@@ -681,3 +749,211 @@
 		var/turf/spawn_turf = pick(valid_turfs)
 		valid_turfs -= spawn_turf
 		new /mob/living/simple_animal/hostile/rogue/robot/gunner(spawn_turf)
+
+/datum/astrarium_quest/raid
+	parent_type = /datum/astrarium_quest/kill
+	var/list/targets = list()
+	var/min_targets = 6
+	var/max_targets = 12
+
+/datum/astrarium_quest/raid/spawn_target()
+	if(target_spawned || !target_type || !target_location)
+		return FALSE
+	targets = list()
+	var/amount = rand(min_targets, max_targets)
+	for(var/i in 1 to amount)
+		var/mob/living/M = new target_type(target_location)
+		if(!M)
+			continue
+		targets += M
+		RegisterSignal(M, COMSIG_LIVING_DEATH, PROC_REF(on_raid_target_death))
+	if(!targets.len)
+		return FALSE
+	target_spawned = TRUE
+	if(astrarium)
+		astrarium.say("[targets.len] TARGET ANOMALIES MATERIALIZED. RAID PROTOCOL NOW ACTIVE.")
+	return TRUE
+
+/datum/astrarium_quest/raid/proc/on_raid_target_death(mob/living/dead_target, gibbed)
+	SIGNAL_HANDLER
+	if(!targets || !(dead_target in targets))
+		return
+	UnregisterSignal(dead_target, COMSIG_LIVING_DEATH)
+	targets -= dead_target
+	if(targets.len)
+		return
+	if(!compass || !compass.owner)
+		fail()
+		return
+	var/turf/owner_turf = get_turf(compass.owner)
+	var/turf/target_turf = target_location
+	if(!owner_turf || !target_turf)
+		fail()
+		return
+	if(get_dist(owner_turf, target_turf) <= activation_range)
+		complete()
+		return
+	fail()
+	spawn_paradox_guards(compass.owner)
+
+/datum/astrarium_quest/raid/Destroy()
+	if(targets)
+		for(var/mob/living/M in targets)
+			if(M)
+				UnregisterSignal(M, COMSIG_LIVING_DEATH)
+				qdel(M)
+		targets.Cut()
+	return ..()
+
+/datum/astrarium_quest/export
+	name = "MATERIAL EXPORT"
+	var/export_type
+	var/required_amount
+	var/current_amount = 0
+	var/export_range = 5
+	var/export_completed = FALSE
+	var/obj/structure/closet/crate/export_crate
+
+/datum/astrarium_quest/export/get_description()
+	return "A shipment of [required_amount] units of [get_export_name()] is requested by the main base. Bring a crate with it for remote transportation."
+
+/datum/astrarium_quest/export/New(obj/structure/machine/astrarium/A)
+	..(A)
+	var/list/export_pool = list(
+		/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
+		/obj/item/natural/stone,
+		/obj/item/natural/fibers,
+		/obj/item/natural/cloth,
+		/obj/item/grown/log/tree/small,
+		/obj/item/ingot,
+		/obj/item/ammo_casing,
+		/obj/item/ammo_box
+	)
+	var/randomize = rand(1, 100)
+	export_type = pick(export_pool)
+	if(export_type == /obj/item/ingot)
+		randomize /= 2
+	if(export_type == /obj/item/reagent_containers/food/snacks/rogue/meat/steak)
+		randomize /= 4
+	required_amount = round(randomize)
+
+/datum/astrarium_quest/export/proc/is_export_item(obj/item/I)
+	if(!I)
+		return FALSE
+	if(export_type == /obj/item/natural/fibers)
+		return istype(I, /obj/item/natural/fibers) || istype(I, /obj/item/natural/bundle/fibers)
+	if(export_type == /obj/item/natural/cloth)
+		return istype(I, /obj/item/natural/cloth) || istype(I, /obj/item/natural/bundle/cloth)
+	return istype(I, export_type)
+
+/datum/astrarium_quest/export/proc/get_export_amount(obj/structure/closet/crate/C)
+	if(!C)
+		return 0
+	var/amount = 0
+	for(var/obj/item/I in C.contents)
+		if(export_type == /obj/item/natural/fibers)
+			if(istype(I, /obj/item/natural/bundle/fibers))
+				var/obj/item/natural/bundle/B = I
+				amount += B.amount
+			else if(istype(I, /obj/item/natural/fibers))
+				amount++
+		else if(export_type == /obj/item/natural/cloth)
+			if(istype(I, /obj/item/natural/bundle/cloth))
+				var/obj/item/natural/bundle/B = I
+				amount += B.amount
+			else if(istype(I, /obj/item/natural/cloth))
+				amount++
+		else if(istype(I, export_type))
+			amount++
+	return amount
+
+/datum/astrarium_quest/export/proc/check_export()
+	export_completed = FALSE
+	export_crate = null
+	current_amount = 0
+	if(!astrarium)
+		return FALSE
+	var/turf/origin = get_turf(astrarium)
+	if(!origin)
+		return FALSE
+	for(var/obj/structure/closet/crate/C in range(export_range, origin))
+		var/amount = get_export_amount(C)
+		if(amount < required_amount)
+			continue
+		current_amount = amount
+		export_crate = C
+		export_completed = TRUE
+		return TRUE
+	return FALSE
+
+/datum/astrarium_quest/export/proc/get_export_name()
+	if(export_type == /obj/item/natural/stone)
+		return "STONE"
+	if(export_type == /obj/item/natural/fibers)
+		return "FIBERS"
+	if(export_type == /obj/item/natural/cloth)
+		return "CLOTH"
+	if(export_type == /obj/item/grown/log/tree/small)
+		return "WOOD"
+	if(export_type == /obj/item/ingot)
+		return "REFINED INGOTS"
+	if(export_type == /obj/item/ammo_casing)
+		return "AMMUNITION CASINGS"
+	if(export_type == /obj/item/ammo_box)
+		return "AMMUNITION BOXES"
+	return "UNKNOWN MATERIAL"
+
+/obj/structure/machine/astrarium/proc/send_export(mob/user, datum/astrarium_quest/export/E)
+	if(!E || !(E in active_quests))
+		say("That export mission no longer exists.")
+		missions_interface(user)
+		return
+	if(!E.check_export())
+		say("No valid export cargo is within range.")
+		mission_status_interface(user, E)
+		return
+	var/obj/structure/closet/crate/C = E.export_crate
+	if(!C)
+		mission_status_interface(user, E)
+		return
+	var/remaining = E.required_amount
+	for(var/obj/item/I in C.contents)
+		if(remaining <= 0)
+			break
+		if(!E.is_export_item(I))
+			continue
+		if(E.export_type == /obj/item/natural/fibers && istype(I, /obj/item/natural/bundle/fibers))
+			var/obj/item/natural/bundle/B = I
+			if(B.amount <= remaining)
+				remaining -= B.amount
+				qdel(B)
+			else
+				B.amount -= remaining
+				B.update_bundle()
+				remaining = 0
+		else if(E.export_type == /obj/item/natural/cloth && istype(I, /obj/item/natural/bundle/cloth))
+			var/obj/item/natural/bundle/B = I
+			if(B.amount <= remaining)
+				remaining -= B.amount
+				qdel(B)
+			else
+				B.amount -= remaining
+				B.update_bundle()
+				remaining = 0
+		else
+			remaining--
+			qdel(I)
+	if(remaining > 0)
+		mission_status_interface(user, E)
+		return
+	var/export_name = E.get_export_name()
+	var/required = E.required_amount
+	E.complete()
+	active_quests -= E
+	qdel(E)
+	qdel(C)
+	say("EXPORT CARGO ACCEPTED. MATERIAL TRANSFER COMPLETE.")
+	playsound(src, 'sound/ding.ogg', 100)
+	to_chat(user, span_notice("ASTRARIUM: EXPORT ACCEPTED."))
+	to_chat(user, span_notice("ASTRARIUM: [required] UNITS OF [export_name] SUCCESSFULLY TRANSFERRED TO THE MAIN BASE."))
+	missions_interface(user)

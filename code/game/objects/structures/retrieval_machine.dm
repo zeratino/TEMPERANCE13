@@ -9,6 +9,18 @@
 	layer = MOB_LAYER + 0.01
 	var/list/active_quests = list()
 	var/active = FALSE
+	var/list/kill_quest_pool = list(
+		/datum/astrarium_quest/kill/wolf,
+		/datum/astrarium_quest/kill/robot,
+		/datum/astrarium_quest/kill/orc,
+		/datum/astrarium_quest/kill/goblin
+	)
+	var/list/raid_quest_pool = list(
+		/datum/astrarium_quest/raid/wolf,
+		/datum/astrarium_quest/raid/robot,
+		/datum/astrarium_quest/raid/orc,
+		/datum/astrarium_quest/raid/goblin
+	)
 
 /obj/structure/machine/astrarium/proc/get_department_name(department_flag)
 	switch(department_flag)
@@ -539,15 +551,12 @@
 			return FALSE
 		to_chat(user, span_notice("The Temporal Compass attunes itself to your temporal signature."))
 		to_chat(user, span_notice("Temporal department signature registered: [department_flag]."))
-
 	tracking = !tracking
-
 	if(tracking)
 		to_chat(user, span_notice("The Temporal Compass begins tracking the designated target."))
 		start_tracking()
 	else
 		to_chat(user, span_warning("The Temporal Compass ceases tracking."))
-
 	return TRUE
 
 /obj/item/temporal_compass/proc/start_tracking()
