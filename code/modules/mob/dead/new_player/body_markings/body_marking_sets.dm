@@ -64,6 +64,12 @@
 		/datum/body_marking/tiger/dark
 	)
 
+/datum/body_marking_set/doll
+	name = "Doll"
+	body_marking_list = list(
+		/datum/body_marking/doll
+	)
+
 //MOTH
 
 /datum/body_marking_set/moth
@@ -119,12 +125,6 @@
 /datum/body_marking_set/moth/lovers
 	name = "Lovers"
 	body_marking_list = list(/datum/body_marking/moth/lovers)
-
-/datum/body_marking_set/doll
-	name = "Doll"
-	body_marking_list = list(
-		/datum/body_marking/doll
-	)
 
 /datum/body_marking_set/construct_light
 	name = "Construct, light"
