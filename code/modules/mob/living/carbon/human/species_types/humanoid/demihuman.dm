@@ -138,6 +138,7 @@
 
 /datum/species/demihuman/get_skin_list()
 	return list(
+		"Norden" = SKIN_COLOR_GRENZELHOFT,
 		"Perserdun" = SKIN_COLOR_ETRUSCA,
 		"Yun" = SKIN_COLOR_GRONN,
 		"King's Row" = SKIN_COLOR_GIZA,

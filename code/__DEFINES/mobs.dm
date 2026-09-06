@@ -191,11 +191,20 @@
 #define HYDRATION_LEVEL_THIRSTY 350
 #define HYDRATION_LEVEL_DEHYDRATED 100
 
+#define VITAE_LEVEL_FULL 1000
+#define VITAE_LEVEL_HYDRATED 999
+#define VITAE_LEVEL_SMALLTHIRST 600
+#define VITAE_LEVEL_THIRSTY 350
+#define VITAE_LEVEL_DEHYDRATED 100
+
 #define NUTRITION_LEVEL_START_MIN 500
 #define NUTRITION_LEVEL_START_MAX 900
 
 #define HYDRATION_LEVEL_START_MIN 500
 #define HYDRATION_LEVEL_START_MAX 600
+
+#define VITAE_LEVEL_START_MIN 500
+#define VITAE_LEVEL_START_MAX 600
 
 //Disgust levels for humans
 #define DISGUST_LEVEL_MAXEDOUT 150
@@ -344,7 +353,6 @@
 #define WIZARD_AGE_MIN		30	//youngest a wizard can be
 #define APPRENTICE_AGE_MIN	29	//youngest an apprentice can be
 #define SHOES_SLOWDOWN		0	//How much shoes slow you down by default. Negative values speed you up
-#define POCKET_STRIP_DELAY			40	//time taken (in deciseconds) to search somebody's pockets
 #define DOOR_CRUSH_DAMAGE	15	//the amount of damage that airlocks deal when they crush you
 
 #define HUNGER_FACTOR		0.15	//factor at which mob nutrition decreases

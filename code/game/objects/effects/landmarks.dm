@@ -551,7 +551,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/start/chirurgeonlate
 	name = "Chirurgeon"
 	icon_state = "arrow"
-	jobspawn_override = list("Chirurgeon")
+	jobspawn_override = list("Chirurgeon", "Magister Enginseer")
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/partisan
@@ -665,7 +665,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/start/curacistolate
 	name = "Curacisto"
 	icon_state = "arrow"
-	jobspawn_override = list("Curacisto")
+	jobspawn_override = list("Curacisto", "Dottore Enginseer")
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/campfollower

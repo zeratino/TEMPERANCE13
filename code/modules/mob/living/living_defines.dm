@@ -189,3 +189,8 @@
 
 	var/cmode_music_override = list() // set by prefs or the verb, ignored if empty
 	var/cmode_music_override_name // solely for autoselecting as a spawned-in mob
+
+	/// moodlets are tracked here
+	var/hunger_stage
+	var/thirst_stage
+	var/vitae_stage

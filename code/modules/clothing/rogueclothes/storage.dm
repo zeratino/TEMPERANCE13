@@ -340,7 +340,7 @@
 	desc = "A five-slotted belt meant for tossblades. Little room left over."
 	icon_state = "knife"
 	item_state = "knife"
-	strip_delay = 20
+	strip_delay = STRIP_DELAY_FAST
 	var/max_storage = 5			//Javelin bag is 4 and they can't hold items. So, more fair having it like this since these are pretty decent weapons.
 	var/list/knives = list()
 	sewrepair = TRUE

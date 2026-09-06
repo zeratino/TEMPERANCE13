@@ -62,6 +62,16 @@
 
 #define BLESSINGOFLIGHT_FILTER "bol_glow"
 
+/atom/movable/screen/alert/status_effect/light_buff_beholder
+	name = "Projected Light"
+	desc = "Mysterious light is exhuding from your whole form."
+	icon_state = "stressvg"
+
+/datum/status_effect/light_buff/beholder
+	id = "orison_light_buff_beholder"
+	alert_type = /atom/movable/screen/alert/status_effect/light_buff_beholder
+	duration = 999 MINUTES
+
 /atom/movable/screen/alert/status_effect/light_buff
 	name = "Miraculous Light"
 	desc = "A blessing of light wards off the darkness surrounding me."
@@ -94,7 +104,7 @@
 
 /datum/status_effect/light_buff/on_remove()
 	playsound(owner, 'sound/items/firesnuff.ogg', 75, FALSE)
-	to_chat(owner, span_notice("The miraculous light surrounding me has fled..."))
+	to_chat(owner, span_notice("The light surrounding me has fled..."))
 	owner.remove_filter(BLESSINGOFLIGHT_FILTER)
 	QDEL_NULL(mob_light_obj)
 

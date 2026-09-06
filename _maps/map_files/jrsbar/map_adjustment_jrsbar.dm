@@ -47,6 +47,8 @@
 		/datum/job/roguetown/warpriest,
 		/datum/job/roguetown/campfollower,
 		/datum/job/roguetown/commandant,
+		/datum/job/roguetown/dottore,
+		/datum/job/roguetown/magister,
 		/datum/job/roguetown/consulo,
 		/datum/job/roguetown/curacisto,
 		/datum/job/roguetown/kaspafisto,

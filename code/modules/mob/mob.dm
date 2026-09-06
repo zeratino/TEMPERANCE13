@@ -83,6 +83,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		AA.onNewMob(src)
 	set_nutrition(rand(NUTRITION_LEVEL_START_MIN, NUTRITION_LEVEL_START_MAX))
 	set_hydration(rand(HYDRATION_LEVEL_START_MIN, HYDRATION_LEVEL_START_MAX))
+	set_vitae(rand(VITAE_LEVEL_START_MIN, VITAE_LEVEL_START_MAX))
 	. = ..()
 	become_hearing_sensitive()
 	update_config_movespeed()
@@ -718,6 +719,10 @@ GLOBAL_VAR_INIT(mobids, 1)
 		else
 			usr.stripPanelEquip(what,src,slot)
 
+	if(href_list["strip_all"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		usr.stripPanelUnequipAll(src)
+		return
+
 	if(usr.machine == src)
 		if(Adjacent(usr))
 			show_inv(usr)
@@ -727,6 +732,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 // The src mob is trying to strip an item from someone
 // Defined in living.dm
 /mob/proc/stripPanelUnequip(obj/item/what, mob/who)
+	return
+
+// The src mob is trying to strip everything off an unclaimed corpse at once
+// Defined in living.dm
+/mob/proc/stripPanelUnequipAll(mob/who)
 	return
 
 // The src mob is trying to place an item on someone
@@ -1322,17 +1332,32 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 /mob/proc/adjust_hydration(change)
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
-		nutrition = HYDRATION_LEVEL_FULL
+		hydration = HYDRATION_LEVEL_FULL
 	hydration = max(0, hydration + change)
 	if(hydration > HYDRATION_LEVEL_FULL)
 		hydration = HYDRATION_LEVEL_FULL
 
 /mob/proc/set_hydration(change)
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
-		nutrition = HYDRATION_LEVEL_FULL
+		hydration = HYDRATION_LEVEL_FULL
 	hydration = max(0, change)
 	if(hydration > HYDRATION_LEVEL_FULL)
 		hydration = HYDRATION_LEVEL_FULL
+
+/mob/proc/adjust_vitae(change)
+	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
+		bloodpool = VITAE_LEVEL_FULL
+	bloodpool = max(0, bloodpool + change)
+	if(bloodpool > VITAE_LEVEL_FULL)
+		bloodpool = VITAE_LEVEL_FULL
+
+/mob/proc/set_vitae(change)
+	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
+		bloodpool = VITAE_LEVEL_FULL
+	bloodpool = max(0, change)
+	if(bloodpool > VITAE_LEVEL_FULL)
+		bloodpool = VITAE_LEVEL_FULL
+
 
 ///Set the movement type of the mob and update it's movespeed
 /mob/setMovetype(newval)

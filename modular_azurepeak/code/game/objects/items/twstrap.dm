@@ -21,7 +21,7 @@
 	equip_sound = 'sound/blank.ogg'
 	bloody_icon_state = "bodyblood"
 	alternate_worn_layer = UNDER_CLOAK_LAYER
-	strip_delay = 20
+	strip_delay = STRIP_DELAY_FAST
 	var/max_storage = 5
 	var/list/tweps = list()
 	sewrepair = TRUE

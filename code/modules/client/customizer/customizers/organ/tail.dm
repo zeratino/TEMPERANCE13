@@ -92,6 +92,20 @@
 		)
 	allows_accessory_color_customization = FALSE
 
+/datum/customizer/organ/tail/halftiefling
+	customizer_choices = list(/datum/customizer_choice/organ/tail/halftiefling)
+	allows_disabling = TRUE
+
+/datum/customizer_choice/organ/tail/halftiefling
+	name = "Hualian Tail"
+	organ_type = /obj/item/organ/tail/halftiefling
+	generic_random_pick = TRUE
+	sprite_accessories = list(
+		/datum/sprite_accessory/tail/halftiefling,
+		/datum/sprite_accessory/tail/halftiefling/heart,
+		)
+	allows_accessory_color_customization = TRUE
+
 /datum/customizer/organ/tail/demihuman
 	customizer_choices = list(/datum/customizer_choice/organ/tail/demihuman)
 	allows_disabling = TRUE

@@ -352,6 +352,18 @@
 	color_key_defaults = list(KEY_SKIN_COLOR)
 	can_wag = TRUE
 
+/datum/sprite_accessory/tail/halftiefling
+	name = "Deceiver"
+	icon = 'icons/mob/sprite_accessory/tails/tiefling.dmi'
+	icon_state = "tiebtail"
+	can_wag = TRUE
+
+/datum/sprite_accessory/tail/halftiefling/heart
+	name = "Depraved"
+	icon = 'icons/mob/sprite_accessory/tails/tiefling.dmi'
+	icon_state = "hearttail"
+	can_wag = TRUE
+
 /datum/sprite_accessory/tail/rattlesnake
 	name = "Rattlesnake"
 	icon_state = "rattlesnake"

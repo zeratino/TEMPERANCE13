@@ -21,7 +21,7 @@
 	bigboy = TRUE
 	equip_sound = 'sound/blank.ogg'
 	bloody_icon_state = "bodyblood"
-	strip_delay = 20
+	strip_delay = STRIP_DELAY_FAST
 	var/atom/movable/weps = null
 	sewrepair = TRUE
 

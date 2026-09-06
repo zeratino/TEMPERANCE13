@@ -36,6 +36,8 @@
 		/datum/job/roguetown/voltigeur,
 		/datum/job/roguetown/warpriest,
 		/datum/job/roguetown/campfollower,
+		/datum/job/roguetown/dottore,
+		/datum/job/roguetown/magister,
 		/datum/job/roguetown/consulo,
 		/datum/job/roguetown/curacisto,
 		/datum/job/roguetown/kaspafisto,

@@ -222,6 +222,35 @@
 	visible_message(span_danger("[user] bites [src]'s [parse_zone(user.zone_selected)]![next_attack_msg.Join()]"), \
 					span_userdanger("[user] bites my [parse_zone(user.zone_selected)]![next_attack_msg.Join()]"))
 
+	// the blood eater
+	if(HAS_TRAIT(user, TRAIT_BLOODFIEND))
+		var/obj/item/bodypart/blood_limb
+		var/datum/wound/blood_wound
+		var/best_bleed = 0
+		for(var/obj/item/bodypart/BP as anything in bodyparts)
+			// No feeding from the groin or legs unless we are laying down.
+			if(BP.body_zone in list(BODY_ZONE_PRECISE_GROIN, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG) && !user.resting)
+				continue
+			for(var/datum/wound/W as anything in BP.wounds)
+				if(W.bleed_rate > best_bleed)
+					best_bleed = W.bleed_rate
+					blood_limb = BP
+					blood_wound = W
+		if(blood_wound && best_bleed > 0)
+			var/vitae_gain = max(1, round(best_bleed))
+			user.adjust_vitae(vitae_gain * 100)
+			user.adjust_nutrition(vitae_gain * 100)
+			user.adjust_hydration(vitae_gain * 100)
+			visible_message(span_danger("[user] hastily consumes blood from a wound in [src]'s [parse_zone(blood_limb.body_zone)]!"))
+
+	// the wyvern biter
+	if(HAS_TRAIT(user, TRAIT_WYVERNTOUCHED))
+		var/toxin_amount = src.blood_volume * 0.02
+		if(toxin_amount > 0)
+			src.blood_volume = max(src.blood_volume - toxin_amount, 0)
+			src.reagents?.add_reagent(/datum/reagent/organpoison, toxin_amount)
+			visible_message(span_necrosis("A cyan liquid trickles from [user]'s fangs!"))
+
 	next_attack_msg.Cut()
 
 //nodmg if they don't have an open wound

@@ -28,15 +28,8 @@
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		if(istype(H.wear_ring, /obj/item/roguekey/perserdun))
-			var/obj/item/clothing/S = H.wear_ring
-			var/index = findtext(H.real_name, " ")
-			if(index)
-				index = copytext(H.real_name, 1,index)
-			if(!index)
-				index = H.real_name
-			S.name = " [index]'s dogtag"
-
-
+			var/obj/item/roguekey/perserdun/S = H.wear_ring
+			S.set_soldier_name(H)
 
 /datum/outfit/job/roguetown/grandknight/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
@@ -51,7 +44,7 @@
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/grenade/gas/poison
 	backl = /obj/item/rogueweapon/stoneaxe/oath
-	wrists = /obj/item/scomstone/perlead
+	wrists = /obj/item/scomstone/perlead/lesser
 	gloves = /obj/item/clothing/gloves/roguetown/plate/iron
 	id = /obj/item/roguekey/perserdun
 	backr = /obj/item/storage/backpack/rogue/backpack/perserdun
