@@ -481,3 +481,118 @@
 		return FALSE
 	addtimer(CALLBACK(src, PROC_REF(delete_self)), 2)
 	return TRUE
+
+/obj/structure/machine/astrarium/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/temporal_compass))
+		var/obj/item/temporal_compass/C = I
+		if(C.inserted)
+			return
+		if(!C.quest || !(C.quest in active_quests))
+			to_chat(user, span_warning("The MACHINE rejects the Temporal Compass. No corresponding mission exists."))
+			return
+		if(C.quest.compass != C)
+			to_chat(user, span_warning("The MACHINE rejects the Temporal Compass. Its temporal signature is invalid."))
+			return
+		C.stop_tracking()
+		C.tracking = FALSE
+		C.inserted = TRUE
+		C.quest.compass_inserted = TRUE
+		C.quest = null
+		C.owner = null
+		qdel(C)
+		to_chat(user, span_notice("ASTRARIUM: TEMPORAL COMPASS ACCEPTED."))
+		to_chat(user, span_notice("ASTRARIUM: MISSION TIMELINE SIGNATURE SUCCESSFULLY CROSS-REFERENCED."))
+		missions_interface(user)
+		return
+	return ..()
+
+/obj/item/temporal_compass
+	name = "Temporal Compass"
+	desc = "A strange instrument capable of detecting disturbances across the timeline."
+	icon = 'icons/obj/clockwork_objects.dmi'
+	icon_state = "dread_ipad"
+	var/datum/astrarium_quest/quest
+	var/mob/living/owner
+	var/department_flag
+	var/tracking = FALSE
+	var/track_timer
+	var/inserted = FALSE
+
+/obj/item/temporal_compass/Initialize(mapload)
+	. = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/temporal_compass/proc/activate(mob/living/user)
+	if(!user)
+		return FALSE
+	if(inserted)
+		return FALSE
+	if(!owner)
+		owner = user
+		if(user.mind)
+			var/datum/job/J = SSjob.GetJob(user.mind.assigned_role)
+			if(J)
+				department_flag = J.department_flag
+		if(!department_flag)
+			owner = null
+			to_chat(user, span_warning("The compass fails to recognize your temporal signature. You are irrelevant to this timeline."))
+			return FALSE
+		to_chat(user, span_notice("The Temporal Compass attunes itself to your temporal signature."))
+		to_chat(user, span_notice("Temporal department signature registered: [department_flag]."))
+
+	tracking = !tracking
+
+	if(tracking)
+		to_chat(user, span_notice("The Temporal Compass begins tracking the designated target."))
+		start_tracking()
+	else
+		to_chat(user, span_warning("The Temporal Compass ceases tracking."))
+
+	return TRUE
+
+/obj/item/temporal_compass/proc/start_tracking()
+	stop_tracking()
+	track_timer = addtimer(CALLBACK(src, PROC_REF(track_target)), 2 SECONDS, TIMER_LOOP | TIMER_STOPPABLE)
+
+/obj/item/temporal_compass/proc/stop_tracking()
+	if(track_timer)
+		deltimer(track_timer)
+		track_timer = null
+
+/obj/item/temporal_compass/proc/track_target()
+	if(!tracking || !owner || !quest)
+		return
+	var/datum/astrarium_quest/kill/K = quest
+	if(istype(K))
+		K.check_target_activation()
+	var/turf/owner_turf = get_turf(owner)
+	if(!owner_turf)
+		return
+	var/turf/destination
+	if(istype(K) && !K.target_spawned)
+		destination = K.get_target_location()
+	else
+		var/mob/living/target = quest.get_target()
+		if(!target)
+			return
+		destination = get_turf(target)
+	if(!destination)
+		return
+	var/distance = get_dist(owner_turf, destination)
+	to_chat(owner, span_notice("TEMPORAL COMPASS: [K && !K.target_spawned ? "Anomaly coordinates" : "Target"] detected [dir2text(get_dir(owner_turf, destination))]. Distance: [distance] tiles."))
+
+/obj/item/temporal_compass/attack_self(mob/living/user)
+	. = ..()
+	if(!user)
+		return
+	activate(user)
+
+/obj/item/temporal_compass/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item))
+		. = ..()
+
+/obj/item/temporal_compass/Destroy()
+	stop_tracking()
+	owner = null
+	quest = null
+	return ..()

@@ -395,290 +395,289 @@
 
 /obj/structure/machine/astrarium/proc/mission_kill(mob/user)
 	var/datum/astrarium_quest/kill/wolf/Q = new(src)
-
 	if(!start_quest(Q))
 		to_chat(user, span_warning("ASTRARIUM: Unable to initialize the purge mission."))
 		missions_interface(user)
 		return
-
 	to_chat(user, span_notice("ASTRARIUM: PURGE MISSION INITIALIZED."))
 	missions_interface(user)
-
 
 /obj/structure/machine/astrarium/proc/mission_raid(mob/user)
 	say("RAID PROTOCOL SELECTED.")
 	say("Mission parameters are currently unavailable.")
 	missions_interface(user)
 
-
 /obj/structure/machine/astrarium/proc/mission_retrieve(mob/user)
 	say("RETRIEVAL PROTOCOL SELECTED.")
 	say("Mission parameters are currently unavailable.")
 	missions_interface(user)
-
 
 /obj/structure/machine/astrarium/proc/mission_export(mob/user)
 	say("EXPORT PROTOCOL SELECTED.")
 	say("Mission parameters are currently unavailable.")
 	missions_interface(user)
 
-
 /obj/structure/machine/astrarium/proc/start_quest(datum/astrarium_quest/quest)
 	if(!quest)
 		return FALSE
-
 	if(!active_quests)
 		active_quests = list()
-
 	active_quests += quest
-
 	if(!quest.start())
 		active_quests -= quest
 		qdel(quest)
 		return FALSE
-
 	return TRUE
-
 
 /obj/structure/machine/astrarium/proc/quest_completed(datum/astrarium_quest/quest)
 	if(!quest || !(quest in active_quests))
 		return
-
 	say("MISSION PARAMETERS SATISFIED. CHRONOLOGICAL CORRECTION ACHIEVED.")
 	playsound(src, 'sound/ding.ogg', 100)
-
 
 /obj/structure/machine/astrarium/proc/quest_failed(datum/astrarium_quest/quest)
 	if(!quest || !(quest in active_quests))
 		return
-
 	say("MISSION PARAMETERS INVALIDATED.")
-
 
 /obj/structure/machine/astrarium/proc/compile_mission(mob/user, datum/astrarium_quest/quest)
 	if(!quest || !(quest in active_quests))
 		to_chat(user, span_warning("That mission no longer exists."))
 		missions_interface(user)
 		return
-
 	if(!quest.completed)
 		to_chat(user, span_warning("The mission has not been completed."))
 		mission_status_interface(user, quest)
 		return
-
 	say("Compiling chronological correction data.")
-
 	var/turf/reward_turf = get_turf(user)
-
 	active_quests -= quest
 	qdel(quest)
-
 	if(reward_turf)
 		new /obj/item/reagent_containers/food/snacks/rogue/handpie/berry(reward_turf)
-
 	playsound(src, 'sound/ding.ogg', 100)
 	to_chat(user, span_notice("ASTRARIUM: TIMELINE RESULTS COMPILED SUCCESSFULLY."))
 	to_chat(user, span_notice("ASTRARIUM: CHRONOLOGICAL CORRECTION REWARD DISPENSED."))
-
 	missions_interface(user)
-
 
 /obj/structure/machine/astrarium/proc/cancel_mission(mob/user, datum/astrarium_quest/quest)
 	if(!quest || !(quest in active_quests))
 		to_chat(user, span_warning("That mission no longer exists."))
 		missions_interface(user)
 		return
-
 	if(quest.completed)
 		to_chat(user, span_warning("Completed missions cannot be paradox-cancelled."))
 		mission_status_interface(user, quest)
 		return
-
 	say("EMERGENCY PARADOX CANCEL INITIATED.")
 	say("PURGING MISSION PARAMETERS AND ASSOCIATED ANOMALIES.")
-
 	active_quests -= quest
 	qdel(quest)
-
 	playsound(src, 'sound/ding.ogg', 100)
 	to_chat(user, span_warning("ASTRARIUM: MISSION CANCELLED. TIMELINE DATA PURGED."))
-
 	missions_interface(user)
-
 
 /obj/structure/machine/astrarium/Destroy()
 	if(active_quests)
 		for(var/datum/astrarium_quest/Q in active_quests)
 			if(Q)
 				qdel(Q)
-
 		active_quests.Cut()
-
 	return ..()
 
-
+/datum/astrarium_quest
 /datum/astrarium_quest
 	var/obj/structure/machine/astrarium/astrarium
 	var/name = "Unknown Mission"
 	var/description = "No mission description available."
 	var/completed = FALSE
 	var/failed = FALSE
-
+	var/obj/item/temporal_compass/compass
+	var/compass_inserted = FALSE
 
 /datum/astrarium_quest/New(obj/structure/machine/astrarium/A)
 	astrarium = A
 	return ..()
 
-
 /datum/astrarium_quest/Destroy()
+	if(compass)
+		qdel(compass)
+		compass = null
 	astrarium = null
 	return ..()
-
 
 /datum/astrarium_quest/proc/start()
 	return TRUE
 
-
 /datum/astrarium_quest/proc/check_completion()
 	return FALSE
-
 
 /datum/astrarium_quest/proc/complete()
 	if(completed || failed)
 		return FALSE
-
 	completed = TRUE
-
 	if(astrarium)
 		astrarium.quest_completed(src)
-
 	return TRUE
-
 
 /datum/astrarium_quest/proc/fail()
 	if(completed || failed)
 		return FALSE
-
 	failed = TRUE
-
 	if(astrarium)
 		astrarium.quest_failed(src)
-
 	return TRUE
-
 
 /datum/astrarium_quest/proc/get_status()
 	if(completed)
 		return "COMPLETED"
-
 	if(failed)
 		return "FAILED"
-
 	return "ACTIVE"
-
 
 /datum/astrarium_quest/proc/get_status_class()
 	if(completed)
 		return "complete"
-
 	if(failed)
 		return "failed"
-
 	return "active"
-
 
 /datum/astrarium_quest/proc/get_location_info()
 	return "LOCATION DATA: UNAVAILABLE"
 
+/datum/astrarium_quest/proc/get_target()
+	return null
 
 /datum/astrarium_quest/kill
 	name = "PURGE TARGET"
 	description = "Locate and eliminate the designated hostile entity."
 	var/mob/living/target
 	var/target_type
+	var/turf/target_location
 	var/spawn_range = 10
-
+	var/activation_range = 12
+	var/target_spawned = FALSE
 
 /datum/astrarium_quest/kill/wolf
 	name = "WOLF PURGE"
-	description = "A hostile wolf anomaly has been detected within the operational perimeter. Eliminate it."
-
+	description = "A hostile wolf anomaly has been detected within the operational perimeter. Locate the anomaly and eliminate it."
 
 /datum/astrarium_quest/kill/wolf/New(obj/structure/machine/astrarium/A)
-	..(A, /mob/living/simple_animal/hostile/retaliate/rogue/wolf)
-
+	..(A)
+	target_type = /mob/living/simple_animal/hostile/retaliate/rogue/wolf
 
 /datum/astrarium_quest/kill/New(obj/structure/machine/astrarium/A, target_type_path)
 	..(A)
 	target_type = target_type_path
 
-
 /datum/astrarium_quest/kill/start()
 	if(!astrarium)
 		return FALSE
-
 	var/turf/origin = get_turf(astrarium)
 	if(!origin)
 		return FALSE
-
 	var/list/valid_turfs = list()
-
 	for(var/turf/T in range(spawn_range, origin))
 		if(T.density)
 			continue
-
 		var/blocked = FALSE
-
 		for(var/mob/living/M in T)
 			if(M.stat != DEAD)
 				blocked = TRUE
 				break
-
 		if(blocked)
 			continue
-
 		valid_turfs += T
-
 	if(!valid_turfs.len)
 		return FALSE
-
-	var/turf/spawn_turf = pick(valid_turfs)
-
-	target = new target_type(spawn_turf)
-
-	if(!target)
+	target_location = pick(valid_turfs)
+	compass = new /obj/item/temporal_compass(origin)
+	if(!compass)
+		target_location = null
 		return FALSE
-
-	RegisterSignal(target, COMSIG_LIVING_DEATH, PROC_REF(on_target_death))
-
+	compass.quest = src
 	return TRUE
 
+/datum/astrarium_quest/kill/proc/get_target_location()
+	return target_location
+
+/datum/astrarium_quest/kill/proc/spawn_target()
+	if(target_spawned || target || !target_type || !target_location)
+		return FALSE
+	target = new target_type(target_location)
+	if(!target)
+		return FALSE
+	target_spawned = TRUE
+	RegisterSignal(target, COMSIG_LIVING_DEATH, PROC_REF(on_target_death))
+	if(astrarium)
+		astrarium.say("TARGET ANOMALY MATERIALIZED. PURGE PROTOCOL NOW ACTIVE.")
+	return TRUE
+
+/datum/astrarium_quest/kill/proc/check_target_activation()
+	if(target_spawned || !compass || !compass.owner || !target_location)
+		return
+	var/turf/owner_turf = get_turf(compass.owner)
+	if(!owner_turf)
+		return
+	if(get_dist(owner_turf, target_location) > activation_range)
+		return
+	spawn_target()
+
+/datum/astrarium_quest/kill/get_location_info()
+	if(!target_location)
+		return "TARGET LOCATION: UNKNOWN"
+	return "TARGET LOCATION: [target_location.x], [target_location.y], [target_location.z]"
 
 /datum/astrarium_quest/kill/proc/on_target_death(mob/living/dead_target, gibbed)
 	SIGNAL_HANDLER
-
 	if(dead_target != target)
 		return
-
 	UnregisterSignal(target, COMSIG_LIVING_DEATH)
-	complete()
-
-
-/datum/astrarium_quest/kill/get_location_info()
-	if(!target)
-		return "TARGET LOCATION: UNKNOWN"
-
-	var/turf/T = get_turf(target)
-
-	if(!T)
-		return "TARGET LOCATION: UNKNOWN"
-
-	return "TARGET LOCATION: [T.x], [T.y], [T.z]"
-
+	if(!compass || !compass.owner)
+		fail()
+		return
+	var/turf/target_turf = get_turf(target)
+	var/turf/owner_turf = get_turf(compass.owner)
+	if(!target_turf || !owner_turf)
+		fail()
+		spawn_paradox_guards(compass.owner)
+		return
+	if(get_dist(target_turf, owner_turf) <= 12)
+		complete()
+		return
+	fail()
+	spawn_paradox_guards(compass.owner)
 
 /datum/astrarium_quest/kill/Destroy()
 	if(target)
 		UnregisterSignal(target, COMSIG_LIVING_DEATH)
 		qdel(target)
 		target = null
+	target_location = null
+	target_spawned = FALSE
 	return ..()
+
+/datum/astrarium_quest/kill/proc/spawn_paradox_guards(mob/living/holder)
+	if(!holder)
+		return
+	var/turf/origin = get_turf(holder)
+	if(!origin)
+		return
+	var/list/valid_turfs = list()
+	for(var/turf/T in range(8, origin))
+		if(T.density)
+			continue
+		var/blocked = FALSE
+		for(var/mob/living/M in T)
+			if(M.stat != DEAD)
+				blocked = TRUE
+				break
+		if(blocked)
+			continue
+		valid_turfs += T
+	for(var/i in 1 to 5)
+		if(!valid_turfs.len)
+			break
+		var/turf/spawn_turf = pick(valid_turfs)
+		valid_turfs -= spawn_turf
+		new /mob/living/simple_animal/hostile/rogue/robot/gunner(spawn_turf)
