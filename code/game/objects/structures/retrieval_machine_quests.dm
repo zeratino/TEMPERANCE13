@@ -1,3 +1,82 @@
+/obj/structure/machine/astrarium/Topic(href, href_list)
+	. = ..()
+
+	if(.)
+		return
+
+	if(!usr)
+		return
+
+	var/datum/job/user_job = get_user_job(usr)
+
+	if(!user_job || !user_job.department_flag)
+		to_chat(usr, span_warning("The MACHINE does not recognize your credentials."))
+		return
+
+	switch(href_list["action"])
+
+		if("main")
+			open_interface(usr)
+
+		if("sitrep")
+			sitrep_interface(usr)
+
+		if("translocation")
+			translocation_interface(usr)
+
+		if("missions")
+			missions_interface(usr)
+
+		if("mission_kill")
+			mission_kill(usr)
+
+		if("mission_raid")
+			mission_raid(usr)
+
+		if("mission_retrieve")
+			mission_retrieve(usr)
+
+		if("mission_export")
+			mission_export(usr)
+
+		if("mission_status")
+			var/datum/astrarium_quest/Q = locate(href_list["quest"])
+			if(!Q || !(Q in active_quests))
+				missions_interface(usr)
+				return
+			mission_status_interface(usr, Q)
+			return
+
+		if("compile_mission")
+			var/datum/astrarium_quest/Q = locate(href_list["quest"])
+			compile_mission(usr, Q)
+			return
+
+		if("cancel_mission")
+			var/datum/astrarium_quest/Q = locate(href_list["quest"])
+			cancel_mission(usr, Q)
+			return
+
+		if("begin_translocation")
+			var/x_coord = input(usr, "ENTER DESTINATION X COORDINATE", "ASTRARIUM") as num|null
+			if(isnull(x_coord))
+				open_interface(usr)
+				return
+			var/y_coord = input(usr, "ENTER DESTINATION Y COORDINATE", "ASTRARIUM") as num|null
+			if(isnull(y_coord))
+				open_interface(usr)
+				return
+			var/z_coord = input(usr, "ENTER DESTINATION Z COORDINATE", "ASTRARIUM") as num|null
+			if(isnull(z_coord))
+				open_interface(usr)
+				return
+			var/turf/target = locate(x_coord, y_coord, z_coord)
+			if(!target)
+				say("CANNOT LOCATE THE SPECIFIED COORDINATES.")
+				open_interface(usr)
+				return
+			translocate(usr, target, user_job.department_flag)
+
 /obj/structure/machine/astrarium/proc/missions_interface(mob/user)
 	var/html = {"
 		<html>
@@ -147,7 +226,6 @@
 
 	user << browse(html, "window=astrarium;size=500x600")
 
-
 /obj/structure/machine/astrarium/proc/mission_status_interface(mob/user, datum/astrarium_quest/quest)
 	if(!quest || !(quest in active_quests))
 		missions_interface(user)
@@ -227,11 +305,25 @@
 					color:#a9d18e;
 					border:1px solid #60794f;
 				}
+
+				.compile:hover {
+					background:#465b3c;
+				}
+
+				.cancel {
+					background:#4a302f;
+					color:#d99a96;
+					border:1px solid #794d49;
+				}
+
+				.cancel:hover {
+					background:#5a3836;
+				}
 			</style>
 		</head>
 
 		<body>
-			<h1>ACTIVE MISSION CROSS-REFERENCE</h1>
+			<h1>MISSION CROSS-REFERENCE</h1>
 
 			<div class=description>
 				The MACHINE is cross-referencing the selected chronological
@@ -261,29 +353,30 @@
 
 	if(quest.completed)
 		html += {"
-			<br>
+			<h2>TIMELINE RESULTS</h2>
 
 			<div class=description>
 				The mission parameters have been satisfied.
-				All relevant chronological data has been successfully recorded.
-				The mission may now be compiled.
+				The chronological correction has been successfully verified.
+				The resulting timeline data may now be compiled.
 			</div>
 
 			<a class='button compile' href=byond://?src=\ref[src];action=compile_mission;quest=\ref[quest]>
-				COMPILE DATA
+				COMPILE TIMELINE RESULTS
 			</a>
 		"}
-	else if(quest.failed)
+	else
 		html += {"
-			<br>
+			<h2>MISSION CONTROL</h2>
 
 			<div class=description>
-				The mission parameters have been invalidated.
-				The collected data may be discarded.
+				This mission is still active.
+				An emergency paradox cancellation will terminate the mission,
+				remove all associated mission entities, and discard its timeline data.
 			</div>
 
-			<a class=button href=byond://?src=\ref[src];action=compile_mission;quest=\ref[quest]>
-				COMPILE DATA
+			<a class='button cancel' href=byond://?src=\ref[src];action=cancel_mission;quest=\ref[quest]>
+				EMERGENCY PARADOX CANCEL
 			</a>
 		"}
 
@@ -294,16 +387,11 @@
 				RETURN TO TASK MODULE
 			</a>
 
-			<a class=button href=byond://?src=\ref[src];action=main>
-				RETURN TO PRIMARY SYSTEMS
-			</a>
-
 		</body>
 		</html>
 	"}
 
 	user << browse(html, "window=astrarium;size=500x600")
-
 
 /obj/structure/machine/astrarium/proc/mission_kill(mob/user)
 	var/datum/astrarium_quest/kill/wolf/Q = new(src)
@@ -373,18 +461,47 @@
 		missions_interface(user)
 		return
 
-	if(!quest.completed && !quest.failed)
-		to_chat(user, span_warning("The mission data is incomplete."))
+	if(!quest.completed)
+		to_chat(user, span_warning("The mission has not been completed."))
 		mission_status_interface(user, quest)
 		return
 
 	say("Compiling chronological correction data.")
 
+	var/turf/reward_turf = get_turf(user)
+
+	active_quests -= quest
+	qdel(quest)
+
+	if(reward_turf)
+		new /obj/item/reagent_containers/food/snacks/rogue/handpie/berry(reward_turf)
+
+	playsound(src, 'sound/ding.ogg', 100)
+	to_chat(user, span_notice("ASTRARIUM: TIMELINE RESULTS COMPILED SUCCESSFULLY."))
+	to_chat(user, span_notice("ASTRARIUM: CHRONOLOGICAL CORRECTION REWARD DISPENSED."))
+
+	missions_interface(user)
+
+
+/obj/structure/machine/astrarium/proc/cancel_mission(mob/user, datum/astrarium_quest/quest)
+	if(!quest || !(quest in active_quests))
+		to_chat(user, span_warning("That mission no longer exists."))
+		missions_interface(user)
+		return
+
+	if(quest.completed)
+		to_chat(user, span_warning("Completed missions cannot be paradox-cancelled."))
+		mission_status_interface(user, quest)
+		return
+
+	say("EMERGENCY PARADOX CANCEL INITIATED.")
+	say("PURGING MISSION PARAMETERS AND ASSOCIATED ANOMALIES.")
+
 	active_quests -= quest
 	qdel(quest)
 
 	playsound(src, 'sound/ding.ogg', 100)
-	to_chat(user, span_notice("ASTRARIUM: MISSION DATA COMPILED SUCCESSFULLY."))
+	to_chat(user, span_warning("ASTRARIUM: MISSION CANCELLED. TIMELINE DATA PURGED."))
 
 	missions_interface(user)
 
@@ -473,6 +590,7 @@
 /datum/astrarium_quest/proc/get_location_info()
 	return "LOCATION DATA: UNAVAILABLE"
 
+
 /datum/astrarium_quest/kill
 	name = "PURGE TARGET"
 	description = "Locate and eliminate the designated hostile entity."
@@ -480,16 +598,20 @@
 	var/target_type
 	var/spawn_range = 10
 
+
 /datum/astrarium_quest/kill/wolf
 	name = "WOLF PURGE"
 	description = "A hostile wolf anomaly has been detected within the operational perimeter. Eliminate it."
 
+
 /datum/astrarium_quest/kill/wolf/New(obj/structure/machine/astrarium/A)
 	..(A, /mob/living/simple_animal/hostile/retaliate/rogue/wolf)
+
 
 /datum/astrarium_quest/kill/New(obj/structure/machine/astrarium/A, target_type_path)
 	..(A)
 	target_type = target_type_path
+
 
 /datum/astrarium_quest/kill/start()
 	if(!astrarium)
