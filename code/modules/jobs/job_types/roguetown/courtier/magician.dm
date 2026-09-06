@@ -84,9 +84,9 @@
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/wizard
 			H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
 	switch(H.patron?.type)
-		if(/datum/patron/inhumen/zizo,
-	  		/datum/patron/inhumen/matthios,
-	   		/datum/patron/inhumen/graggar,
-	   		/datum/patron/inhumen/baotha)
+		if(/datum/patron/inhuman/zizo,
+			/datum/patron/inhuman/matthios,
+			/datum/patron/inhuman/graggar,
+			/datum/patron/inhuman/baotha)
 			H.cmode_music = 'sound/music/combat_fog.ogg' // to keep things simple, just giving CM demense. fitting 4 the role no matter the patron.
 			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)

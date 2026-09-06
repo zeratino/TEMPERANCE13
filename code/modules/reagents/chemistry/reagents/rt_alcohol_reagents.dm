@@ -129,7 +129,7 @@
 
 // BEERS - Imported for now, later the styles will be 'mockable', if and when I get to brewing.
 
-// Humen Production - Underwhelming, but cheap.
+// human Production - Underwhelming, but cheap.
 
 /datum/reagent/consumable/ethanol/zagul
 	name = "Zagul Brew"
@@ -242,7 +242,7 @@
 
 // WINE - Fancy.
 
-// Humen Production - Grape Based
+// human Production - Grape Based
 
 /datum/reagent/consumable/ethanol/sourwine // Peasant grade shit.
 	name = "Sour Wine"

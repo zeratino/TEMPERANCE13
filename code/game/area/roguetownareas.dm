@@ -373,8 +373,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 	ceiling_protected = TRUE
 
-/area/rogue/under/cave/inhumen
-	name = "inhumen"
+/area/rogue/under/cave/inhuman
+	name = "inhuman"
 	icon_state = "cave"
 	first_time_text = "FORSAKEN CATHEDRAL"
 	droning_sound = 'sound/music/unholy.ogg'

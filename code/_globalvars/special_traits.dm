@@ -62,7 +62,7 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 
 	var/virtuous = FALSE
 	var/heretic = FALSE
-	if(istype(player.prefs.selected_patron, /datum/patron/inhumen))
+	if(istype(player.prefs.selected_patron, /datum/patron/inhuman))
 		heretic = TRUE
 
 	if(player.prefs.statpack.name == "Virtuous")

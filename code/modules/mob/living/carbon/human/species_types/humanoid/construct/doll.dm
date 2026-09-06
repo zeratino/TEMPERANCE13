@@ -29,10 +29,10 @@
 	inherent_traits = list(TRAIT_NOHUNGER, TRAIT_BLOODLOSS_IMMUNE, TRAIT_NOBREATH, TRAIT_CRITICAL_WEAKNESS,
 	TRAIT_BEAUTIFUL, TRAIT_EASYDISMEMBER, TRAIT_LIMBATTACHMENT, TRAIT_NOMETABOLISM, TRAIT_NOPAIN, TRAIT_ZOMBIE_IMMUNE)
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
-	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mcom.dmi'
-	limbs_icon_f = 'icons/roguetown/mob/bodies/f/fcom.dmi'
-	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
-	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
+	limbs_icon_m = 'icons/roguetown/mob/bodies/masc/doll.dmi'
+	limbs_icon_f = 'icons/roguetown/mob/bodies/fem/doll.dmi'
+	dam_icon = 'icons/roguetown/mob/bodies/damaged/dam_male.dmi'
+	dam_icon_f = 'icons/roguetown/mob/bodies/damaged/dam_female.dmi'
 	soundpack_m = /datum/voicepack/male/doll
 	soundpack_f = /datum/voicepack/female/doll
 	offset_features = list(
@@ -79,6 +79,10 @@
 		/datum/body_marking_set/tiger,
 		/datum/body_marking_set/tiger_dark,
 		/datum/body_marking_set/gradient,
+		/datum/body_marking_set/doll,
+		/datum/body_marking_set/construct_light,
+//		/datum/body_marking_set/construct_medium,
+//		/datum/body_marking_set/construct_heavy,
 	)
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,

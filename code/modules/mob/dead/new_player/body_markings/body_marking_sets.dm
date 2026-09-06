@@ -64,6 +64,12 @@
 		/datum/body_marking/tiger/dark
 	)
 
+/datum/body_marking_set/doll
+	name = "Doll"
+	body_marking_list = list(
+		/datum/body_marking/doll
+	)
+
 //MOTH
 
 /datum/body_marking_set/moth
@@ -120,3 +126,20 @@
 	name = "Lovers"
 	body_marking_list = list(/datum/body_marking/moth/lovers)
 
+/datum/body_marking_set/construct_light
+	name = "Construct, light"
+	body_marking_list = list(
+		/datum/body_marking/construct_plating_light
+	)
+
+/datum/body_marking_set/construct_medium
+	name = "Construct, medium"
+	body_marking_list = list(
+		/datum/body_marking/construct_plating_medium
+	)
+
+/datum/body_marking_set/construct_heavy
+	name = "Construct, heavy"
+	body_marking_list = list(
+		/datum/body_marking/construct_plating_heavy
+	)

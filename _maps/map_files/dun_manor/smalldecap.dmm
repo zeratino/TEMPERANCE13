@@ -2187,7 +2187,7 @@
 /area/rogue/under/cave/undeadmanor)
 "BV" = (
 /obj/effect/roguerune{
-	name = "inhumen rune";
+	name = "inhuman rune";
 	color = "#61190b"
 	},
 /obj/item/rogueweapon/huntingknife/idagger/steel,

@@ -247,7 +247,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 			H.add_stress(/datum/stressevent/sermon)
 			to_chat(H, span_notice("You feel a divine affirmation from your patron."))
 
-		else if (istype(H.patron, /datum/patron/inhumen))
+		else if (istype(H.patron, /datum/patron/inhuman))
 			H.apply_status_effect(/datum/status_effect/debuff/hereticsermon)
 			H.add_stress(/datum/stressevent/heretic_on_sermon)
 			to_chat(H, span_warning("Your patron seethes with disapproval."))

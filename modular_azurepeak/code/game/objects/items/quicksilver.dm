@@ -38,7 +38,7 @@
 		to_chat(user, span_warning("I do not have the divine knowledge to properly apply [src]."))
 		return
 
-	if(user.patron in ALL_INHUMEN_PATRONS)
+	if(user.patron in ALL_INHUMAN_PATRONS)
 		to_chat(user, span_warning("This whole anointing stuff seems like TEN nonsense. Why prevent the chaos? Besides, this paste burns my fingers."))
 		return
 

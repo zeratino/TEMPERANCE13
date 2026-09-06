@@ -24,7 +24,7 @@
 /datum/patron/godless/perserdun
 	name = "Venerable-Master Rab"
 	domain = "The Great Perserdunian Empire."
-	desc = "The God-King 'Rab' is the only humen who has both a divine and mortal nature. Even to nonbelievers, he is known for being the only monarch who has reigned for over two hundred years. Followers tend to practice conformity and adherence to strict societal norms."
+	desc = "The God-King 'Rab' is the only human who has both a divine and mortal nature. Even to nonbelievers, he is known for being the only monarch who has reigned for over two hundred years. Followers tend to practice conformity and adherence to strict societal norms."
 	worshippers = "Perserdunian Troopers."
 	associated_faith = /datum/faith/godless
 	preference_accessible = TRUE

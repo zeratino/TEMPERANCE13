@@ -103,7 +103,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 	var/mob/living/carbon/human/H = owner.current
 	H.equipOutfit(/datum/outfit/job/roguetown/vamplord)
-	H.set_patron(/datum/patron/inhumen/zizo)
+	H.set_patron(/datum/patron/inhuman/zizo)
 
 	return TRUE
 

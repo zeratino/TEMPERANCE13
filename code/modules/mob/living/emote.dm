@@ -112,20 +112,6 @@
 
 	emote("burp", intentional = TRUE)
 
-/datum/emote/living/choke
-	key = "choke"
-	key_third_person = "chokes"
-	message = "chokes!"
-	emote_type = EMOTE_AUDIBLE
-	ignore_silent = TRUE
-	show_runechat = FALSE
-
-/mob/living/carbon/human/verb/emote_choke()
-	set name = "Choke"
-	set category = "Noises"
-
-	emote("choke", intentional = TRUE)
-
 /datum/emote/living/cross
 	key = "crossarms"
 	key_third_person = "crossesarms"
@@ -175,6 +161,7 @@
 	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
 	show_runechat = FALSE
+	disallowed_traits = (TRAIT_NOBREATH)
 
 /mob/living/carbon/human/verb/emote_cough()
 	set name = "Cough"
@@ -189,6 +176,7 @@
 	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOBREATH)
 
 /mob/living/carbon/human/verb/emote_clearthroat()
 	set name = "Clear Throat"
@@ -315,6 +303,7 @@
 	key_third_person = "frowns"
 	message = "frowns."
 	emote_type = EMOTE_VISIBLE
+
 /mob/living/carbon/human/verb/emote_frown()
 	set name = "Frown"
 	set category = "Emotes"
@@ -328,12 +317,25 @@
 	emote_type = EMOTE_AUDIBLE
 	ignore_silent = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(
+	TRAIT_NOHUNGER,
+	TRAIT_NOBREATH,
+	)
 
 /mob/living/carbon/human/verb/emote_gag()
 	set name = "Gag"
 	set category = "Noises"
 
 	emote("gag", intentional = TRUE)
+
+/datum/emote/living/gag/can_run_emote(mob/user, status_check, intentional)
+	if(intentional)
+		return ..()
+	else
+		if(HAS_TRAIT(user, TRAIT_NOBREATH))
+			return
+		else
+			return ..()
 
 /datum/emote/living/gasp
 	key = "gasp"
@@ -343,6 +345,7 @@
 	emote_type = EMOTE_AUDIBLE
 	stat_allowed = UNCONSCIOUS
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOBREATH)
 
 /mob/living/carbon/human/verb/emote_gasp()
 	set name = "Gasp"
@@ -350,12 +353,46 @@
 
 	emote("gasp", intentional = TRUE)
 
+/datum/emote/living/gasp/can_run_emote(mob/user, status_check, intentional)
+	if(intentional)
+		return ..()
+	else
+		if(HAS_TRAIT(user, TRAIT_NOBREATH))
+			return
+		else
+			return ..()
+
+/datum/emote/living/choke
+	key = "choke"
+	key_third_person = "chokes"
+	message = "chokes!"
+	emote_type = EMOTE_AUDIBLE
+	ignore_silent = TRUE
+	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOBREATH)
+
+/mob/living/carbon/human/verb/emote_choke()
+	set name = "Choke"
+	set category = "Noises"
+
+	emote("choke", intentional = TRUE)
+
+/datum/emote/living/choke/can_run_emote(mob/user, status_check, intentional)
+	if(intentional)
+		return ..()
+	else
+		if(HAS_TRAIT(user, TRAIT_NOBREATH))
+			return
+		else
+			return ..()
+
 /datum/emote/living/breathgasp
 	key = "breathgasp"
 	key_third_person = "breathgasps"
 	message = "gasps for air!"
 	emote_type = EMOTE_AUDIBLE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOBREATH)
 
 /datum/emote/living/giggle
 	key = "giggle"
@@ -453,6 +490,7 @@
 	key_third_person = "grimaces"
 	message = "grimaces."
 	emote_type = EMOTE_VISIBLE
+
 /mob/living/carbon/human/verb/emote_grimace()
 	set name = "Grimace"
 	set category = "Emotes"
@@ -464,6 +502,7 @@
 	key_third_person = "jumps"
 	message = "jumps!"
 	restraint_check = TRUE
+	disallowed_traits = list(TRAIT_NOBREATH)
 
 /datum/emote/living/leap
 	key = "leap"
@@ -471,6 +510,7 @@
 	message = "leaps!"
 	restraint_check = TRUE
 	only_forced_audio = TRUE
+	disallowed_traits = list(TRAIT_NOBREATH)
 
 /datum/emote/living/kiss
 	key = "kiss"
@@ -771,6 +811,7 @@
 	message_muffled = "makes a muffled noise in attempt to scream!"
 	emote_type = EMOTE_AUDIBLE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOPAIN)
 
 /mob/living/carbon/human/verb/emote_scream()
 	set name = "Scream"
@@ -798,6 +839,16 @@
 	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOPAIN)
+
+/datum/emote/living/painscream/can_run_emote(mob/user, status_check, intentional)
+	if(intentional)
+		return ..()
+	else
+		if(HAS_TRAIT(user, TRAIT_NOPAIN))
+			return
+		else
+			return ..()
 
 /datum/emote/living/scream/painscream/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
@@ -814,6 +865,7 @@
 	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOBREATH)
 
 /datum/emote/living/scream/agony
 	key = "agony"
@@ -821,6 +873,16 @@
 	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOPAIN)
+
+/datum/emote/living/agony/can_run_emote(mob/user, status_check, intentional)
+	if(intentional)
+		return ..()
+	else
+		if(HAS_TRAIT(user, TRAIT_NOPAIN))
+			return
+		else
+			return ..()
 
 /datum/emote/living/scream/agony/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
@@ -831,12 +893,22 @@
 			if(L.has_flaw(/datum/charflaw/addiction/sadist))
 				L.sate_addiction()
 
-/datum/emote/living/scream/firescream
+/datum/emote/living/scream/firescream // TEST ON THIS
 	key = "firescream"
 	nomsg = TRUE
 	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOPAIN)
+
+/datum/emote/living/firescream/can_run_emote(mob/user, status_check, intentional)
+	if(intentional)
+		return ..()
+	else
+		if(HAS_TRAIT(user, TRAIT_NOPAIN))
+			return
+		else
+			return ..()
 
 /datum/emote/living/scream/firescream/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
@@ -861,7 +933,7 @@
 	only_forced_audio = TRUE
 	show_runechat = FALSE
 
-/datum/emote/living/death
+/datum/emote/living/death // change the voicepack
 	key = "death"
 	emote_type = EMOTE_AUDIBLE
 	nomsg = TRUE
@@ -876,6 +948,7 @@
 	nomsg = TRUE
 	only_forced_audio = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOPAIN)
 
 /datum/emote/living/drown
 	key = "drown"
@@ -884,6 +957,7 @@
 	only_forced_audio = TRUE
 	ignore_silent = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOBREATH)
 
 /datum/emote/living/paincrit
 	key = "paincrit"
@@ -891,6 +965,7 @@
 	nomsg = TRUE
 	only_forced_audio = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOPAIN)
 
 /datum/emote/living/embed
 	key = "embed"
@@ -898,6 +973,7 @@
 	nomsg = TRUE
 	only_forced_audio = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOPAIN)
 
 /datum/emote/living/painmoan
 	key = "painmoan"
@@ -905,6 +981,7 @@
 	nomsg = TRUE
 	only_forced_audio = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOPAIN)
 
 /datum/emote/living/groin
 	key = "groin"
@@ -912,6 +989,7 @@
 	nomsg = TRUE
 	only_forced_audio = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOPAIN)
 
 /datum/emote/living/fatigue
 	key = "fatigue"
@@ -919,13 +997,17 @@
 	nomsg = TRUE
 	only_forced_audio = TRUE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOBREATH)
 
 /datum/emote/living/jump
 	key = "jump"
+	key_third_person = "jumps"
+	message = "jumps!"
 	emote_type = EMOTE_AUDIBLE
-	nomsg = TRUE
+	nomsg = FALSE
 	only_forced_audio = TRUE
-	show_runechat = FALSE
+	show_runechat = TRUE
+	disallowed_traits = list(TRAIT_NOBREATH)
 
 /datum/emote/living/haltyell
 	key = "haltyell"
@@ -963,13 +1045,6 @@
 	set category = "Noises"
 
 	emote("attnwhistle", intentional = TRUE)
-
-/datum/emote/living/choke
-	key = "choke"
-	key_third_person = "chokes"
-	message = "chokes!"
-	emote_type = EMOTE_AUDIBLE
-	show_runechat = FALSE
 
 /datum/emote/living/scowl
 	key = "scowl"
@@ -1093,6 +1168,7 @@
 	message_muffled = "makes a muffled sneeze."
 	emote_type = EMOTE_AUDIBLE
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOBREATH)
 
 /datum/emote/living/shh
 	key = "shh"
@@ -1129,6 +1205,16 @@
 	stat_allowed = UNCONSCIOUS
 	snd_range = -4
 	show_runechat = FALSE
+	disallowed_traits = list(TRAIT_NOBREATH)
+
+/datum/emote/living/snore/can_run_emote(mob/user, status_check, intentional)
+	if(intentional)
+		return ..()
+	else
+		if(HAS_TRAIT(user, TRAIT_NOBREATH))
+			return
+		else
+			return ..()
 
 /datum/emote/living/stare
 	key = "stare"

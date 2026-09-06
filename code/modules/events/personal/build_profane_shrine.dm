@@ -20,7 +20,7 @@
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
-		if(!H.patron || !istype(H.patron, /datum/patron/inhumen/zizo))
+		if(!H.patron || !istype(H.patron, /datum/patron/inhuman/zizo))
 			continue
 		if(user.get_skill_level(/datum/skill/craft/crafting) < 1)
 			continue
@@ -34,7 +34,7 @@
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
-		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhumen/zizo))
+		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhuman/zizo))
 			continue
 		var/mob/living/user = human_mob
 		if(user.get_skill_level(/datum/skill/craft/crafting) < 1)

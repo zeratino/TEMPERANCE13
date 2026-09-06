@@ -260,13 +260,13 @@
 	. = ..()
 	owner.STASTR -= 15
 	ADD_TRAIT(owner, TRAIT_DISFIGURED, TRAIT_GENERIC)
-	ADD_TRAIT(owner, TRAIT_INHUMEN_ANATOMY, TRAIT_GENERIC)
+	ADD_TRAIT(owner, TRAIT_INHUMAN_ANATOMY, TRAIT_GENERIC)
 
 /datum/curse/graggar/on_loss(mob/living/carbon/human/owner)
 	. = ..()
 	owner.STASTR += 15
 	REMOVE_TRAIT(owner, TRAIT_DISFIGURED, TRAIT_GENERIC)
-	REMOVE_TRAIT(owner, TRAIT_INHUMEN_ANATOMY, TRAIT_GENERIC)
+	REMOVE_TRAIT(owner, TRAIT_INHUMAN_ANATOMY, TRAIT_GENERIC)
 
 //MATTHIOS//
 /datum/curse/matthios/on_gain(mob/living/carbon/human/owner)

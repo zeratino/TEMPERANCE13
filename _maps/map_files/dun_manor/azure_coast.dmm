@@ -1436,7 +1436,7 @@
 /area/rogue/under/cave/dukecourt)
 "iK" = (
 /obj/effect/roguerune{
-	name = "inhumen rune";
+	name = "inhuman rune";
 	color = "#61190b"
 	},
 /turf/open/floor/rogue/blocks/platform,

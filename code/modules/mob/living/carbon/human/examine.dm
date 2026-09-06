@@ -134,7 +134,7 @@
 			switch (H.patron)
 				if (istype(H.patron, /datum/patron/divine))
 					. += span_userdanger("EXCOMMUNICATED! SHAME!")
-				if (istype(H.patron, /datum/patron/inhumen))
+				if (istype(H.patron, /datum/patron/inhuman))
 					. += span_userdanger("HERETIC! SHAME!")
 				if (istype(H.patron, /datum/patron/old_god))
 					. += span_userdanger("HEATHEN! SHAME!")
@@ -581,7 +581,7 @@
 		else
 			if(isliving(user))
 				var/mob/living/M = user
-				if(M.patron.type == /datum/patron/inhumen/graggar)
+				if(M.patron.type == /datum/patron/inhuman/graggar)
 					msg += span_bloody("[m1] shedding lyfe's blood, exposing weakness!")
 				else
 					msg += span_bloody("[m1] letting out the red stuff!")

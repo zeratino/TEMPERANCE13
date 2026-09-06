@@ -25,10 +25,10 @@
 	possible_ages = ALL_AGES_LIST
 	disliked_food = NONE
 	liked_food = NONE
-	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mta.dmi'
-	limbs_icon_f = 'icons/roguetown/mob/bodies/f/fma.dmi'
-	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
-	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
+	limbs_icon_m = 'icons/roguetown/mob/bodies/masc/anthro.dmi'
+	limbs_icon_f = 'icons/roguetown/mob/bodies/fem/anthro.dmi'
+	dam_icon = 'icons/roguetown/mob/bodies/damaged/dam_male.dmi'
+	dam_icon_f = 'icons/roguetown/mob/bodies/damaged/dam_female.dmi'
 	soundpack_m = /datum/voicepack/male
 	soundpack_f = /datum/voicepack/female
 	offset_features = list(

@@ -20,10 +20,10 @@
 	disliked_food = NONE
 	liked_food = NONE
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
-	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mt.dmi'
-	limbs_icon_f = 'icons/roguetown/mob/bodies/f/fm.dmi'
-	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
-	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
+	limbs_icon_m = 'icons/roguetown/mob/bodies/masc/human.dmi' //human
+	limbs_icon_f = 'icons/roguetown/mob/bodies/fem/human.dmi'
+	dam_icon = 'icons/roguetown/mob/bodies/damaged/dam_male.dmi'
+	dam_icon_f = 'icons/roguetown/mob/bodies/damaged/dam_female.dmi'
 	soundpack_m = /datum/voicepack/male
 	soundpack_f = /datum/voicepack/female
 	offset_features = list(

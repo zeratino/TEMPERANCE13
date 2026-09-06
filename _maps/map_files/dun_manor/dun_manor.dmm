@@ -9494,7 +9494,7 @@
 /area/rogue/indoors/town/bath)
 "gFY" = (
 /obj/structure/pillory{
-	lockid = "inhumen"
+	lockid = "inhuman"
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/shelter/mountains)
@@ -10007,7 +10007,7 @@
 "gZS" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	locked = 1;
-	lockid = "inhumen";
+	lockid = "inhuman";
 	name = "Forgotten Chapel"
 	},
 /turf/open/floor/rogue/hexstone,
@@ -32023,7 +32023,7 @@
 /area/rogue/indoors/town)
 "wBF" = (
 /obj/structure/mineral_door/bars{
-	lockid = "inhumen"
+	lockid = "inhuman"
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/shelter/mountains)

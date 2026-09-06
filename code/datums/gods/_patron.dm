@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 	var/list/mob_traits
 	/// Assoc list of miracles it grants. Type = Cleric_Tier
 	var/list/miracles = list()
-	/// List of words that this god considers profane. (Master for all faiths. Inhumen have their own list.)
+	/// List of words that this god considers profane. (Master for all faiths. Inhuman have their own list.)
 	var/list/profane_words = list("zizo","matthios","graggar","baotha","cock","dick","fuck","shit","pussy","cuck","cunt","asshole","pintle")
 
 	/// List of traits associated with rank. Trait = Cleric_Tier

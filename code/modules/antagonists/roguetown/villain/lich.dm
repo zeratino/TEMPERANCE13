@@ -99,7 +99,7 @@
 
 	equip_and_traits()
 	L.equipOutfit(/datum/outfit/job/roguetown/lich)
-	L.set_patron(/datum/patron/inhumen/zizo)
+	L.set_patron(/datum/patron/inhuman/zizo)
 
 
 /datum/outfit/job/roguetown/lich/pre_equip(mob/living/carbon/human/H) //Equipment is located below
@@ -230,7 +230,7 @@
 	new_body.dna.real_name = old_body.real_name
 	new_body.mob_biotypes |= MOB_UNDEAD
 	new_body.faction = list("undead")
-	new_body.set_patron(/datum/patron/inhumen/zizo)
+	new_body.set_patron(/datum/patron/inhuman/zizo)
 	new_body.mind.grab_ghost(force = TRUE)
 
 	for (var/obj/item/bodypart/body_part in new_body.bodyparts)
