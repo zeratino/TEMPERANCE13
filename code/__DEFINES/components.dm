@@ -83,6 +83,8 @@
 #define COMSIG_GLOB_LIVING_SAY_SPECIAL "!say_special"
 /// job subystem has spawned and equipped a new mob
 #define COMSIG_GLOB_JOB_AFTER_SPAWN "!job_after_spawn"
+/// SSticker subsystem round end signal, from roundenders.dm
+#define COMSIG_GLOB_FORCE_END_ROUND "!force_end_round"
 
 //////////////////////////////////////////////////////////////////
 
