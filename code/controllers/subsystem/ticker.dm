@@ -756,3 +756,11 @@ SUBSYSTEM_DEF(ticker)
 	else
 		SSticker.rulertype = "Grand Duke"
 	SEND_GLOBAL_SIGNAL(COMSIG_TICKER_RULERMOB_SET, rulermob)
+
+/datum/controller/subsystem/ticker/proc/force_end_round(thing, timer_amount)
+	SIGNAL_HANDLER
+	addtimer(CALLBACK(src, PROC_REF(actually_end)), timer_amount)
+
+/datum/controller/subsystem/ticker/proc/actually_end()
+	to_chat(world, "The round has concluded.")
+	SSticker.force_ending = 1
