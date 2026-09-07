@@ -92,8 +92,8 @@
 
 /obj/effect/proc_holder/spell/self/call_to_arms/cast(list/targets,mob/living/user = usr)
 	for(var/mob/living/carbon/target in view(3, get_turf(user)))
-		if(istype(target.patron, /datum/patron/inhumen))
-			target.apply_status_effect(/datum/status_effect/debuff/call_to_arms)	//Debuffs inhumen worshipers.
+		if(istype(target.patron, /datum/patron/inhuman))
+			target.apply_status_effect(/datum/status_effect/debuff/call_to_arms)	//Debuffs inhuman worshipers.
 			return
 		if(istype(target.patron, /datum/patron/old_god))
 			to_chat(target, span_danger("You feel a hot-wave wash over you, leaving as quickly as it came.."))	//No effect on Psydonians!

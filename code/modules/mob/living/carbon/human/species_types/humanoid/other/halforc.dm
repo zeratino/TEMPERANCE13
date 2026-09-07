@@ -7,7 +7,7 @@
 	desc = "<b>Half Orcs</b><br>\
 	With the Ironmask clan on a centuries-long warpath to consolidate all orcs beneath their banner, \
 	crushed orc tribes have lost their menfolk, and war-widows have been scattered to the hinterlands. \
-	Between humen civilization and orc savagery, orc-women opting for exile over dishonor have become \
+	Between human civilization and orc savagery, orc-women opting for exile over dishonor have become \
 	more common visitors to fur trading posts and prospecting camps, eventually leading to half-orcs \
 	being born in these rough places otherwise devoid of a fairer sex. Your mother-clan is in thrall \
 	to the Ironmask. True orcs would kill you on sight, seeing you as a mongrel dog, and non-orcish \
@@ -26,10 +26,10 @@
 	liked_food = NONE
 	possible_ages = ALL_AGES_LIST
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
-	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mt_muscular.dmi'
-	limbs_icon_f = 'icons/roguetown/mob/bodies/f/ft_muscular.dmi'
-	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
-	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
+	limbs_icon_m = 'icons/roguetown/mob/bodies/masc/human_muscular.dmi'
+	limbs_icon_f = 'icons/roguetown/mob/bodies/fem/human_muscular.dmi'
+	dam_icon = 'icons/roguetown/mob/bodies/damaged/dam_male.dmi'
+	dam_icon_f = 'icons/roguetown/mob/bodies/damaged/dam_male.dmi'
 	use_m = TRUE
 	soundpack_m = /datum/voicepack/male/elf
 	soundpack_f = /datum/voicepack/female/elf

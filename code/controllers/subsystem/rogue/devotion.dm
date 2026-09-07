@@ -49,12 +49,12 @@
 	src.holder = holder
 	holder?.devotion = src
 	src.patron = patron
-	if (patron.type == /datum/patron/inhumen/zizo || patron.type == /datum/patron/divine/necra)
+	if (patron.type == /datum/patron/inhuman/zizo || patron.type == /datum/patron/divine/necra)
 		ADD_TRAIT(holder, TRAIT_DEATHSIGHT, "devotion")
 
 /datum/devotion/Destroy(force)
 	. = ..()
-	if (patron.type == /datum/patron/inhumen/zizo || patron.type == /datum/patron/divine/necra)
+	if (patron.type == /datum/patron/inhuman/zizo || patron.type == /datum/patron/divine/necra)
 		REMOVE_TRAIT(holder, TRAIT_DEATHSIGHT, "devotion")
 	holder?.devotion = null
 	holder = null

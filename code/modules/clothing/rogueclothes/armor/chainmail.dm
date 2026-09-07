@@ -78,7 +78,7 @@
 	armor = ARMOR_CUIRASS
 	name = "psydonian hauberk"
 	desc = "An ornate steel cuirass with tassets, worn atop thick chainmaille. While it falters against arrows and bolts, \
-			these interlinked layers are superb at warding off the blows of inhumen claws and axes."
+			these interlinked layers are superb at warding off the blows of inhuman claws and axes."
 	icon_state = "ornatehauberk"
 	item_state = "ornatehauberk"
 	max_integrity = ARMOR_INT_CHEST_PLATE_PSYDON

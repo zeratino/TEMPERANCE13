@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/projectile/divineblast
 	name = "Divine Blast"
-	desc = "Shoot out a blast of divine power! Deals more damage to heretics(Psydonians/Inhumen) and Undead! \n\
+	desc = "Shoot out a blast of divine power! Deals more damage to heretics(Psydonians/Inhuman) and Undead! \n\
 	Damage is increased by 100% versus simple-minded creechurs."
 	clothes_req = FALSE
 	range = 12
@@ -52,7 +52,7 @@
 		if(istype(H.patron, /datum/patron/divine))
 			if(H in GLOB.excommunicated_players)
 				damage += 20
-		if(istype(H.patron, /datum/patron/inhumen))
+		if(istype(H.patron, /datum/patron/inhuman))
 			damage += 20
 		if(istype(H.patron, /datum/patron/old_god))
 			damage += 20

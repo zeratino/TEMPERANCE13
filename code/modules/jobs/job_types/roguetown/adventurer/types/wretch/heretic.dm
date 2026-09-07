@@ -42,7 +42,7 @@
 	H.change_stat("strength", 2)  // Heretic is by far the best class with access to rituals (as long as they play a god with ritual), holy and heavy armor. So they keep 7 points.
 	H.change_stat("constitution", 2)
 	H.change_stat("endurance", 1)
-	if (istype (H.patron, /datum/patron/inhumen/zizo))
+	if (istype (H.patron, /datum/patron/inhuman/zizo))
 		if(H.mind)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravemark)
@@ -73,11 +73,11 @@
 	C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_MINOR)	//Minor regen, can level up to T4.
 	wretch_select_bounty(H)
 	switch(H.patron?.type)
-		if(/datum/patron/inhumen/zizo)
+		if(/datum/patron/inhuman/zizo)
 			H.cmode_music = 'sound/music/combat_fog.ogg'
-		if(/datum/patron/inhumen/matthios)
+		if(/datum/patron/inhuman/matthios)
 			H.cmode_music = 'sound/music/combat_fog.ogg'
-		if(/datum/patron/inhumen/baotha)
+		if(/datum/patron/inhuman/baotha)
 			H.cmode_music = 'sound/music/combat_fog.ogg'
-		if(/datum/patron/inhumen/graggar)
+		if(/datum/patron/inhuman/graggar)
 			H.cmode_music = 'sound/music/combat_fog.ogg'

@@ -20,7 +20,7 @@
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
-		if(!H.patron || !istype(H.patron, /datum/patron/inhumen/graggar))
+		if(!H.patron || !istype(H.patron, /datum/patron/inhuman/graggar))
 			continue
 		if(locate(/obj/effect/proc_holder/spell/invoked/extract_heart) in H.mind.spell_list)
 			continue
@@ -34,7 +34,7 @@
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
-		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhumen/graggar))
+		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhuman/graggar))
 			continue
 		if(locate(/obj/effect/proc_holder/spell/invoked/extract_heart) in human_mob.mind.spell_list)
 			continue

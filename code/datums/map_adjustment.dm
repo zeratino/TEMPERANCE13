@@ -21,7 +21,7 @@
 	var/list/title_adjust
 	/// Job that have tutorial adjustments /datum/job = list("Good")
 	var/list/tutorial_adjust
-	/// Jobs that have species adjustments /datum/job = list("humen")
+	/// Jobs that have species adjustments /datum/job = list("human")
 	var/list/species_adjust
 	/// Jobs that have gender adjustments /datum/job = list(MALE, FEMALE)
 	var/list/sexes_adjust

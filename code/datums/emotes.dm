@@ -32,6 +32,8 @@
 	var/runechat_msg = null
 	var/is_animal = FALSE
 
+	var/list/disallowed_traits = list()
+
 /datum/emote/New()
 	if(!runechat_msg)
 		//strip punctuation
@@ -101,7 +103,21 @@
 	if(!istype(tmp_sound))
 		tmp_sound = sound(get_sfx(tmp_sound))
 	tmp_sound.frequency = pitch
-	if(tmp_sound && (!only_forced_audio || !intentional))
+	var/sound_success = FALSE
+	if(tmp_sound)
+		if(length(disallowed_traits))
+			if(intentional)
+				playsound(user, tmp_sound, snd_vol, FALSE, snd_range, soundping = soundping, animal_pref = animal)
+			else
+				for(var/bad_trait in disallowed_traits)
+					if(HAS_TRAIT(user, bad_trait))
+						sound_success = FALSE
+						break
+					else
+						sound_success = TRUE
+		else
+			playsound(user, tmp_sound, snd_vol, FALSE, snd_range, soundping = soundping, animal_pref = animal)
+	if(sound_success)
 		playsound(user, tmp_sound, snd_vol, FALSE, snd_range, soundping = soundping, animal_pref = animal)
 	if(!nomsg)
 		for(var/mob/M in GLOB.dead_mob_list)

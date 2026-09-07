@@ -96,6 +96,13 @@
 	affected_bodyparts = ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_LEFT | LEG_RIGHT
 	default_color = DEFAULT_SECONDARY
 
+/datum/body_marking/doll
+	icon = 'icons/mob/body_markings/doll_markings.dmi'
+	name = "Doll"
+	icon_state = "doll"
+	affected_bodyparts = CHEST | ARM_LEFT | ARM_RIGHT | LEG_LEFT | LEG_RIGHT
+	default_color = "4D4D4D"
+
 /datum/body_marking/sock
 	icon = 'icons/mob/body_markings/sock_markings.dmi'
 	name = "Sock"

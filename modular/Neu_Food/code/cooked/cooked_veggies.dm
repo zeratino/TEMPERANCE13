@@ -254,7 +254,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	tastes = list("toasted sunflower seeds" = 1)
 	name = "roasted seeds"
-	desc = "Food for birds, treats for humens."
+	desc = "Food for birds, treats for humans."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_veggies.dmi'
 	icon_state = "roastseeds"
 	dropshrink = 0.8

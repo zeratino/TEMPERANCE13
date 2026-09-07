@@ -2,10 +2,10 @@
 	race = /datum/species/human/northern
 
 /datum/species/human/northern
-	name = "Humen"
-	id = "humen"
-	desc = "<b>Humen</b><br>\
-	Humens are probably the oldest race in the world, aside from elves. \
+	name = "Human"
+	id = "human"
+	desc = "<b>Human</b><br>\
+	Humans are probably the oldest race in the world, aside from elves. \
 	They're noted to be the forefront of most technological advancements of the modern age, \
 	though it's obvious they're not behind the recent rise of the MACHINES. They typically form their own nations, city-states, and empires. \
 	The most prominent examples of conquest would be the Great Empire of Perserdun, and the Risvon Dictate."
@@ -19,10 +19,10 @@
 	disliked_food = NONE
 	liked_food = NONE
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
-	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mt.dmi'
-	limbs_icon_f = 'icons/roguetown/mob/bodies/f/fm.dmi'
-	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
-	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
+	limbs_icon_m = 'icons/roguetown/mob/bodies/masc/human.dmi' // human
+	limbs_icon_f = 'icons/roguetown/mob/bodies/fem/human.dmi'
+	dam_icon = 'icons/roguetown/mob/bodies/damaged/dam_male.dmi'
+	dam_icon_f = 'icons/roguetown/mob/bodies/damaged/dam_female.dmi'
 	soundpack_m = /datum/voicepack/male
 	soundpack_f = /datum/voicepack/female
 	offset_features = list(

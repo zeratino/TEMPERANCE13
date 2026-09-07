@@ -65,7 +65,7 @@
 		if(is_noble())
 			GLOB.azure_round_stats[STATS_NOBLE_DEATHS]++
 		if(ishumannorthern(src))
-			GLOB.azure_round_stats[STATS_HUMEN_DEATHS]++
+			GLOB.azure_round_stats[STATS_HUMAN_DEATHS]++
 		if(!ishumannorthern(src))
 			playsound_local(src, 'sound/vo/death/subcreature.ogg', 100)
 

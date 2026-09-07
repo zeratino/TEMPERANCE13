@@ -20,7 +20,7 @@
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
-		if(!H.patron || !istype(H.patron, /datum/patron/inhumen/matthios))
+		if(!H.patron || !istype(H.patron, /datum/patron/inhuman/matthios))
 			continue
 		if(istype(H.mind?.assigned_role, /datum/job/roguetown/bandit) || H.job == "Bandit")
 			continue
@@ -36,7 +36,7 @@
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
-		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhumen/matthios))
+		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhuman/matthios))
 			continue
 		if(istype(human_mob.mind?.assigned_role, /datum/job/roguetown/bandit) || human_mob.job == "Bandit")
 			continue

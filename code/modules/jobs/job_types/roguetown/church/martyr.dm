@@ -118,7 +118,7 @@
 			if(ishuman(M))
 				var/mob/living/carbon/human/H
 				var/type = H.patron?.type
-				if(istype(type, /datum/patron/inhumen))
+				if(istype(type, /datum/patron/inhuman))
 					H.electrocution_animation(20)
 
 //This gives a countdown to the user, it's pretty hacky
@@ -327,7 +327,7 @@
 		M.lightning_flashing = TRUE
 		M.update_sight()
 		addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living/carbon, reset_lightning)), 2)
-		if(istype(M.patron, /datum/patron/inhumen))
+		if(istype(M.patron, /datum/patron/inhuman))
 			var/turf/T = get_step(get_step(M, NORTH), NORTH)
 			T.Beam(M, icon_state="lightning[rand(1,12)]", time = 5)
 			M.visible_message(span_warning("[M] gets struck down by the Ten!"), span_warning("The Ten curse you! You stood too close to one of their devout!"))
@@ -554,12 +554,12 @@
 		else if (H.job in GLOB.church_positions)
 			to_chat(user, span_warning("You feel a jolt of holy energies just for a split second, and then the sword slips from your grasp! You are not devout enough."))
 			return FALSE
-		else if(istype(H.patron, /datum/patron/inhumen)) 
+		else if(istype(H.patron, /datum/patron/inhuman)) 
 			var/datum/component/martyrweapon/marty = GetComponent(/datum/component/martyrweapon)
 			to_chat(user, span_warning("YOU FOOL! IT IS ANATHEMA TO YOU! GET AWAY!"))
 			H.Stun(40)
 			H.Knockdown(40)
-			if(marty.is_active) //Inhumens are touching this while it's active, very fucking stupid of them
+			if(marty.is_active) //inhumans are touching this while it's active, very fucking stupid of them
 				visible_message(span_warning("[H] lets out a painful shriek as the sword lashes out at them!"))
 				H.emote("agony")
 				H.adjust_fire_stacks(5)
@@ -591,7 +591,7 @@
 
 /obj/item/clothing/cloak/martyr
 	name = "martyr cloak"
-	desc = "An elegant cloak in the colors of Astrata. Looks like it can only fit Humen-sized people."
+	desc = "An elegant cloak in the colors of Astrata. Looks like it can only fit human-sized people."
 	color = null
 	icon_state = "martyrcloak"
 	item_state = "martyrcloak"

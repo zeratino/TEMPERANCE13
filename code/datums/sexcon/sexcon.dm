@@ -608,6 +608,8 @@
 	user.emote(chosen_emote, forced = TRUE)
 
 /datum/sex_controller/proc/try_do_pain_effect(pain_amt, giving)
+	if(HAS_TRAIT(user, TRAIT_NOPAIN))
+		return
 	if(pain_amt < PAIN_MILD_EFFECT)
 		return
 	if(last_pain + PAIN_COOLDOWN >= world.time)

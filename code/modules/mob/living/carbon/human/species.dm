@@ -204,7 +204,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			GLOB.roundstart_races += species.name
 		qdel(species)
 	if(!GLOB.roundstart_races.len)
-		GLOB.roundstart_races += "Humen"
+		GLOB.roundstart_races += "Human"
 	sortList(GLOB.roundstart_races, GLOBAL_PROC_REF(cmp_text_dsc))
 
 /datum/species/proc/check_roundstart_eligible()
@@ -571,7 +571,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			return FALSE
 
 	var/is_nudist = HAS_TRAIT(H, TRAIT_NUDIST)
-	var/is_inhumen = HAS_TRAIT(H, TRAIT_INHUMEN_ANATOMY)
+	var/is_inhuman = HAS_TRAIT(H, TRAIT_INHUMAN_ANATOMY)
 	var/num_arms = H.get_num_arms(FALSE)
 	var/num_legs = H.get_num_legs(FALSE)
 
@@ -583,7 +583,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(SLOT_WEAR_MASK)
 			if(H.wear_mask)
 				return FALSE
-			if(is_inhumen)
+			if(is_inhuman)
 				return FALSE
 			if(!(I.slot_flags & ITEM_SLOT_MASK))
 				return FALSE
@@ -660,7 +660,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(SLOT_SHOES)
 			if(H.shoes)
 				return FALSE
-			if(is_nudist || is_inhumen)
+			if(is_nudist || is_inhuman)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_SHOES) )
 				return FALSE
@@ -696,7 +696,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(SLOT_HEAD)
 			if(H.head)
 				return FALSE
-			if(is_inhumen)
+			if(is_inhuman)
 				return FALSE
 			if(!(I.slot_flags & ITEM_SLOT_HEAD))
 				return FALSE

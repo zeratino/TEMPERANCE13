@@ -45,7 +45,7 @@
 						/datum/sprite_accessory/hair/facial/longbeard))
 	head.sellprice = 30
 
-	src.set_patron(/datum/patron/inhumen/graggar)
+	src.set_patron(/datum/patron/inhuman/graggar)
 	ADD_TRAIT(src, TRAIT_LEECHIMMUNE, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_CRITICAL_RESISTANCE, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)

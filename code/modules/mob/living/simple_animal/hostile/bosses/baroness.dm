@@ -50,7 +50,7 @@
 	projectiletype = /obj/projectile/magic
 	projectilesound = list('sound/magic/charged.ogg')
 	var/allowed_projectile_types = list(/obj/projectile/magic/lightning, /obj/projectile/magic/frostbolt, /obj/projectile/energy/rogue3, /obj/projectile/magic/acidsplash)
-	patron = /datum/patron/inhumen/zizo
+	patron = /datum/patron/inhuman/zizo
 	footstep_type = FOOTSTEP_MOB_SHOE
 	stat_attack = UNCONSCIOUS
 

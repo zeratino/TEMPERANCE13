@@ -8,7 +8,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_NO_CONSTRUCT		//Not been around long enough to be inquisitor, brand new race to the world.
 	allowed_patrons = list(/datum/patron/old_god) //You MUST have a Psydonite character to start. Just so people don't get japed into Oops Suddenly Psydon!
-	tutorial = "You have been sent here as a diplomatic envoy from the Sovereignty of Otava: a silver-tipped olive branch, unmatched in aptitude and unshakable in faith. Though you might be ostracized due to your Psydonic beliefs, neither the Church nor Crown can deny your value, whenever matters of inhumenity arise to threaten this fief."
+	tutorial = "You have been sent here as a diplomatic envoy from the Sovereignty of Otava: a silver-tipped olive branch, unmatched in aptitude and unshakable in faith. Though you might be ostracized due to your Psydonic beliefs, neither the Church nor Crown can deny your value, whenever matters of inhumanity arise to threaten this fief."
 	whitelist_req = TRUE
 	cmode_music = 'sound/music/inquisitorcombat.ogg'
 	selection_color = JCOLOR_INQUISITION
@@ -39,7 +39,7 @@
 
 /datum/advclass/puritan/inspector
 	name = "Inquisitor"
-	tutorial = "Investigators from countless backgrounds, personally chosen by the High Bishop of the Otavan Sovereignty to root out heresy all across the world. Dressed in fashionable leathers and armed with a plethora of equipment, these beplumed officers are ready to tackle the inhumen: anywhere, anytime. Ideal for those who prefer sleuthy-and-clandestine affairs."
+	tutorial = "Investigators from countless backgrounds, personally chosen by the High Bishop of the Otavan Sovereignty to root out heresy all across the world. Dressed in fashionable leathers and armed with a plethora of equipment, these beplumed officers are ready to tackle the inhuman: anywhere, anytime. Ideal for those who prefer sleuthy-and-clandestine affairs."
 	outfit = /datum/outfit/job/roguetown/puritan/inspector
 
 	category_tags = list(CTAG_PURITAN)
@@ -344,7 +344,7 @@
 				if(/datum/patron/old_god)
 					if(victim_patron.type == /datum/patron/divine)
 						interrogator.add_stress(/datum/stressevent/tortured)
-					else if(victim_patron.type == /datum/patron/inhumen)
+					else if(victim_patron.type == /datum/patron/inhuman)
 						interrogator.add_stress(/datum/stressevent/tortured)
 						
 

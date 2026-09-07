@@ -128,7 +128,7 @@
 				if (HAS_TRAIT(user, TRAIT_PACIFISM))
 					conditional_buff = TRUE
 					situational_bonus += 1.5
-			if(/datum/patron/inhumen/zizo)
+			if(/datum/patron/inhuman/zizo)
 				message_out = span_info("Vital energies are sapped towards [target]!")
 				message_self = span_notice("The life around me pales as I am restored!")
 				// set up a ritual pile of bones (or just cast near a stack of bones whatever) around us for massive bonuses, cap at 50 for 75 healing total (wowie)
@@ -140,7 +140,7 @@
 				if (situational_bonus > 0)
 					conditional_buff = TRUE
 					situational_bonus = min(situational_bonus, 5)
-			if(/datum/patron/inhumen/graggar)
+			if(/datum/patron/inhuman/graggar)
 				message_out = span_info("Foul fumes billow outward as [target] is restored!")
 				message_self = span_notice("A noxious scent burns my nostrils, but I feel better!")
 				// if you've got lingering toxin damage, you get healed more, but your bonus healing doesn't affect toxin
@@ -149,14 +149,14 @@
 					conditional_buff = TRUE
 					situational_bonus = 2.5
 					target.adjustToxLoss(situational_bonus) // remember we do a global toxloss adjust down below so this is okay
-			if(/datum/patron/inhumen/matthios)
+			if(/datum/patron/inhuman/matthios)
 				message_out = span_info("A wreath of... strange light passes over [target]?")
 				message_self = span_notice("I'm bathed in a... strange holy light?")
 				// COMRADES! WE MUST BAND TOGETHER!
 				if (HAS_TRAIT(target, TRAIT_COMMIE))
 					conditional_buff = TRUE
 					situational_bonus = 2.5
-			if(/datum/patron/inhumen/baotha)
+			if(/datum/patron/inhuman/baotha)
 				message_out = span_info("Hedonistic impulses and emotions throb all about from [target].")
 				message_self = span_notice("An intoxicating rush of narcotic delight wipes away my pains!")
 				// i wanted to do something with pain here but it doesn't seem like pain is actually parameterized anywhere so... better necra it is - if they're below 50% health, they get 25 extra healing

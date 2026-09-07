@@ -98,7 +98,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/ccake
 	name = "cheesecake"
-	desc = "Humenity's favored creation."
+	desc = "Humanity's favored creation."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_cakes.dmi'
 	icon_state = "cheesecake"
 	slices_num = 8

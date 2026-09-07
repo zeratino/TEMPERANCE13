@@ -33,8 +33,8 @@
 #define TRAIT_NUDIST "Nudist" //you can't wear most clothes
 #define TRAIT_CYCLOPS_LEFT "Cyclops (Left)" //poked left eye
 #define TRAIT_CYCLOPS_RIGHT "Cyclops (Right)" //poked right eye
-#define TRAIT_INHUMEN_ANATOMY "Inhumen Anatomy" //can't wear hats and shoes
-#define TRAIT_NASTY_EATER "Inhumen Digestion" //can eat rotten food, organs, poison berries, and drink murky water
+#define TRAIT_INHUMAN_ANATOMY "Inhuman Anatomy" //can't wear hats and shoes
+#define TRAIT_NASTY_EATER "Inhuman Digestion" //can eat rotten food, organs, poison berries, and drink murky water
 #define TRAIT_WILD_EATER "Beastly Digestion" //can eat raw and rotten food and drink murky water
 #define TRAIT_NOFALLDAMAGE1 "Fall Damage Reduction"
 #define TRAIT_NOFALLDAMAGE2 "Fall Damage Immunity"
@@ -130,7 +130,7 @@
 //ASCENDANT GOD CURSES
 
 #define TRAIT_CURSE_ZIZO "Curse of Zizo" //int nuke and no magic
-#define TRAIT_CURSE_GRAGGAR "Curse of Graggar" //str nuke, inhumen anatomy and disfigurment
+#define TRAIT_CURSE_GRAGGAR "Curse of Graggar" //str nuke, inhuman anatomy and disfigurment
 #define TRAIT_CURSE_MATTHIOS "Curse of Matthios" //lck nuke and clumsy
 #define TRAIT_CURSE_BAOTHA "Curse of Baotha" //nudist
 
@@ -241,8 +241,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_CYCLOPS_LEFT = span_warning("My left eye has been poked out..."),
 	TRAIT_CYCLOPS_RIGHT = span_warning("My right eye has been poked out..."),
 	TRAIT_LEECHIMMUNE = "Leeches are reluctant to bite me.",
-	TRAIT_INHUMEN_ANATOMY = "My anatomy is inhumen, preventing me from wearing hats and shoes.",
-	TRAIT_NASTY_EATER = span_dead("I can eat bad food, and water that would be toxic to humen will not affect me."),
+	TRAIT_INHUMAN_ANATOMY = "My anatomy is inhuman, preventing me from wearing hats and shoes.",
+	TRAIT_NASTY_EATER = span_dead("I can eat bad food, and water that would be toxic to humans will not affect me."),
 	TRAIT_WILD_EATER = span_info("I can eat raw food and drink from dirty water."),
 	TRAIT_NOFALLDAMAGE1 = span_warning("I can easily handle minor falls."),
 	TRAIT_NOFALLDAMAGE2 = span_warning("I can handle a fall from any height."),

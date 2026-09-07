@@ -104,7 +104,7 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 
-		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhumen/graggar))
+		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhuman/graggar))
 			continue
 
 		var/obj/item/organ/heart/heart = human_mob.getorganslot(ORGAN_SLOT_HEART)

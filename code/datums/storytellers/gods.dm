@@ -4,13 +4,13 @@
 )
 
 
-/// Inhumen pantheon storytellers
-#define INHUMEN_STORYTELLERS list( \
+/// Inhuman pantheon storytellers
+#define INHUMAN_STORYTELLERS list( \
 	/datum/storyteller/zizo, \
 )
 
 /// All storytellers
-#define STORYTELLERS_ALL (DIVINE_STORYTELLERS + INHUMEN_STORYTELLERS)
+#define STORYTELLERS_ALL (DIVINE_STORYTELLERS + INHUMAN_STORYTELLERS)
 
 /datum/storyteller/psydon
 	name = "Psydon"
@@ -278,7 +278,7 @@
 		STATS_FOREST_DEATHS = list("points" = 6.25, "capacity" = 100),
 	)
 
-// INHUMEN
+// INHUMAN
 
 /datum/storyteller/zizo
 	name = "Zizo"

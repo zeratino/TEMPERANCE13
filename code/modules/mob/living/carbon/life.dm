@@ -159,6 +159,8 @@
 
 /mob/living/carbon/proc/get_complex_pain()
 	. = 0
+	if(HAS_TRAIT(src, TRAIT_NOPAIN))
+		return 0
 	for(var/obj/item/bodypart/limb as anything in bodyparts)
 		if(limb.status == BODYPART_ROBOTIC || limb.skeletonized)
 			continue
