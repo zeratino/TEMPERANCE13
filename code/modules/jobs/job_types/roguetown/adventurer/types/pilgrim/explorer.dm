@@ -4,7 +4,7 @@
 	tutorial = "You're an individual contracted by the town to delve into production sites, and produce valuables for the town as a whole.' \
 	You generally work underneath the Provisioner, but may be demanded by the Hierarch to defend the town - if the need arises."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = ALL_RACES_TYPES
 	outfit = /datum/outfit/job/roguetown/adventurer/explorer
 	cmode_music = 'sound/music/combat_metalface.ogg'
 	maximum_possible_slots = 4
